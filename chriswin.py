@@ -13,7 +13,7 @@ from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import GLib
 
-import config
+import config, chrisdlg
 
 keystate = 0
 shiftstate = 0
@@ -392,6 +392,13 @@ class ChrisMainWin():
 
         self.hpaned = hpaned
 
+        confbox = Gtk.HBox()
+        bbb = Gtk.Button(" Configure ");
+        bbb.connect("clicked", self.config_tabs)
+        confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
+        confbox.pack_start(bbb, 0, 0, 0)
+        confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
+
         # Create statusbars
         #self.statusbar = Gtk.Statusbar()
         #self.statusbar2 = Gtk.Statusbar()
@@ -427,6 +434,7 @@ class ChrisMainWin():
         #bbox.pack_start(mbar, 0,0, 0)
         #bbox.pack_start(tbar, 0,0, 0)
         bbox.pack_start(hpaned, 1, 1, 0)
+        bbox.pack_start(confbox, 0, 0, 0)
         bbox.pack_start(hpane2, 0,0, 0)
 
         self.mywin.add(bbox)
@@ -530,6 +538,11 @@ class ChrisMainWin():
             vpaned.area.set_tablabel()
     '''
     # --------------------------------------------------------------------
+
+    def config_tabs(self, butt):
+        print("tab config", butt)
+        chrisdlg.config_dlg("Configuration");
+        pass
 
     def add_mru(self, merge, action_group, fname, mru):
 
@@ -1536,6 +1549,7 @@ def handler_tick():
         print("Exception in setting timer handler", sys.exc_info())
 
 # EOF
+
 
 
 
