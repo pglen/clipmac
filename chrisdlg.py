@@ -43,15 +43,23 @@ def  config_dlg(head, parent = None):
     label7 = Gtk.Label("   ");  label8 = Gtk.Label("   ")
 
     entry = Gtk.Entry();
-    myentry = entry
+    entry2 = Gtk.Entry();
 
-    entry.set_activates_default(True)
+    #entry.set_activates_default(True)
 
     dialog.vbox.pack_start(label4, 0, 0, 0)
 
     hbox2 = Gtk.HBox()
     hbox2.pack_start(label6, 0, 0, 0)
     hbox2.pack_start(entry, True, True, 0)
+    hbox2.pack_start(label7, 0, 0, 0)
+
+    hbox2.pack_start(label6, 0, 0, 0)
+    hbox2.pack_start(entry, True, True, 0)
+    hbox2.pack_start(label7, 0, 0, 0)
+
+    hbox2.pack_start(label6, 0, 0, 0)
+    hbox2.pack_start(entry2, True, True, 0)
     hbox2.pack_start(label7, 0, 0, 0)
 
     dialog.vbox.pack_start(hbox2, 0, 0, 0)
