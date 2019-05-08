@@ -13,11 +13,7 @@ from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import GLib
 
-import config, chrisdlg
-
-keystate = 0
-shiftstate = 0
-altstate = 0
+import config, chrisdlg, chrissql, chrispane
 
 #from . import  peddoc, config, pedofd
 #from . import  pedync, pedspell, pedfont
@@ -33,185 +29,6 @@ STATUSCOUNT = 5             # Length of the status bar timeout (in sec)
 treestore = None
 treestore2 = None
 notebook = None
-
-# -----------------------------------------------------------------------
-# Create document
-
-class edPane(Gtk.VPaned):
-
-    def __init__(self, buff = [], focus = False):
-
-        pos = config.conf.sql.get_int("vpaned")
-        if pos == 0: pos = 120
-
-        Gtk.VPaned.__init__(self)
-        self.set_border_width(3)
-        self.set_position(pos)
-        self.vbox = buttwin(buff);
-        self.add2(self.vbox)
-        #self.vbox2 = buttwin(buff, True)
-        #self.add1(self.vbox2)
-
-        self.set_size_request(100, 100)
-
-        # Shortcuts to access the editor windows
-        self.area  = self.vbox.area
-        #self.area2 = self.vbox2.area
-
-    def close_button(self):
-        print("Close pressed")
-        pass
-
-    def tablabel(self, ppp, namex):
-        # Set label to tab
-        label = Gtk.Label(namex)
-        label.set_tooltip_text(namex)
-        label.set_single_line_mode(True)
-
-        image = Gtk.Image();
-        image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
-        butt = Gtk.Button();  butt.add(image)
-        butt.set_focus_on_click(False)
-        butt.set_relief( Gtk.ReliefStyle.NONE)
-        rc = butt.get_modifier_style()
-        #rc.xthickness = 1; rc.ythickness = 1
-        #butt.modify_style(rc)
-
-        butt.connect("clicked", self.close_button)
-        #butt.set_tooltip_text("Close '%s'" % os.path.basename(self.fname))
-        hbox = Gtk.HBox()
-
-        hbox.pack_start(label, 0, 0, 0)
-        hbox.pack_start(butt, 0, 0, 0)
-        hbox.show_all()
-
-        notebook.set_tab_label(ppp, hbox)
-
-
-# -----------------------------------------------------------------------
-# Create main document widget with scroll bars
-
-class buttwin(Gtk.VBox):
-
-    def __init__(self, buff, readonly = False):
-
-        global notebook, mained, keystate, shiftstate
-
-        Gtk.VBox.__init__(self)
-
-        # Make it acessable:
-        #self.area  = peddoc.pedDoc(buff, mained, readonly)
-        self.area = Gtk.Window()
-        maned = Gtk.Window()
-
-        self.set_spacing(10)
-
-        #print "created", self.area, mained
-
-        # Give access to notebook and main editor window
-        self.area.notebook = notebook
-        self.area.mained = mained
-        self.area.fname = ""
-
-        vtext = Gtk.Label(" ")
-        self.pack_start(vtext, 0 ,0 , 0)
-
-        barr = [
-                "Placeholder text here 01",
-                "Placeholder text here 02",
-                "Placeholder text here 03",
-                "Placeholder text here 04",
-                ]
-
-        barr2 = [
-                "Placeholder text here 11",
-                "Placeholder text here 12",
-                "Placeholder text here 13",
-                "Placeholder text here 14",
-                ]
-        barr3 = [
-                "Placeholder text here 21",
-                "Placeholder text here 22",
-                "Placeholder text here 23",
-                "Placeholder text here 24",
-                ]
-        barr4 = [
-                "Placeholder text here 31",
-                "Placeholder text here 32",
-                "Placeholder text here 33",
-                "Placeholder text here 34",
-                ]
-        barr5 = [
-                "Placeholder text here 41",
-                "Placeholder text here 42",
-                "Placeholder text here 43",
-                "Placeholder text here 44",
-                ]
-        barr6 = [
-                "Placeholder text here 51",
-                "Placeholder text here 52",
-                "Placeholder text here 53",
-                "Placeholder text here 54",
-                ]
-        barr7 = [
-                "Placeholder text here 51",
-                "Placeholder text here 52",
-                "Placeholder text here 53",
-                "Placeholder text here 54",
-                ]
-        barr8 = [
-                "Placeholder text here 51",
-                "Placeholder text here 52",
-                "Placeholder text here 53",
-                "Placeholder text here 54",
-                ]
-        barr9 = [
-                "Placeholder text here 61",
-                "Placeholder text here 62",
-                "Placeholder text here 63",
-                "Placeholder text here 64",
-                ]
-
-        bgarr = [
-                barr, barr2, barr3, barr4,
-                barr5, barr6, barr7, barr8,
-                barr9
-                ]
-
-        for bb in bgarr:
-
-            hbox = Gtk.HBox()
-
-            txtb = Gtk.Label("  ")
-            hbox.pack_start(txtb, 1 , 0 , 0)
-
-            for aa in bb:
-                butt = Gtk.Button("    " + aa + "     ")
-                butt.connect("clicked", self.butt_press, aa)
-                #butt.connect('button-press-event', self.on_press)
-
-                txt = Gtk.Label("  ")
-                hbox.pack_start(butt, 0 ,0 , 0)
-                hbox.pack_start(txt, 0 ,0 , 0)
-
-            txtc = Gtk.Label("  ")
-            hbox.pack_start(txtc, 1 ,0 , 0)
-
-            self.pack_start(hbox, 0 ,0 , 0)
-
-            #vtext2 = Gtk.Label(" ")
-            #self.pack_start(vtext2, 0 ,0 , 0)
-
-        #vtext2 = Gtk.Label(" ")
-        #self.pack_start(vtext2, 0 ,0 , 0)
-
-    def butt_press(self, txt, par):
-        global keystate,  shiftstate, altstate
-        print("Butt pressed", txt, par, "shift",  shiftstate)
-        #, "alt", altstate)
-
-        pass
-
 
 # ------------------------------------------------------------------------
 #  Define Application Main Window claass
@@ -269,7 +86,8 @@ class ChrisMainWin():
             #self.mywin.set_position(Gtk.WindowPosition.CENTER)
             #self.mywin.move(xxx + www / 16, yyy / hhh / 16)
         try:
-            self.mywin.set_icon_from_file(get_img_path("pyedpro.png"))
+            self.mywin.set_icon_from_file("sunset.jpg")
+
         except:
             print("Canot load icon.")
 
@@ -393,10 +211,16 @@ class ChrisMainWin():
         self.hpaned = hpaned
 
         confbox = Gtk.HBox()
-        bbb = Gtk.Button(" Configure ");
+        bbb = Gtk.Button.new_with_mnemonic(" _Configure ");
         bbb.connect("clicked", self.config_tabs)
+
+        xxx = Gtk.Button.new_with_mnemonic(" E_xit ");
+        xxx.connect("clicked", self.butt_exit)
+
         confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
         confbox.pack_start(bbb, 0, 0, 0)
+        confbox.pack_start(Gtk.Label("  "), 0, 0, 0)
+        confbox.pack_start(xxx, 0, 0, 0)
         confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
 
         # Create statusbars
@@ -412,9 +236,10 @@ class ChrisMainWin():
 
         shbox = Gtk.HBox()
         shbox.pack_start(slabs, 0,0, 0)
-        shbox.pack_start(self.slab, 0,0, 0)
+        shbox.pack_start(self.slab, 0, 0, 0)
 
-        self.slab2 = Gtk.Label(" status2  ")
+        #self.slab2 = Gtk.Label(" status2  ")
+        self.slab2 = Gtk.Label("      ")
 
         hpane2 = Gtk.HPaned()
         self.hpane2 = hpane2
@@ -422,7 +247,8 @@ class ChrisMainWin():
         #hpane2.set_border_width(5)
 
         hpane2.pack1(shbox, 1, 1)
-        hpane2.set_position(self.get_width() - 320)
+        #hpane2.set_position(self.get_width() - 320)
+        hpane2.set_position(self.get_width() / 2)
         hpane2.pack2(self.slab2, 1, 1)
 
         #hpane2.pack2(self.statusbar2, 0, 0)
@@ -440,14 +266,15 @@ class ChrisMainWin():
         self.mywin.add(bbox)
         self.mywin.show_all()
 
-        sarr = ["Customers", "Corporate",
-                    "Correspondence", "Todos", "Personal"]
+        sarr = ["Sales", "Quotes", "Customers", "Corporate",
+                    "Correspondence", "Todos", "Personal", "Finance"]
 
         # Add button tabs
         for aa in sarr:
-            bw1 = edPane()
+            bw1 = chrispane.edPane(aa)
             notebook.append_page(bw1)
-            bw1.tablabel(bw1, aa)
+            lab1 = self.tablabel(aa)
+            notebook.set_tab_label(bw1, lab1)
 
         # ----------------------------------------------------------------
         # Read in buffers
@@ -515,10 +342,12 @@ class ChrisMainWin():
         #signal.signal(signal.SIGALRM, handler_tick)
         #signal.alarm(1)
 
+        config.conf.pbuttwin = self
         # We use gobj instead of SIGALRM, so it is more multi platform
         GLib.timeout_add(1000, handler_tick)
 
-        self.update_statusbar("Initial")
+        self.update_statusbar("Initialized, app idle.")
+        #self.update_statusbar2()
 
         # Add to accounting:
         self.start_time = time.time()
@@ -538,17 +367,50 @@ class ChrisMainWin():
             vpaned.area.set_tablabel()
     '''
     # --------------------------------------------------------------------
-
-    def config_tabs(self, butt):
-        print("tab config", butt)
-        chrisdlg.config_dlg("Configuration");
+    def close_button(self):
         pass
 
-    def add_mru(self, merge, action_group, fname, mru):
+    def tablabel(self, namex):
+        # Set label to tab
+        label = Gtk.Label(namex)
+        label.set_tooltip_text(namex)
+        label.set_single_line_mode(True)
 
+        image = Gtk.Image();
+        image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
+        butt = Gtk.Button();  butt.add(image)
+        butt.set_focus_on_click(False)
+        butt.set_relief( Gtk.ReliefStyle.NONE)
+        rc = butt.get_modifier_style()
+        #rc.xthickness = 1; rc.ythickness = 1
+        #butt.modify_style(rc)
+
+        butt.connect("clicked", self.close_button)
+        #butt.set_tooltip_text("Close '%s'" % os.path.basename(self.fname))
+        hbox = Gtk.HBox()
+
+        hbox.pack_start(label, 0, 0, 0)
+        hbox.pack_start(butt, 0, 0, 0)
+        hbox.show_all()
+        return hbox
+
+    def butt_exit(self, butt):
+        #print("exit Butt pressed")
+        self.activate_exit()
+        pass
+
+    def config_tabs(self, butt):
+        strx = "Not Implemented"
+        dialog = Gtk.MessageDialog(None, None,
+                   Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, strx)
+        dialog.set_position(Gtk.WindowPosition.CENTER)
+        # Close dialog on user response
+        dialog.connect("response", lambda d, r: d.destroy())
+        dialog.show()
+
+    def add_mru(self, merge, action_group, fname, mru):
         if not fname:
             return
-
         sname = os.path.basename(fname)
 
         #Gtk.Action(name, label, tooltip, stock_id)
@@ -612,18 +474,16 @@ class ChrisMainWin():
     def area_key(self, area, event):
         #print("area_key key:", event.keyval, "state:", event.state)
 
-        global keystate,  shiftstate, altstate
-
-        keystate = event.state
+        chrispane.keystate = event.state
         # Do key down:
         if  event.type == Gdk.EventType.KEY_PRESS:
             if event.keyval == Gdk.KEY_Alt_L or \
                     event.keyval == Gdk.KEY_Alt_R:
-                altstate = True;
+                chrispane.altstate = True;
 
             if event.keyval == Gdk.KEY_Shift_L or \
                     event.keyval == Gdk.KEY_Shift_R:
-                shiftstate = True
+                chrispane.shiftstate = True
 
             '''if event.keyval >= Gtk.keysyms._1 and event.keyval <= Gtk.keysyms._9:
                 #print "pbuttwin Alt num", event.keyval - Gtk.keysyms._1
@@ -635,11 +495,11 @@ class ChrisMainWin():
         elif  event.type == Gdk.EventType.KEY_RELEASE:
             if event.keyval == Gdk.KEY_Alt_L or \
                     event.keyval == Gdk.KEY_Alt_R:
-                altstate = False;
+                chrispane.altstate = False;
 
             if event.keyval == Gdk.KEY_Shift_L  or \
                     event.keyval == Gdk.KEY_Shift_R:
-                shiftstate = False
+                chrispane.shiftstate = False
 
         if altstate:
             if event.keyval == Gdk.KEY_x :
@@ -853,10 +713,10 @@ class ChrisMainWin():
     def  note_swpage_cb(self, tabx, page, num):
         #print "note_swpage", num
         vcurr = tabx.get_nth_page(num)
-        self.mywin.set_title("pyedpro: " + vcurr.area.fname);
+        self.mywin.set_title("Clipboard Buttons: '" + vcurr.bname + "'");
         self.mywin.set_focus(vcurr.vbox.area)
-        fname = os.path.basename(vcurr.area.fname)
-        self.update_statusbar("Switched to '{1:s}'".format(num, fname))
+        #fname = os.path.basename(vcurr.area.fname)
+        self.update_statusbar("Switched to '{1:s}'".format(num, vcurr.bname))
 
     def  note_page_cb(self, tabx, child, num):
         pass
@@ -1393,6 +1253,9 @@ class ChrisMainWin():
         #self.statusbar2.push(0, strx2)
         self.slab2.set_text(strx2)
 
+    def update_statusbar3(self, strx2):
+        self.slab2.set_text(strx2)
+
     def update_statusbar(self, strx):
         # Clear any previous message, underflow is allowed
         #self.statusbar.pop(0)
@@ -1424,14 +1287,14 @@ def     OnExit(arg, prompt = True):
     pos = mained.hpaned.get_position()
     pos = max(pos, 1)
 
-    config.conf.sql.put("hpaned", pos)
+    config.conf.sql.put("hpaned", pos, 0)
 
     vcurr = notebook.get_nth_page(notebook.get_current_page())
     if vcurr:
         pos = vcurr .get_position()
         pos = max(pos, 1)
 
-        config.conf.sql.put("vpaned", pos)
+        config.conf.sql.put("vpaned", pos, 0)
 
     # Do not save full screen coordinates (when used F11)
     #print mained.full
@@ -1439,18 +1302,18 @@ def     OnExit(arg, prompt = True):
     if not mained.full:
         xx, yy = mained.mywin.get_position()
 
-        config.conf.sql.put("xx", xx)
-        config.conf.sql.put("yy", yy)
+        config.conf.sql.put("xx", xx, 0)
+        config.conf.sql.put("yy", yy, 0)
 
         ww, hh = mained.mywin.get_size()
 
-        config.conf.sql.put("ww", ww)
-        config.conf.sql.put("hh", hh)
+        config.conf.sql.put("ww", ww, 0)
+        config.conf.sql.put("hh", hh, 0)
 
     # Save current doc to config memory:
     vcurr = notebook.get_nth_page(notebook.get_current_page())
     if vcurr:
-        config.conf.sql.put("curr", vcurr.area.fname)
+        config.conf.sql.put("curr", vcurr.area.fname, 0)
 
     '''
     # Prompt for save files. Build list and execute saves
@@ -1464,7 +1327,7 @@ def     OnExit(arg, prompt = True):
         ppp.area.saveparms()
         ss = "/sess_%d" % cnt2
         if cnt2 < 30:
-            config.conf.sql.put(ss, ppp.area.fname)
+            config.conf.sql.put(ss, ppp.area.fname, 0)
             cnt2 += 1
 
         if ppp.area.changed:
@@ -1480,7 +1343,7 @@ def     OnExit(arg, prompt = True):
                     print("Rescuing", xfile)
                 writefile(xfile, ppp.area.text, "\n")
 
-    config.conf.sql.put("cnt", cnt2)
+    config.conf.sql.put("cnt", cnt2, 0)
 
     if(config.conf.verbose):
         print("Exiting")
@@ -1499,14 +1362,20 @@ def     OnExit(arg, prompt = True):
 def handler_tick():
 
     #print "handler_tick"
-    return
 
     try:
         #print 'Signal handler called with signal'
         #print config.conf.idle, config.conf.syncidle
         global notebook
 
-        if config.conf.idle:
+        if config.conf.pbuttwin.statuscount:
+            config.conf.pbuttwin.statuscount -= 1
+            if config.conf.pbuttwin.statuscount == 0:
+                config.conf.pbuttwin.update_statusbar("Idle.");
+                config.conf.pbuttwin.update_statusbar3("");
+                config.conf.pbuttwin.statuscount = 0
+
+        '''if config.conf.idle:
             config.conf.idle -= 1
             if config.conf.idle == 0:
                 vcurr = notebook.get_nth_page(notebook.get_current_page())
@@ -1533,12 +1402,7 @@ def handler_tick():
                         vcurr.area2.text = vcurr.area.text
                         vcurr.area2.set_maxlines(0)
                         vcurr.area2.invalidate()
-
-        if config.conf.pbuttwin.statuscount:
-            config.conf.pbuttwin.statuscount -= 1
-            if config.conf.pbuttwin.statuscount == 0:
-                config.conf.pbuttwin.update_statusbar("Idle.");
-                config.conf.pbuttwin.statuscount = 0
+        '''
 
     except:
         print("Exception in timer handler", sys.exc_info())
@@ -1549,6 +1413,7 @@ def handler_tick():
         print("Exception in setting timer handler", sys.exc_info())
 
 # EOF
+
 
 
 

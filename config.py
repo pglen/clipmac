@@ -4,12 +4,12 @@
 # of the project like the main window, statusbar, keyhandler etc ...
 # so the functionality is acessable from the key handler
 # or the key handler is acessable from the main window ... etc
-# The majority of dynamic vars are inited in chrsmac.py
+# The majority of dynamic vars are inited in chrismac.py
 
 from __future__ import absolute_import
 import signal, os, time, sys
 
-config_reg = "/apps/chrsmac"
+config_reg = "/apps/chrismac"
 
 class conf():
 
@@ -25,21 +25,22 @@ class conf():
     idle = 0; syncidle = 0;   statuscount = 0
 
     # Where things are stored (backups, orgs, macros, logs)
-    config_dir = os.path.expanduser("~/.chrsmac")
-    macro_dir = os.path.expanduser("~/.chrsmac/macros")
-    data_dir = os.path.expanduser("~/.chrsmac/data")
-    log_dir = os.path.expanduser("~/.chrsmac/log")
-    sql_data = os.path.expanduser("~/.chrsmac/sql_data")
-    sess_data = os.path.expanduser("~/.chrsmac/sess")
+    config_dir = os.path.expanduser("~/.chrismac")
+    macro_dir = os.path.expanduser("~/.chrismac/macros")
+    data_dir = os.path.expanduser("~/.chrismac/data")
+    log_dir = os.path.expanduser("~/.chrismac/log")
+    sql_data = os.path.expanduser("~/.chrismac/sql_data")
+    sess_data = os.path.expanduser("~/.chrismac/sess")
     sql = None
     config_file = "defaults"
 
     # Where things are stored (UI x/y pane pos.)
-    config_reg = "/apps/chrsmac"
+    config_reg = "/apps/chrismac"
     verbose = False
 
     def __init__(self):
         pass
+
 
 
 
