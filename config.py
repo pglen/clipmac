@@ -4,12 +4,12 @@
 # of the project like the main window, statusbar, keyhandler etc ...
 # so the functionality is acessable from the key handler
 # or the key handler is acessable from the main window ... etc
-# The majority of dynamic vars are inited in chrismac.py
+# The majority of dynamic vars are inited in clipmac.py
 
 from __future__ import absolute_import
 import signal, os, time, sys
 
-config_reg = "/apps/chrismac"
+config_reg = "/apps/clipmac"
 
 class conf():
 
@@ -25,17 +25,17 @@ class conf():
     idle = 0; syncidle = 0;   statuscount = 0
 
     # Where things are stored (backups, orgs, macros, logs)
-    config_dir = os.path.expanduser("~/.chrismac")
-    macro_dir = os.path.expanduser("~/.chrismac/macros")
-    data_dir = os.path.expanduser("~/.chrismac/data")
-    log_dir = os.path.expanduser("~/.chrismac/log")
-    sql_data = os.path.expanduser("~/.chrismac/sql_data")
-    sess_data = os.path.expanduser("~/.chrismac/sess")
+    config_dir = os.path.expanduser("~/.clipmac")
+    macro_dir = os.path.expanduser("~/.clipmac/macros")
+    data_dir = os.path.expanduser("~/.clipmac/data")
+    log_dir = os.path.expanduser("~/.clipmac/log")
+    sql_data = os.path.expanduser("~/.clipmac/sql_data")
+    sess_data = os.path.expanduser("~/.clipmac/sess")
     sql = None
     config_file = "defaults"
 
     # Where things are stored (UI x/y pane pos.)
-    config_reg = "/apps/chrismac"
+    config_reg = "/apps/clipmac"
     verbose = False
 
     def __init__(self):
