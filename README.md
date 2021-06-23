@@ -1,7 +1,7 @@
-#   Chrismac README
+#   Clipmac README
 
 ## Clipboard macros
 
- Chris asked me to buttons, that place a text on the clipboard.
+ This utility will copy to clipboard what is configured into the buttons.
+Hold down the shift key, and press a button to configure it.
 
- Here it is ...
