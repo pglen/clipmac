@@ -3,10 +3,12 @@
 from __future__ import absolute_import
 from __future__ import print_function
 import signal, os, time, sys, subprocess, platform
+import ctypes
 import warnings
 
 import gi
 #from six.moves import range
+
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import Gdk
@@ -23,6 +25,8 @@ import config, chrisdlg, chrissql, chrispane
 #from    .pedmenu import *
 #from    .pedui import *
 #from    .pedutil import *
+
+hidden = 0
 
 STATUSCOUNT = 5             # Length of the status bar timeout (in sec)
 
@@ -64,6 +68,8 @@ class ChrisMainWin():
         # Create the toplevel window
         #window = Gtk.Window(Gtk.WINDOW_TOPLEVEL)
         self.mywin = Gtk.Window()
+        self.mywin.set_can_focus(True)
+
         #www = Gdk.screen_width(); hhh = Gdk.screen_height();
 
         if config.conf.full_screen:
@@ -266,8 +272,8 @@ class ChrisMainWin():
         self.mywin.add(bbox)
         self.mywin.show_all()
 
-        sarr = ["Sales", "Quotes", "Customers", "Corporate",
-                    "Correspondence", "Todos", "Personal", "Finance"]
+        sarr = ["C", "Python", "Todo", "Quotes", "Customers", "Corporate",
+                    "Correspondence",  "Personal", "Finance"]
 
         # Add button tabs
         for aa in sarr:
@@ -367,7 +373,7 @@ class ChrisMainWin():
             vpaned.area.set_tablabel()
     '''
     # --------------------------------------------------------------------
-    def close_button(self):
+    def close_button(self, arg1):
         pass
 
     def tablabel(self, namex):
@@ -400,7 +406,7 @@ class ChrisMainWin():
         pass
 
     def config_tabs(self, butt):
-        strx = "Not Implemented"
+        strx = "Shift click on buttons to configure"
         dialog = Gtk.MessageDialog(None, None,
                    Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, strx)
         dialog.set_position(Gtk.WindowPosition.CENTER)
@@ -505,7 +511,6 @@ class ChrisMainWin():
             if event.keyval == Gdk.KEY_x :
                 #print("altx")
                 self.activate_exit()
-
 
     def get_height(self):
         xx, yy = self.mywin.get_size()
@@ -1283,74 +1288,78 @@ def     OnExit(arg, prompt = True):
 
     arg.set_title("Exiting ...")
 
-    # Save UI related data
-    pos = mained.hpaned.get_position()
-    pos = max(pos, 1)
-
-    config.conf.sql.put("hpaned", pos, 0)
-
-    vcurr = notebook.get_nth_page(notebook.get_current_page())
-    if vcurr:
-        pos = vcurr .get_position()
+    try:
+        # Save UI related data
+        pos = mained.hpaned.get_position()
         pos = max(pos, 1)
 
-        config.conf.sql.put("vpaned", pos, 0)
+        config.conf.sql.put("hpaned", pos, 0)
 
-    # Do not save full screen coordinates (when used F11)
-    #print mained.full
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            pos = vcurr .get_position()
+            pos = max(pos, 1)
 
-    if not mained.full:
-        xx, yy = mained.mywin.get_position()
+            config.conf.sql.put("vpaned", pos, 0)
 
-        config.conf.sql.put("xx", xx, 0)
-        config.conf.sql.put("yy", yy, 0)
+        # Do not save full screen coordinates (when used F11)
+        #print mained.full
 
-        ww, hh = mained.mywin.get_size()
+        if not mained.full:
+            xx, yy = mained.mywin.get_position()
 
-        config.conf.sql.put("ww", ww, 0)
-        config.conf.sql.put("hh", hh, 0)
+            config.conf.sql.put("xx", xx, 0)
+            config.conf.sql.put("yy", yy, 0)
 
-    # Save current doc to config memory:
-    vcurr = notebook.get_nth_page(notebook.get_current_page())
-    if vcurr:
-        config.conf.sql.put("curr", vcurr.area.fname, 0)
+            ww, hh = mained.mywin.get_size()
 
-    '''
-    # Prompt for save files. Build list and execute saves
-    parr = []
-    for aa in range(notebook.get_n_pages()):
-        parr.append(notebook.get_nth_page(aa))
+            config.conf.sql.put("ww", ww, 0)
+            config.conf.sql.put("hh", hh, 0)
 
-    cnt2 = 0
-    for ppp in parr:
-        #print ("close:", ppp.area.fname)
-        ppp.area.saveparms()
-        ss = "/sess_%d" % cnt2
-        if cnt2 < 30:
-            config.conf.sql.put(ss, ppp.area.fname, 0)
-            cnt2 += 1
+        # Save current doc to config memory:
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            config.conf.sql.put("curr", vcurr.area.fname, 0)
 
-        if ppp.area.changed:
-            if prompt:
-                # This way all the closing doc functions get called
-                if ppp.area.closedoc():
-                    return
-            else:
-                # Rescue to temporary:
-                hhh = hash_name(ppp.area.fname) + ".rescue"
-                xfile = config.conf.config_dir + "/" + hhh
-                if(config.conf.verbose):
-                    print("Rescuing", xfile)
-                writefile(xfile, ppp.area.text, "\n")
+        '''
+        # Prompt for save files. Build list and execute saves
+        parr = []
+        for aa in range(notebook.get_n_pages()):
+            parr.append(notebook.get_nth_page(aa))
 
-    config.conf.sql.put("cnt", cnt2, 0)
+        cnt2 = 0
+        for ppp in parr:
+            #print ("close:", ppp.area.fname)
+            ppp.area.saveparms()
+            ss = "/sess_%d" % cnt2
+            if cnt2 < 30:
+                config.conf.sql.put(ss, ppp.area.fname, 0)
+                cnt2 += 1
+
+            if ppp.area.changed:
+                if prompt:
+                    # This way all the closing doc functions get called
+                    if ppp.area.closedoc():
+                        return
+                else:
+                    # Rescue to temporary:
+                    hhh = hash_name(ppp.area.fname) + ".rescue"
+                    xfile = config.conf.config_dir + "/" + hhh
+                    if(config.conf.verbose):
+                        print("Rescuing", xfile)
+                    writefile(xfile, ppp.area.text, "\n")
+        config.conf.sql.put("cnt", cnt2, 0)
+        '''
+
+    except:
+        print("exception on exit", sys.exc_info())
 
     if(config.conf.verbose):
         print("Exiting")
 
     # Add to accounting:
     # utils.timesheet("Ended pyedpro", mained.start_time, time.time())
-    '''
+
     # Exit here
     Gtk.main_quit()
 
@@ -1366,7 +1375,23 @@ def handler_tick():
     try:
         #print 'Signal handler called with signal'
         #print config.conf.idle, config.conf.syncidle
-        global notebook
+
+        global notebook, hidden
+
+        if not hidden:
+            hidden = True
+            try:
+                #a = input('Input value here:')
+                kernel32 = ctypes.WinDLL('kernel32')
+                user32 = ctypes.WinDLL('user32')
+
+                if kernel32:
+                    print("Hiding controlling terminal")
+                    SW_HIDE = 0
+                    hWnd = kernel32.GetConsoleWindow()
+                    user32.ShowWindow(hWnd, SW_HIDE)
+            except:
+                pass
 
         if config.conf.pbuttwin.statuscount:
             config.conf.pbuttwin.statuscount -= 1
@@ -1413,11 +1438,6 @@ def handler_tick():
         print("Exception in setting timer handler", sys.exc_info())
 
 # EOF
-
-
-
-
-
 
 
 

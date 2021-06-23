@@ -60,22 +60,29 @@ barr6 = [
                 "text here 54",
                 ]
 barr7 = [
-                "text here 51",
-                "text here 52",
-                "text here 53",
-                "text here 54",
-                ]
-barr8 = [
                 "text here 61",
                 "text here 62",
                 "text here 63",
                 "text here 64",
                 ]
-barr9 = [
+barr8 = [
                 "text here 71",
                 "text here 72",
                 "text here 73",
                 "text here 74",
+                ]
+barr9 = [
+                "text here 81",
+                "text here 82",
+                "text here 83",
+                "text here 84",
+                ]
+
+barr10 = [
+                "text here 91",
+                "text here 92",
+                "text here 93",
+                "text here 94",
                 ]
 
 # -----------------------------------------------------------------------
@@ -122,6 +129,8 @@ class buttwin(Gtk.VBox):
         # Make it acessable:
         #self.area  = peddoc.pedDoc(buff, mained, readonly)
         self.area = Gtk.Window()
+        self.area.set_can_focus(True)
+
         self.set_spacing(10)
 
         #print "created", self.area, mained
@@ -136,7 +145,7 @@ class buttwin(Gtk.VBox):
 
         bgarr = [
                 barr, barr2, barr3, barr4,barr5, barr6, barr7,
-                barr8, barr9
+                barr8, barr9, barr10
                 ]
 
         for bb in bgarr:
@@ -198,3 +207,4 @@ class buttwin(Gtk.VBox):
         pass
 
 # EOF
+
