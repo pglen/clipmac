@@ -16,6 +16,12 @@ from gi.repository import GLib
 
 import config, chrisdlg, chrissql
 
+sys.path.append('..' + os.sep + "pycommon")
+
+from pggui import *
+from pgsimp import *
+
+
 keystate = 0
 shiftstate = 0
 altstate = 0
@@ -160,7 +166,11 @@ class buttwin(Gtk.VBox):
                     ddd = ccc[0]
                 else:
                     ddd = cc
-                butt = Gtk.Button.new_with_mnemonic(ddd)
+
+                #butt = Gtk.Button.new_with_mnemonic(ddd)
+                butt = RCLButt(ddd, self.rcl, self.rcl2, ttip = "Action Button")
+                butt.ord = 1; butt.id = aa;
+
                 butt.org  = cc
                 butt.connect("clicked", self.butt_press, cc)
                 hbox.pack_start(butt, 0 ,0 , 0)
@@ -171,6 +181,25 @@ class buttwin(Gtk.VBox):
             hbox.pack_start(txtc, 1 ,0 , 0)
 
             self.pack_start(hbox, 0 ,0 , 0)
+
+    def rcl(self, arg1, arg2):
+        print("rcl", arg2)
+        print("rcl", arg1.ord, arg1.id)
+
+    def rcl2(self, arg1, arg2):
+        #print("rcl2", arg2)
+        print("label", "'" + arg1.get_label() + "'", arg1.ord, arg1.id)
+
+        menu = MenuButt(("Execute", "Configure", "Face"), self.submenu_click)
+        menu.area_rbutton(arg1, arg2)
+
+    def submenu_click(self, arg1, arg2):
+        print("submenu_click", arg1, arg2)
+        #pedconfig.conf.sql.put("xx", xx)
+        if arg2 == 0:
+            print("submenu_click exec", arg1, arg2)
+        if arg2 == 1:
+            print("submenu_click config", arg1, arg2)
 
 
     def butt_press(self, butt, par):

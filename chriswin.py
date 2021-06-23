@@ -272,8 +272,8 @@ class ChrisMainWin():
         self.mywin.add(bbox)
         self.mywin.show_all()
 
-        sarr = ["C", "Python", "Todo", "Quotes", "Customers", "Corporate",
-                    "Correspondence",  "Personal", "Finance"]
+        sarr = ["Python", "C", "Todo", "Quotes", "Customers", "Corporate",
+                    "Letters",  "Personal", "Finance"]
 
         # Add button tabs
         for aa in sarr:
@@ -281,6 +281,21 @@ class ChrisMainWin():
             notebook.append_page(bw1)
             lab1 = self.tablabel(aa)
             notebook.set_tab_label(bw1, lab1)
+
+        #bw2 = chrispane.edPane("Macros")
+        bw2 = Gtk.VBox()
+        bw2.vbox = Gtk.VBox()
+        bw2.vbox.area = Gtk.Label("hallo")
+        bw2.vbox.area.fname = ""
+        bw2.vbox.area.bname = ""
+        bw2.area = bw2.vbox
+        bw2.area.fname = ""
+        bw2.area.bname = ""
+
+        bw2.add(bw2.vbox.area)
+        notebook.append_page(bw2)
+        lab2 = self.tablabel("Macros")
+        notebook.set_tab_label(bw2, lab2)
 
         # ----------------------------------------------------------------
         # Read in buffers
@@ -372,6 +387,7 @@ class ChrisMainWin():
             notebook.append_page(vpaned)
             vpaned.area.set_tablabel()
     '''
+
     # --------------------------------------------------------------------
     def close_button(self, arg1):
         pass
@@ -391,12 +407,12 @@ class ChrisMainWin():
         #rc.xthickness = 1; rc.ythickness = 1
         #butt.modify_style(rc)
 
-        butt.connect("clicked", self.close_button)
+        #butt.connect("clicked", self.close_button)
         #butt.set_tooltip_text("Close '%s'" % os.path.basename(self.fname))
         hbox = Gtk.HBox()
 
         hbox.pack_start(label, 0, 0, 0)
-        hbox.pack_start(butt, 0, 0, 0)
+        #hbox.pack_start(butt, 0, 0, 0)
         hbox.show_all()
         return hbox
 
