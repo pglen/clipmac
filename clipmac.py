@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # ------------------------------------------------------------------------
 # This is open source macro feeder. Written in python. The motivation for

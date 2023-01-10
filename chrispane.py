@@ -182,11 +182,12 @@ class buttwin(Gtk.VBox):
 
             self.pack_start(hbox, 0 ,0 , 0)
 
-    def rcl(self, arg1, arg2):
-        print("rcl", arg2)
-        print("rcl", arg1.ord, arg1.id)
+    def rcl(self, arg1, arg2, arg3):
+        #print("rcl", arg2)
+        #print("rcl", arg1.ord, arg1.id)
+        pass
 
-    def rcl2(self, arg1, arg2):
+    def rcl2(self, arg1, arg2, arg3):
         #print("rcl2", arg2)
         print("label", "'" + arg1.get_label() + "'", arg1.ord, arg1.id)
 
