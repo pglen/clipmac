@@ -18,9 +18,12 @@ import config, chrisdlg, chrissql
 
 sys.path.append('..' + os.sep + "pycommon")
 
-from pggui import *
-from pgsimp import *
+from pyvguicom import pgutils
+sys.path.append(os.path.dirname(pgutils.__file__))
 
+from pyvguicom.pgutils import *
+from pyvguicom.pggui import *
+from pyvguicom.pgsimp import *
 
 keystate = 0
 shiftstate = 0
