@@ -1,21 +1,17 @@
 #
-#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-#  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-#  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-#  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-#  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-#  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-#
 
 all:
-	@echo "Type 'make help' for a list of targets"
+	@echo "Targets: help clean install pack git"
+
+#Type 'make help' for a list of targets"
 
 help:
-	@echo
 	@echo "Targets:"
-	@echo "	 make install    -- Install PyEdPro "
-	@echo "	 make pack       -- package PyEdPro "
-	@echo
+	@echo "  make help       -- This screen"
+	@echo "  make git        -- Check in to repo"
+	@echo "  make clean      -- Clean temporaies"
+	@echo "  make install    -- Install  "
+	@echo "  make pack       -- Package to gz"
 
 install:
 	@./install.py
@@ -33,9 +29,3 @@ clean:
 	rm -rf __pycache__
 
 # End of Makefile
-
-
-
-
-
-

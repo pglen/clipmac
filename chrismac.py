@@ -1,19 +1,16 @@
 #!/usr/bin/env python
 
-# ------------------------------------------------------------------------
-# This is open source macro feeder. Written in python. The motivation for
-# this project was to create macro shortcuts for Chris
-#
-# This project was derived from pyedit.py
-#
-# chrismac functions near flawless on Linux / Windows / Mac / Raspberry PI
+__doc__ = '''
+     This is open source macro feeder. Written in python. The motivation for
+     this project was to create macro shortcuts for easy access to shortcuts.
+
+     This project was derived from pyedit.py
+
+     clipmac functions near identical on Linux / Windows / Mac / Raspberry PI
+'''
 
 import os, sys, getopt, signal
 import traceback
-
-#print(os.path.dirname(__file__))
-#sys.path.append(os.path.dirname(__file__) )
-
 import config
 import chrissql
 import chriswin
@@ -28,14 +25,10 @@ show_config = 0
 clear_config = 0
 use_stdout = 0
 
-VERSION = "1.0.0"
-
-# ------------------------------------------------------------------------
-
 def main(strarr):
 
     if(config.conf.verbose):
-        print("chrismac running on", "'" + os.name + "'", \
+        print("clipmac running on", "'" + os.name + "'", \
             "GTK", Gtk._version, "PyGtk", \
                "%d.%d.%d" % (Gtk.get_major_version(), \
                     Gtk.get_minor_version(), \
@@ -44,16 +37,15 @@ def main(strarr):
     signal.signal(signal.SIGTERM, terminate)
     mainwin =  chriswin.ChrisMainWin(None, None, strarr)
     config.conf.pedwin = mainwin
-
     Gtk.main()
 
 def help():
 
     print()
-    print("chrismac version: ", config.conf.version)
+    print("clipmac version:", config.conf.version)
     print("Usage: " + os.path.basename(sys.argv[0]) + " [options] [[filename] ... [filenameN]]")
     print("Options:")
-    print(" -d level - Debug level 1-10. (Limited implementation)")
+    print("            -d level  - Debug level 1-10. (Limited implementation)")
     print("            -v        - Verbose (to stdout and log)")
     print("            -f        - Start Full screen")
     print("            -c        - Dump Config")
@@ -83,7 +75,7 @@ class Unbuffered(object):
 def terminate(arg1, arg2):
 
     if(config.conf.verbose):
-        print("Terminating chrismac.py, saving files to ~/chrismac")
+        print("Terminating clipmac.py, saving files to ~/clipmac")
 
     # Save all
     config.conf.pedwin.activate_quit(None)
@@ -94,7 +86,7 @@ def terminate(arg1, arg2):
 if __name__ == '__main__':
 
     # Redirect stdout to a fork to real stdout and log. This way messages can
-    # be seen even if chrismac is started without a terminal (from the GUI)
+    # be seen even if clipmac is started without a terminal (from the GUI)
 
     opts = []; args = []
     try:
@@ -199,9 +191,12 @@ if __name__ == '__main__':
 
     # Uncomment this for buffered output
     if config.conf.verbose:
-        print("Started chrismac")
-        #pyedlib.log.print("Started chrismac")
+        print("Started clipmac")
+        #pyedlib.log.print("Started clipmac")
 
     main(args[0:])
 
 # EOF
+
+
+

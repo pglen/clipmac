@@ -195,7 +195,7 @@ class buttwin(Gtk.VBox):
         print("label", "'" + arg1.get_label() + "'", arg1.ord, arg1.id)
 
         menu = MenuButt(("Execute", "Configure", "Face"), self.submenu_click)
-        menu.area_rbutton(arg1, arg2)
+        #menu.area_rbutton(arg1, arg2)
 
     def submenu_click(self, arg1, arg2):
         print("submenu_click", arg1, arg2)
@@ -233,8 +233,8 @@ class buttwin(Gtk.VBox):
             clip.set_text(ccc[1], len(ccc[1]))
             config.conf.pedwin.update_statusbar3("Last Button: '" + mylab + "'")
             ppp = str.split(str(ccc[1]), "\n")
-            config.conf.pedwin.update_statusbar("Copied: '" + ppp[0] + "'")
-
+            config.conf.pedwin.update_statusbar( \
+                    "Copied to clipboard: '%s'" % ppp[0])
         #, "alt", altstate)
 
         pass

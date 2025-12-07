@@ -131,7 +131,7 @@ class ChrisMainWin():
 
         # Create note for the main window, give access to it for all
         notebook = Gtk.Notebook(); self.notebook = notebook
-        notebook.popup_enable()
+        #notebook.popup_enable()
         notebook.set_scrollable(True)
         # test
         #notebook.append_page(edPane([]))
@@ -509,7 +509,6 @@ class ChrisMainWin():
             if event.keyval == Gdk.KEY_x :
                 #print("altx")
                 self.activate_exit()
-
 
     def get_height(self):
         xx, yy = self.mywin.get_size()
