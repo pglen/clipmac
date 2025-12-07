@@ -18,8 +18,8 @@ pack:
 	@./pack.sh
 
 git:
-	git add .
-	git commit -m autocheck
+	-git add .
+	-git commit -m autocheck
 	git push
 
 clean:
