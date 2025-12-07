@@ -1,15 +1,10 @@
 #!/usr/bin/env python
 
-
 # Action Handler for find
-
-from __future__ import absolute_import
-from __future__ import print_function
 
 import re, string, warnings, sys
 
 import gi
-#from six.moves import range
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import Gdk

@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 
-# ------------------------------------------------------------------------
-# This is open source macro feeder. Written in python. The motivation for
-# this project was to create macro shortcuts for Chris
-#
-# This project was derived from pyedit.py
-#
-# chrismac functions near flawless on Linux / Windows / Mac / Raspberry PI
+'''
+ This is open source macro feeder. Written in python. The motivation for
+ this project was to create macro shortcuts for Chris
+
+ This project was derived from pyedit.py
+
+ chrismac functions near flawless on Linux / Windows / Mac / Raspberry PI
+ Redirect stdout to a fork to real stdout and log. This way messages can
+ be seen even if chrismac is started without a terminal (from the GUI)
+'''
 
 import os, sys, getopt, signal
 import traceback
@@ -89,12 +92,9 @@ def terminate(arg1, arg2):
     config.conf.pedwin.activate_quit(None)
     #return signal.SIG_IGN
 
-# Start of program:
+def mainfunc():
 
-if __name__ == '__main__':
-
-    # Redirect stdout to a fork to real stdout and log. This way messages can
-    # be seen even if chrismac is started without a terminal (from the GUI)
+    global clear_config, show_config, use_stdout
 
     opts = []; args = []
     try:
@@ -199,9 +199,15 @@ if __name__ == '__main__':
 
     # Uncomment this for buffered output
     if config.conf.verbose:
-        print("Started chrismac")
+        #print("Started chrismac")
         #pyedlib.log.print("Started chrismac")
+        pass
 
     main(args[0:])
+
+# Start of program:
+
+if __name__ == '__main__':
+    mainfunc()
 
 # EOF

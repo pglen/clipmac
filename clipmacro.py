@@ -1,19 +1,23 @@
 #!/usr/bin/env python
 
-__doc__ = '''
-     This is open source macro feeder. Written in python. The motivation for
-     this project was to create macro shortcuts for easy access to shortcuts.
+'''
+ This is open source macro feeder. Written in python. The motivation for
+ this project was to create macro shortcuts for Chris
 
-     This project was derived from pyedit.py
+ This project was derived from pyedit.py
 
-     clipmac functions near identical on Linux / Windows / Mac / Raspberry PI
+ chrismac functions near identical on Linux / Windows / Mac / Raspberry PI
+ Redirect stdout to a fork to real stdout and log. This way messages can
+ be seen even if chrismac is started without a terminal (from the GUI)
 '''
 
 import os, sys, getopt, signal
-import traceback
+
+sys.path.append("clipmac")
 import config
-import chrissql
-import chriswin
+
+from clipmac import chrissql
+from clipmac import chriswin
 
 import gi
 gi.require_version("Gtk", "3.0")
@@ -25,27 +29,36 @@ show_config = 0
 clear_config = 0
 use_stdout = 0
 
+VERSION = "1.0.0"
+
+# ------------------------------------------------------------------------
+
 def main(strarr):
 
     if(config.conf.verbose):
-        print("clipmac running on", "'" + os.name + "'", \
+        print("chrismac running on", "'" + os.name + "'", \
             "GTK", Gtk._version, "PyGtk", \
                "%d.%d.%d" % (Gtk.get_major_version(), \
                     Gtk.get_minor_version(), \
                         Gtk.get_micro_version()))
 
     signal.signal(signal.SIGTERM, terminate)
+
+    # Initialize sqlite to load / save preferences & other info
+    config.conf.sql = chrissql.Pedsql(config.conf.sql_data)
+
     mainwin =  chriswin.ChrisMainWin(None, None, strarr)
     config.conf.pedwin = mainwin
+
     Gtk.main()
 
 def help():
 
     print()
-    print("clipmac version:", config.conf.version)
+    print("chrismac version: ", config.conf.version)
     print("Usage: " + os.path.basename(sys.argv[0]) + " [options] [[filename] ... [filenameN]]")
     print("Options:")
-    print("            -d level  - Debug level 1-10. (Limited implementation)")
+    print(" -d level - Debug level 1-10. (Limited implementation)")
     print("            -v        - Verbose (to stdout and log)")
     print("            -f        - Start Full screen")
     print("            -c        - Dump Config")
@@ -75,18 +88,15 @@ class Unbuffered(object):
 def terminate(arg1, arg2):
 
     if(config.conf.verbose):
-        print("Terminating clipmac.py, saving files to ~/clipmac")
+        print("Terminating chrismac.py, saving files to ~/chrismac")
 
     # Save all
     config.conf.pedwin.activate_quit(None)
     #return signal.SIG_IGN
 
-# Start of program:
+def mainfunc():
 
-if __name__ == '__main__':
-
-    # Redirect stdout to a fork to real stdout and log. This way messages can
-    # be seen even if clipmac is started without a terminal (from the GUI)
+    global clear_config, show_config, use_stdout
 
     opts = []; args = []
     try:
@@ -97,7 +107,7 @@ if __name__ == '__main__':
 
     #print "opts", opts, "args", args
 
-    config.conf.version = 0.70
+    config.conf.version = VERSION
 
     for aa in opts:
         if aa[0] == "-d":
@@ -120,7 +130,7 @@ if __name__ == '__main__':
     try:
         if not os.path.isdir(config.conf.config_dir):
             if(config.conf.verbose):
-                print("making", config.con.config_dir)
+                print("making", con.config_dir)
             os.mkdir(config.conf.config_dir)
     except: pass
 
@@ -131,7 +141,7 @@ if __name__ == '__main__':
 
     if not os.path.isdir(config.conf.data_dir):
         if(config.conf.verbose):
-            print("making", config.con.data_dir)
+            print("making", con.data_dir)
         os.mkdir(config.conf.data_dir)
 
     if not os.path.isdir(config.conf.log_dir):
@@ -149,14 +159,6 @@ if __name__ == '__main__':
             print("making", config.conf.sess_data)
         os.mkdir(config.conf.sess_data)
 
-    if(config.conf.verbose):
-        print("Data stored in ", config.conf.config_dir)
-
-    # Initialize sqlite to load / save preferences & other info
-    sql = chrissql.pedsql(config.conf.sql_data)
-
-    # Initialize pedconfig for use
-    config.conf.sql = sql
     #config.conf.keyh = pyedlib.keyhand.KeyHand()
     config.conf.mydir = os.path.abspath(__file__)
 
@@ -191,12 +193,15 @@ if __name__ == '__main__':
 
     # Uncomment this for buffered output
     if config.conf.verbose:
-        print("Started clipmac")
-        #pyedlib.log.print("Started clipmac")
+        #print("Started chrismac")
+        #pyedlib.log.print("Started chrismac")
+        pass
 
     main(args[0:])
 
+# Start of program:
+
+if __name__ == '__main__':
+    mainfunc()
+
 # EOF
-
-
-

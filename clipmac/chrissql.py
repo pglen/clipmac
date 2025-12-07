@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
-from __future__ import print_function
 import sys, os, time, sqlite3
+
+#print("sql")
+import config
+#print(config.conf)
 
 # Replaces g c o n f, so it is less platforrm dependent
 
-class pedsql():
+class Pedsql():
 
     def __init__(self, file):
 
@@ -152,24 +154,4 @@ class pedsql():
         else:
             return None
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# EOF

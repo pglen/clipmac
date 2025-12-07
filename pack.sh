@@ -1,21 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-# Pack current project. Will back out from dir and create dirname.tgz
-# and put it back to our dir.
+# Pack current project. Will back out from dir and create archive
 
-CURR=`pwd | awk -F '/' {'print $NF'} |  sort -n | tail -1`
+CURR=$(grep VERSION clipmac.py | awk -F '=' {'print $2'} | \
+                    awk -F '"' {'print $2'})
+#echo $CURR ; exit
+FNAME=clipmac-$CURR.tgz
+#echo $FNAME ; exit
+if [ -f ../$FNAME ] ; then
+    echo File ../$FNAME exists. Please delete first.
+    exit
+fi
 pushd `pwd` >/dev/null
-mv -f $CURR.tgz /tmp>/dev/null  2>&1 
 cd ..
-echo "Packing / Archiving project $CURR"
-tar cfz $CURR.tgz $CURR
-mv $CURR.tgz $CURR
-popd
+echo "Packing / Archiving project '$FNAME'"
+tar cfz $FNAME chrismac
+popd >/dev/null
 
-
-
-
-
-
-
-
+# EOF

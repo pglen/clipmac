@@ -1,30 +1,19 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
-from __future__ import print_function
 import signal, os, time, sys, subprocess, platform
 import ctypes
 import warnings
 
 import gi
-#from six.moves import range
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import GLib
 
-import config, chrisdlg, chrissql, chrispane
-
-#from . import  peddoc, config, pedofd
-#from . import  pedync, pedspell, pedfont
-#from . import  pedcolor, log, utils
-
-# Into our name space
-#from    .pedmenu import *
-#from    .pedui import *
-#from    .pedutil import *
+import  chrisdlg, chrissql, chrispane
+import config
+#print(config.conf)
 
 hidden = 0
 
@@ -356,6 +345,8 @@ class ChrisMainWin():
         # Add to accounting:
         self.start_time = time.time()
         #utils.timesheet("Started pyedpro", self.start_time, 0)
+        print("conf", config.conf)
+
 
     '''def loadfile(self, fff):
         if(config.conf.verbose):
@@ -380,21 +371,22 @@ class ChrisMainWin():
         label.set_tooltip_text(namex)
         label.set_single_line_mode(True)
 
-        image = Gtk.Image();
-        image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
-        butt = Gtk.Button();  butt.add(image)
-        butt.set_focus_on_click(False)
-        butt.set_relief( Gtk.ReliefStyle.NONE)
-        rc = butt.get_modifier_style()
+        #image = Gtk.Image();
+        #image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
+        #butt = Gtk.Button();
+        #butt.add(image)
+        #butt.set_focus_on_click(False)
+        #butt.set_relief( Gtk.ReliefStyle.NONE)
+        #rc = butt.get_modifier_style()
         #rc.xthickness = 1; rc.ythickness = 1
         #butt.modify_style(rc)
 
-        butt.connect("clicked", self.close_button)
+        #butt.connect("clicked", self.close_button)
         #butt.set_tooltip_text("Close '%s'" % os.path.basename(self.fname))
         hbox = Gtk.HBox()
 
         hbox.pack_start(label, 0, 0, 0)
-        hbox.pack_start(butt, 0, 0, 0)
+        #hbox.pack_start(butt, 0, 0, 0)
         hbox.show_all()
         return hbox
 

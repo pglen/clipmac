@@ -1,9 +1,7 @@
-#
+# Makefile
 
 all:
 	@echo "Targets: help clean install pack git"
-
-#Type 'make help' for a list of targets"
 
 help:
 	@echo "Targets:"
@@ -27,5 +25,12 @@ git:
 clean:
 	rm -f  *.pyc
 	rm -rf __pycache__
+	rm -rf build
+
+pipinstall:
+	pip install .
+
+pipuninstall:
+	pip uninstall clipmac
 
 # End of Makefile
