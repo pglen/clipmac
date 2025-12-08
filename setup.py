@@ -60,5 +60,3 @@ setuptools.setup(
 )
 
 # EOF
-
-

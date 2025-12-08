@@ -14,7 +14,7 @@ fi
 pushd `pwd` >/dev/null
 cd ..
 echo "Packing / Archiving project '$FNAME'"
-tar cfz $FNAME chrismac
+tar cfz $FNAME clipmac
 popd >/dev/null
 
 # EOF

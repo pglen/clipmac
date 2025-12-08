@@ -161,7 +161,8 @@ class ChrisMainWin():
         #tbar.set_tooltips(True)
         #tbar.show()
 
-        hpaned = Gtk.HPaned(); hpaned.set_border_width(5)
+        self.hpaned = Gtk.HPaned();
+        self.hpaned.set_border_width(5)
 
         #warnings.simplefilter("ignore")
         scroll = Gtk.ScrolledWindow()
@@ -196,25 +197,21 @@ class ChrisMainWin():
 
         self.hpanepos = config.conf.sql.get_int("hpaned")
         if self.hpanepos == 0: self.hpanepos = 200
-        hpaned.set_position(self.hpanepos)
+        self.hpaned.set_position(self.hpanepos)
 
         #hpaned.pack2(Gtk.Label("hello "))
-        hpaned.pack2(notebook)
+        self.hpaned.pack2(notebook)
 
-        self.hpaned = hpaned
 
-        confbox = Gtk.HBox()
+        #confbox = Gtk.HBox()
         #bbb = Gtk.Button.new_with_mnemonic(" _Configure ");
         #bbb.connect("clicked", self.config_tabs)
 
-        xxx = Gtk.Button.new_with_mnemonic(" E_xit ");
-        xxx.connect("clicked", self.butt_exit)
-
-        confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
-        #confbox.pack_start(bbb, 0, 0, 0)
-        confbox.pack_start(Gtk.Label("  "), 0, 0, 0)
-        confbox.pack_start(xxx, 0, 0, 0)
-        confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
+        #confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
+        ##confbox.pack_start(bbb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label("  "), 0, 0, 0)
+        #confbox.pack_start(exitb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label(" "), 1, 1, 0)
 
         # Create statusbars
         #self.statusbar = Gtk.Statusbar()
@@ -234,27 +231,35 @@ class ChrisMainWin():
         #self.slab2 = Gtk.Label(" status2  ")
         self.slab2 = Gtk.Label("      ")
 
-        hpane2 = Gtk.HPaned()
-        self.hpane2 = hpane2
+        self.hpaned2 = Gtk.HPaned()
 
-        #hpane2.set_border_width(5)
+        #hpaned2.set_border_width(5)
 
-        hpane2.pack1(shbox, 1, 1)
-        #hpane2.set_position(self.get_width() - 320)
-        hpane2.set_position(self.get_width() / 2)
-        hpane2.pack2(self.slab2, 1, 1)
+        self.hpaned2.pack1(shbox, 1, 1)
+        #hpaned2.set_position(self.get_width() - 320)
+        self.hpaned2.set_position(self.get_width() / 2)
+        #hpaned2.pack2(self.slab2, 1, 1)
 
-        #hpane2.pack2(self.statusbar2, 0, 0)
+        exitb = Gtk.Button.new_with_mnemonic("   E_xit   ");
+        exitb.connect("clicked", self.butt_exit)
+
+        #hpaned2.pack2(self.statusbar2, 0, 0)
         #shbox.pack_start(slab, False, 0, 0)
         #shbox.pack_start(self.statusbar, False, 0, 0)
-        #hpane2.pack1(self.statusbar, 1, 0)
+        #hpaned2.pack1(self.statusbar, 1, 0)
 
         bbox = Gtk.VBox()
         #bbox.pack_start(mbar, 0,0, 0)
         #bbox.pack_start(tbar, 0,0, 0)
-        bbox.pack_start(hpaned, 1, 1, 0)
-        bbox.pack_start(confbox, 0, 0, 0)
-        bbox.pack_start(hpane2, 0,0, 0)
+        bbox.pack_start(self.hpaned, 1, 1, 0)
+        bbox.pack_start(self.hpaned2, 0, 0, 0)
+        hbox2 = Gtk.HBox()
+        hbox2.pack_start(Gtk.Label(label= "   "), 1, 1, 0)
+        hbox2.pack_start(exitb, 0, 0, 0)
+        self.hpaned2.pack2(hbox2)
+        hbox2.pack_start(Gtk.Label(label= "  "), 0, 0, 0)
+
+        #bbox.pack_start(hbox2, 0, 0, 0)
 
         self.mywin.add(bbox)
         self.mywin.show_all()
@@ -339,13 +344,14 @@ class ChrisMainWin():
         # We use gobj instead of SIGALRM, so it is more multi platform
         GLib.timeout_add(1000, handler_tick)
 
-        self.update_statusbar("Initialized, app idle.")
+        self.update_statusbar(
+                "Initialized, right click on button to configure.")
         #self.update_statusbar2()
 
         # Add to accounting:
         self.start_time = time.time()
         #utils.timesheet("Started pyedpro", self.start_time, 0)
-        print("conf", config.conf)
+        #print("conf", config.conf)
 
 
     '''def loadfile(self, fff):
@@ -686,7 +692,7 @@ class ChrisMainWin():
 
     def area_size(self, win, rect):
         #print  "area size", rect
-        self.hpane2.set_position(self.get_width() - 280)
+        self.hpaned2.set_position(self.get_width() - 280)
 
     def  note_focus_in(self, win, act):
         pass
@@ -1242,8 +1248,7 @@ class ChrisMainWin():
         if ins: str2 = "INS"
         else: str2 ="OVR"
         strx2 = "Ln {0:d} Col {1:d} Tot {3:d}  {2:s} Clip {4:d}".\
-                                format(int(yy+1), int(xx+1), str2, tlen, clip)
-
+                        format(int(yy+1), int(xx+1), str2, tlen, clip)
         #self.statusbar2.pop(0)
         #self.statusbar2.push(0, strx2)
         self.slab2.set_text(strx2)

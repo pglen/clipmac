@@ -161,7 +161,6 @@ class buttwin(Gtk.VBox):
             hbox = Gtk.HBox()
             txtb = Gtk.Label("  ")
             hbox.pack_start(txtb, 1 , 0 , 0)
-
             for aa in bb:
                 cc = "    " + self.bname + "  " + aa + "    "
                 ccc = config.conf.sql.get(cc);
@@ -170,49 +169,30 @@ class buttwin(Gtk.VBox):
                 else:
                     ddd = cc
 
-                #butt = Gtk.Button.new_with_mnemonic(ddd)
-                butt = RCLButt(ddd, self.rcl, self.rcl2, ttip = "Action Button")
+                butt = RCLButt(ddd, self.rcl, self.rcl2,
+                                                ttip = "Action Button")
                 butt.ord = 1; butt.id = aa;
-
                 butt.org  = cc
                 butt.connect("clicked", self.butt_press, cc)
                 hbox.pack_start(butt, 0 ,0 , 0)
-                txt = Gtk.Label("  ")
+                txt = Gtk.Label(label="  ")
                 hbox.pack_start(txt, 0 ,0 , 0)
 
-            txtc = Gtk.Label("  ")
+            txtc = Gtk.Label(label="  ")
             hbox.pack_start(txtc, 1 ,0 , 0)
 
             self.pack_start(hbox, 0 ,0 , 0)
 
     def rcl(self, arg1, arg2, arg3):
-        #print("rcl", arg2)
+        #print("rcl", arg1, arg2)
         #print("rcl", arg1.ord, arg1.id)
         pass
 
     def rcl2(self, arg1, arg2, arg3):
-        #print("rcl2", arg2)
-        print("label", "'" + arg1.get_label() + "'", arg1.ord, arg1.id)
-
-        menu = MenuButt(("Execute", "Configure", "Face"), self.submenu_click)
-        #menu.area_rbutton(arg1, arg2)
-
-    def submenu_click(self, arg1, arg2):
-        print("submenu_click", arg1, arg2)
-        #pedconfig.conf.sql.put("xx", xx)
-        if arg2 == 0:
-            print("submenu_click exec", arg1, arg2)
-        if arg2 == 1:
-            print("submenu_click config", arg1, arg2)
-
-
-    def butt_press(self, butt, par):
-
-        global keystate,  shiftstate, altstate
-
-        mylab = butt.get_label()
-        #print("Butt pressed", mylab, par, "shift",  shiftstate)
-        ccc = config.conf.sql.get(par);
+        #print("rcl2 label:", "'" + arg1.get_label() + "'",
+        #                    "'" + arg1.org + "'")
+        mylab = arg1.get_label()
+        ccc = config.conf.sql.get(arg1.org);
         #print ("ccc from database:", ccc)
         if ccc == None:
             ccc = []
@@ -220,24 +200,68 @@ class buttwin(Gtk.VBox):
             config.conf.pedwin.update_statusbar3("Not configured yet.")
             config.conf.pedwin.update_statusbar(ccc[0])
 
-        if shiftstate:
-            bbb, eee = chrisdlg.config_dlg(mylab, ccc[1]);
-            if eee != None:
-                butt.set_label(bbb)
-                config.conf.sql.put(par, bbb, eee);
-            shiftstate = False
-        else:
-            disp2 = Gdk.Display()
-            disp = disp2.get_default()
-            clip = Gtk.Clipboard.get_default(disp)
-            clip.set_text(ccc[1], len(ccc[1]))
-            config.conf.pedwin.update_statusbar3("Last Button: '" + mylab + "'")
-            ppp = str.split(str(ccc[1]), "\n")
-            config.conf.pedwin.update_statusbar( \
-                    "Copied to clipboard: '%s'" % ppp[0])
-        #, "alt", altstate)
+        menu = MenuButt(("To Clip", "Configure"), self.submenu_click)
+        # Let it travel on the menu object
+        menu.mylab = mylab
+        menu.ccc = ccc
+        menu.butt = arg1
+        menu.area_rbutton(arg1, arg3)
 
+    def submenu_click(self, arg1, arg2, arg3):
+        print("submenu_click:", "1", arg1, "2", arg2, "3", arg3)
+        #pedconfig.conf.sql.put("xx", xx)
+        if arg3 == 0:
+            print("submenu_click clip")
+            self.toclip(arg1.mylab, arg1.ccc)
+        if arg3 == 1:
+            print("submenu_click config")
+            self.config(arg1.butt, arg1.butt.org, arg1.mylab, arg1.ccc[1])
+        if arg3 == 2:
+            print("submenu_click face")
+
+    def config(self, butt, par, lab, cont):
+        bbb, eee = chrisdlg.config_dlg(lab, cont);
+        if eee != None:
+            butt.set_label(bbb)
+            ret = config.conf.sql.put(par, bbb, eee);
+            #print("Saved:", ret, par, bbb)
+            config.conf.pedwin.update_statusbar("Saved: '%s'" % par)
+
+    def butt_press(self, butt, par):
+
+        global keystate,  shiftstate, altstate
+
+        mylab = butt.get_label()
+        #print("Butt pressed, mylab: [", mylab, "] par:", "'" + par + "'",
+        #                "shift:", shiftstate )
+        ccc = config.conf.sql.get(par);
+        #print("ccc from database:", ccc)
+        if ccc == None:
+            ccc = []
+            ccc.append("Not configured"); ccc.append("")
+            config.conf.pedwin.update_statusbar3("Not configured yet.")
+            config.conf.pedwin.update_statusbar(ccc[0])
+
+        if shiftstate:
+            shiftstate = False
+            self.config(butt, par, mylab, ccc[1])
+        else:
+            self.toclip(mylab, ccc)
         pass
 
-# EOF
+    def toclip(self, mylab, ccc):
+        disp2 = Gdk.Display()
+        disp = disp2.get_default()
+        clip = Gtk.Clipboard.get_default(disp)
+        clip.set_text(ccc[1], len(ccc[1]))
+        config.conf.pedwin.update_statusbar3(\
+                            "Last Button: '" + mylab + "'")
+        ppp = str.split(str(ccc[1]), "\n")
+        if not ppp[0]:
+            config.conf.pedwin.update_statusbar(\
+                    "This item is not configured")
+        else:
+            config.conf.pedwin.update_statusbar( \
+                    "Copied to clipboard: '%s'" % ppp[0])
 
+# EOF

@@ -6,9 +6,9 @@
 
  This project was derived from pyedit.py
 
- chrismac functions near identical on Linux / Windows / Mac / Raspberry PI
+ clipmac functions near identical on Linux / Windows / Mac / Raspberry PI
  Redirect stdout to a fork to real stdout and log. This way messages can
- be seen even if chrismac is started without a terminal (from the GUI)
+ be seen even if clipmac is started without a terminal (from the GUI)
 '''
 
 import os, sys, getopt, signal
@@ -36,7 +36,7 @@ VERSION = "1.0.0"
 def main(strarr):
 
     if(config.conf.verbose):
-        print("chrismac running on", "'" + os.name + "'", \
+        print("clipmac running on", "'" + os.name + "'", \
             "GTK", Gtk._version, "PyGtk", \
                "%d.%d.%d" % (Gtk.get_major_version(), \
                     Gtk.get_minor_version(), \
@@ -55,17 +55,15 @@ def main(strarr):
 def help():
 
     print()
-    print("chrismac version: ", config.conf.version)
+    print("clipmacro version: ", config.conf.version)
     print("Usage: " + os.path.basename(sys.argv[0]) + " [options] [[filename] ... [filenameN]]")
     print("Options:")
-    print(" -d level - Debug level 1-10. (Limited implementation)")
+    print("            -d level - Debug level 1-10. (Limited implementation)")
     print("            -v        - Verbose (to stdout and log)")
-    print("            -f        - Start Full screen")
     print("            -c        - Dump Config")
-    print("            -o        - Use real stdout (for debug strings)")
     print("            -V        - Show version")
     print("            -x        - Clear (eXtinguish) config (will prompt)")
-    print("            -h        - Help")
+    print("            -h        - Help. (This screen)")
     print()
 
 # ------------------------------------------------------------------------
@@ -88,7 +86,7 @@ class Unbuffered(object):
 def terminate(arg1, arg2):
 
     if(config.conf.verbose):
-        print("Terminating chrismac.py, saving files to ~/chrismac")
+        print("Terminating clipmac.py, saving files to ~/clipmac")
 
     # Save all
     config.conf.pedwin.activate_quit(None)
@@ -193,8 +191,8 @@ def mainfunc():
 
     # Uncomment this for buffered output
     if config.conf.verbose:
-        #print("Started chrismac")
-        #pyedlib.log.print("Started chrismac")
+        #print("Started clipmac")
+        #pyedlib.log.print("Started clipmac")
         pass
 
     main(args[0:])
