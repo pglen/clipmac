@@ -2,21 +2,32 @@
 
 '''
  This is open source macro feeder. Written in python. The motivation for
- this project was to create macro shortcuts for Chris
+ this project was to create macro shortcuts for pasting pre made
+ text onto the clipboard.
 
- This project was derived from pyedit.py
+ The clipmac program functions near identical on
+    Linux / Windows / Mac / Raspberry PI
 
- clipmac functions near identical on Linux / Windows / Mac / Raspberry PI
- Redirect stdout to a fork to real stdout and log. This way messages can
- be seen even if clipmac is started without a terminal (from the GUI)
+ Redirecting stdout to a fork to real stdout and log. This way
+ messages can be seen even if clipmac is started without a
+ terminal (from the GUI)
+
 '''
 
 import os, sys, getopt, signal
 
-sys.path.append("clipmac")
-import config
-
 from clipmac import chrissql
+
+basedir = os.path.dirname(chrissql.__file__)
+#print(basedir)
+sys.path.append(basedir)
+
+from clipmac import config
+#config.conf = config.Config()
+
+import config
+config.basedir = basedir
+
 from clipmac import chriswin
 
 import gi
@@ -54,17 +65,16 @@ def main(strarr):
 
 def help():
 
-    print()
-    print("clipmacro version: ", config.conf.version)
-    print("Usage: " + os.path.basename(sys.argv[0]) + " [options] [[filename] ... [filenameN]]")
-    print("Options:")
-    print("            -d level - Debug level 1-10. (Limited implementation)")
-    print("            -v        - Verbose (to stdout and log)")
-    print("            -c        - Dump Config")
-    print("            -V        - Show version")
-    print("            -x        - Clear (eXtinguish) config (will prompt)")
-    print("            -h        - Help. (This screen)")
-    print()
+    #print()
+    #print("clipmacro version: ", config.conf.version)
+    print("Usage: " + os.path.basename(sys.argv[0]) + " [options]")
+    print("Options:  -d level  - Debug level 1-10. (Limited implementation)")
+    print("          -v        - Verbose (to stdout and log)")
+    print("          -c        - Dump Config")
+    print("          -V        - Show version")
+    print("          -x        - Clear (eXtinguish) config (will prompt)")
+    print("          -h        - Help. (This screen)")
+    #print()
 
 # ------------------------------------------------------------------------
 
@@ -167,14 +177,21 @@ def mainfunc():
         aa = sys.stdin.readline()
         if aa[0] == "y":
             print("Removing configuration ... ", end=' ')
-            sql.rmall()
+            # Initialize sqlite to load / save preferences & other info
+            config.conf.sql = chrissql.Pedsql(config.conf.sql_data)
+            config.conf.sql.rmall()
             print("OK")
+        else:
+            print("Not deleted.")
+            pass
         sys.exit(0)
 
     # To check all config vars
     if show_config:
         print("Dumping configuration:")
-        ss = sql.getall();
+        # Initialize sqlite to load / save preferences & other info
+        config.conf.sql = chrissql.Pedsql(config.conf.sql_data)
+        ss = config.conf.sql.getall();
         for aa in ss:
             print(aa)
         sys.exit(0)

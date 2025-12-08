@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+''' Window routines '''
+
 import signal, os, time, sys, subprocess, platform
 import ctypes
 import warnings
@@ -11,7 +13,7 @@ from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import GLib
 
-import  chrisdlg, chrissql, chrispane
+import chrisdlg, chrissql, chrispane
 import config
 #print(config.conf)
 
@@ -79,7 +81,7 @@ class ChrisMainWin():
             #self.mywin.set_position(Gtk.WindowPosition.CENTER)
             #self.mywin.move(xxx + www / 16, yyy / hhh / 16)
         try:
-            self.mywin.set_icon_from_file("sunset.jpg")
+            self.mywin.set_icon_from_file(config.basedir + os.sep + "icon.png")
 
         except:
             print("Canot load icon.")
@@ -905,7 +907,7 @@ class ChrisMainWin():
 
         if strx == "Start Terminal":
             #print("Starting terminal")
-            os.system("C:\msys64\mingw32.exe")
+            os.system("C:\\msys64\\mingw32.exe")
 
         if strx == "New":
             self.newfile();

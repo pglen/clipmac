@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>chrispane API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>chrispane</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+
+from __future__ import absolute_import
+from __future__ import print_function
+
+import signal, os, time, sys, subprocess, platform
+import warnings
+
+import gi
+#from six.moves import range
+gi.require_version(&#34;Gtk&#34;, &#34;3.0&#34;)
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import GLib
+
+import config, chrisdlg, chrissql
+
+sys.path.append(&#39;..&#39; + os.sep + &#34;pycommon&#34;)
+
+from pyvguicom import pgutils
+sys.path.append(os.path.dirname(pgutils.__file__))
+
+from pyvguicom.pgutils import *
+from pyvguicom.pggui import *
+from pyvguicom.pgsimp import *
+
+keystate = 0
+shiftstate = 0
+altstate = 0
+
+# These can be arbitrary texts ... fill in sensible defaults
+
+barr = [
+                &#34;text here 0_1&#34;,
+                &#34;text here 0_2&#34;,
+                &#34;text here 0_3&#34;,
+                &#34;text here 0_4&#34;,
+                ]
+
+barr2 = [
+                &#34;text here 0_5&#34;,
+                &#34;text here 0_6&#34;,
+                &#34;text here 0_7&#34;,
+                &#34;text here 0_8&#34;,
+                ]
+barr3 = [
+                &#34;text here 21&#34;,
+                &#34;text here 22&#34;,
+                &#34;text here 23&#34;,
+                &#34;text here 24&#34;,
+                ]
+barr4 = [
+                &#34;text here 31&#34;,
+                &#34;text here 32&#34;,
+                &#34;text here 33&#34;,
+                &#34;text here 34&#34;,
+                ]
+barr5 = [
+                &#34;text here 41&#34;,
+                &#34;text here 42&#34;,
+                &#34;text here 43&#34;,
+                &#34;text here 44&#34;,
+                ]
+barr6 = [
+                &#34;text here 51&#34;,
+                &#34;text here 52&#34;,
+                &#34;text here 53&#34;,
+                &#34;text here 54&#34;,
+                ]
+barr7 = [
+                &#34;text here 61&#34;,
+                &#34;text here 62&#34;,
+                &#34;text here 63&#34;,
+                &#34;text here 64&#34;,
+                ]
+barr8 = [
+                &#34;text here 71&#34;,
+                &#34;text here 72&#34;,
+                &#34;text here 73&#34;,
+                &#34;text here 74&#34;,
+                ]
+barr9 = [
+                &#34;text here 81&#34;,
+                &#34;text here 82&#34;,
+                &#34;text here 83&#34;,
+                &#34;text here 84&#34;,
+                ]
+
+barr10 = [
+                &#34;text here 91&#34;,
+                &#34;text here 92&#34;,
+                &#34;text here 93&#34;,
+                &#34;text here 94&#34;,
+                ]
+
+# -----------------------------------------------------------------------
+# Create document
+
+class edPane(Gtk.VPaned):
+
+    def __init__(self, bname = &#34;No Name&#34;, focus = False):
+
+        pos = config.conf.sql.get_int(&#34;vpaned&#34;)
+        if pos == 0: pos = 120
+
+        Gtk.VPaned.__init__(self)
+        self.set_border_width(3)
+        self.set_position(pos)
+        self.vbox = buttwin(bname);
+        self.add2(self.vbox)
+        self.bname = bname
+        #self.vbox2 = buttwin(buff, True)
+        #self.add1(self.vbox2)
+
+        self.set_size_request(100, 100)
+
+        # Shortcuts to access the editor windows
+        self.area  = self.vbox.area
+        #self.area2 = self.vbox2.area
+
+    def close_button(self, butt):
+        print(&#34;Close pressed, deactivated function&#34;)
+        pass
+
+# -----------------------------------------------------------------------
+# Create main document widget with scroll bars
+
+class buttwin(Gtk.VBox):
+
+    def __init__(self, bname, readonly = False):
+
+        global notebook, mained, keystate, shiftstate
+
+        Gtk.VBox.__init__(self)
+        self.bname = bname
+
+        # Make it acessable:
+        #self.area  = peddoc.pedDoc(buff, mained, readonly)
+        self.area = Gtk.Window()
+        self.area.set_can_focus(True)
+
+        self.set_spacing(10)
+
+        #print &#34;created&#34;, self.area, mained
+
+        # Give access to notebook and main editor window
+        #self.area.notebook = notebook
+        #self.area.mained = mained
+        self.area.fname = &#34;&#34;
+
+        vtext = Gtk.Label(&#34; &#34;)
+        self.pack_start(vtext, 0 ,0 , 0)
+
+        bgarr = [
+                barr, barr2, barr3, barr4,barr5, barr6, barr7,
+                barr8, barr9, barr10
+                ]
+
+        for bb in bgarr:
+            hbox = Gtk.HBox()
+            txtb = Gtk.Label(&#34;  &#34;)
+            hbox.pack_start(txtb, 1 , 0 , 0)
+            for aa in bb:
+                cc = &#34;    &#34; + self.bname + &#34;  &#34; + aa + &#34;    &#34;
+                ccc = config.conf.sql.get(cc);
+                if ccc != None:
+                    ddd = ccc[0]
+                else:
+                    ddd = cc
+
+                butt = RCLButt(ddd, self.rcl, self.rcl2,
+                                                ttip = &#34;Action Button&#34;)
+                butt.ord = 1; butt.id = aa;
+                butt.org  = cc
+                butt.connect(&#34;clicked&#34;, self.butt_press, cc)
+                hbox.pack_start(butt, 0 ,0 , 0)
+                txt = Gtk.Label(label=&#34;  &#34;)
+                hbox.pack_start(txt, 0 ,0 , 0)
+
+            txtc = Gtk.Label(label=&#34;  &#34;)
+            hbox.pack_start(txtc, 1 ,0 , 0)
+
+            self.pack_start(hbox, 0 ,0 , 0)
+
+    def rcl(self, arg1, arg2, arg3):
+        #print(&#34;rcl&#34;, arg1, arg2)
+        #print(&#34;rcl&#34;, arg1.ord, arg1.id)
+        pass
+
+    def rcl2(self, arg1, arg2, arg3):
+        #print(&#34;rcl2 label:&#34;, &#34;&#39;&#34; + arg1.get_label() + &#34;&#39;&#34;,
+        #                    &#34;&#39;&#34; + arg1.org + &#34;&#39;&#34;)
+        mylab = arg1.get_label()
+        ccc = config.conf.sql.get(arg1.org);
+        #print (&#34;ccc from database:&#34;, ccc)
+        if ccc == None:
+            ccc = []
+            ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+            config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+            config.conf.pedwin.update_statusbar(ccc[0])
+
+        menu = MenuButt((&#34;To Clip&#34;, &#34;Configure&#34;), self.submenu_click)
+        # Let it travel on the menu object
+        menu.mylab = mylab
+        menu.ccc = ccc
+        menu.butt = arg1
+        menu.area_rbutton(arg1, arg3)
+
+    def submenu_click(self, arg1, arg2, arg3):
+        print(&#34;submenu_click:&#34;, &#34;1&#34;, arg1, &#34;2&#34;, arg2, &#34;3&#34;, arg3)
+        #pedconfig.conf.sql.put(&#34;xx&#34;, xx)
+        if arg3 == 0:
+            print(&#34;submenu_click clip&#34;)
+            self.toclip(arg1.mylab, arg1.ccc)
+        if arg3 == 1:
+            print(&#34;submenu_click config&#34;)
+            self.config(arg1.butt, arg1.butt.org, arg1.mylab, arg1.ccc[1])
+        if arg3 == 2:
+            print(&#34;submenu_click face&#34;)
+
+    def config(self, butt, par, lab, cont):
+        bbb, eee = chrisdlg.config_dlg(lab, cont);
+        if eee != None:
+            butt.set_label(bbb)
+            ret = config.conf.sql.put(par, bbb, eee);
+            #print(&#34;Saved:&#34;, ret, par, bbb)
+            config.conf.pedwin.update_statusbar(&#34;Saved: &#39;%s&#39;&#34; % par)
+
+    def butt_press(self, butt, par):
+
+        global keystate,  shiftstate, altstate
+
+        mylab = butt.get_label()
+        #print(&#34;Butt pressed, mylab: [&#34;, mylab, &#34;] par:&#34;, &#34;&#39;&#34; + par + &#34;&#39;&#34;,
+        #                &#34;shift:&#34;, shiftstate )
+        ccc = config.conf.sql.get(par);
+        #print(&#34;ccc from database:&#34;, ccc)
+        if ccc == None:
+            ccc = []
+            ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+            config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+            config.conf.pedwin.update_statusbar(ccc[0])
+
+        if shiftstate:
+            shiftstate = False
+            self.config(butt, par, mylab, ccc[1])
+        else:
+            self.toclip(mylab, ccc)
+        pass
+
+    def toclip(self, mylab, ccc):
+        disp2 = Gdk.Display()
+        disp = disp2.get_default()
+        clip = Gtk.Clipboard.get_default(disp)
+        clip.set_text(ccc[1], len(ccc[1]))
+        config.conf.pedwin.update_statusbar3(\
+                            &#34;Last Button: &#39;&#34; + mylab + &#34;&#39;&#34;)
+        ppp = str.split(str(ccc[1]), &#34;\n&#34;)
+        if not ppp[0]:
+            config.conf.pedwin.update_statusbar(\
+                    &#34;This item is not configured&#34;)
+        else:
+            config.conf.pedwin.update_statusbar( \
+                    &#34;Copied to clipboard: &#39;%s&#39;&#34; % ppp[0])
+
+# EOF</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="chrispane.buttwin"><code class="flex name class">
+<span>class <span class="ident">buttwin</span></span>
+<span>(</span><span>bname, readonly=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:Constructors:</p>
+<p>::</p>
+<pre><code>VBox(**properties)
+new(homogeneous:bool, spacing:int) -&gt; Gtk.Widget
+</code></pre>
+<p>Initializer for a GObject based classes with support for property
+sets through the use of explicit keyword arguments.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class buttwin(Gtk.VBox):
+
+    def __init__(self, bname, readonly = False):
+
+        global notebook, mained, keystate, shiftstate
+
+        Gtk.VBox.__init__(self)
+        self.bname = bname
+
+        # Make it acessable:
+        #self.area  = peddoc.pedDoc(buff, mained, readonly)
+        self.area = Gtk.Window()
+        self.area.set_can_focus(True)
+
+        self.set_spacing(10)
+
+        #print &#34;created&#34;, self.area, mained
+
+        # Give access to notebook and main editor window
+        #self.area.notebook = notebook
+        #self.area.mained = mained
+        self.area.fname = &#34;&#34;
+
+        vtext = Gtk.Label(&#34; &#34;)
+        self.pack_start(vtext, 0 ,0 , 0)
+
+        bgarr = [
+                barr, barr2, barr3, barr4,barr5, barr6, barr7,
+                barr8, barr9, barr10
+                ]
+
+        for bb in bgarr:
+            hbox = Gtk.HBox()
+            txtb = Gtk.Label(&#34;  &#34;)
+            hbox.pack_start(txtb, 1 , 0 , 0)
+            for aa in bb:
+                cc = &#34;    &#34; + self.bname + &#34;  &#34; + aa + &#34;    &#34;
+                ccc = config.conf.sql.get(cc);
+                if ccc != None:
+                    ddd = ccc[0]
+                else:
+                    ddd = cc
+
+                butt = RCLButt(ddd, self.rcl, self.rcl2,
+                                                ttip = &#34;Action Button&#34;)
+                butt.ord = 1; butt.id = aa;
+                butt.org  = cc
+                butt.connect(&#34;clicked&#34;, self.butt_press, cc)
+                hbox.pack_start(butt, 0 ,0 , 0)
+                txt = Gtk.Label(label=&#34;  &#34;)
+                hbox.pack_start(txt, 0 ,0 , 0)
+
+            txtc = Gtk.Label(label=&#34;  &#34;)
+            hbox.pack_start(txtc, 1 ,0 , 0)
+
+            self.pack_start(hbox, 0 ,0 , 0)
+
+    def rcl(self, arg1, arg2, arg3):
+        #print(&#34;rcl&#34;, arg1, arg2)
+        #print(&#34;rcl&#34;, arg1.ord, arg1.id)
+        pass
+
+    def rcl2(self, arg1, arg2, arg3):
+        #print(&#34;rcl2 label:&#34;, &#34;&#39;&#34; + arg1.get_label() + &#34;&#39;&#34;,
+        #                    &#34;&#39;&#34; + arg1.org + &#34;&#39;&#34;)
+        mylab = arg1.get_label()
+        ccc = config.conf.sql.get(arg1.org);
+        #print (&#34;ccc from database:&#34;, ccc)
+        if ccc == None:
+            ccc = []
+            ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+            config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+            config.conf.pedwin.update_statusbar(ccc[0])
+
+        menu = MenuButt((&#34;To Clip&#34;, &#34;Configure&#34;), self.submenu_click)
+        # Let it travel on the menu object
+        menu.mylab = mylab
+        menu.ccc = ccc
+        menu.butt = arg1
+        menu.area_rbutton(arg1, arg3)
+
+    def submenu_click(self, arg1, arg2, arg3):
+        print(&#34;submenu_click:&#34;, &#34;1&#34;, arg1, &#34;2&#34;, arg2, &#34;3&#34;, arg3)
+        #pedconfig.conf.sql.put(&#34;xx&#34;, xx)
+        if arg3 == 0:
+            print(&#34;submenu_click clip&#34;)
+            self.toclip(arg1.mylab, arg1.ccc)
+        if arg3 == 1:
+            print(&#34;submenu_click config&#34;)
+            self.config(arg1.butt, arg1.butt.org, arg1.mylab, arg1.ccc[1])
+        if arg3 == 2:
+            print(&#34;submenu_click face&#34;)
+
+    def config(self, butt, par, lab, cont):
+        bbb, eee = chrisdlg.config_dlg(lab, cont);
+        if eee != None:
+            butt.set_label(bbb)
+            ret = config.conf.sql.put(par, bbb, eee);
+            #print(&#34;Saved:&#34;, ret, par, bbb)
+            config.conf.pedwin.update_statusbar(&#34;Saved: &#39;%s&#39;&#34; % par)
+
+    def butt_press(self, butt, par):
+
+        global keystate,  shiftstate, altstate
+
+        mylab = butt.get_label()
+        #print(&#34;Butt pressed, mylab: [&#34;, mylab, &#34;] par:&#34;, &#34;&#39;&#34; + par + &#34;&#39;&#34;,
+        #                &#34;shift:&#34;, shiftstate )
+        ccc = config.conf.sql.get(par);
+        #print(&#34;ccc from database:&#34;, ccc)
+        if ccc == None:
+            ccc = []
+            ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+            config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+            config.conf.pedwin.update_statusbar(ccc[0])
+
+        if shiftstate:
+            shiftstate = False
+            self.config(butt, par, mylab, ccc[1])
+        else:
+            self.toclip(mylab, ccc)
+        pass
+
+    def toclip(self, mylab, ccc):
+        disp2 = Gdk.Display()
+        disp = disp2.get_default()
+        clip = Gtk.Clipboard.get_default(disp)
+        clip.set_text(ccc[1], len(ccc[1]))
+        config.conf.pedwin.update_statusbar3(\
+                            &#34;Last Button: &#39;&#34; + mylab + &#34;&#39;&#34;)
+        ppp = str.split(str(ccc[1]), &#34;\n&#34;)
+        if not ppp[0]:
+            config.conf.pedwin.update_statusbar(\
+                    &#34;This item is not configured&#34;)
+        else:
+            config.conf.pedwin.update_statusbar( \
+                    &#34;Copied to clipboard: &#39;%s&#39;&#34; % ppp[0])</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>gi.repository.Gtk.VBox</li>
+<li>gi.overrides.Gtk.Box</li>
+<li>gi.repository.Gtk.Box</li>
+<li>gi.overrides.Gtk.Container</li>
+<li>gi.repository.Gtk.Container</li>
+<li>gi.overrides.Gtk.Widget</li>
+<li>gi.repository.Gtk.Widget</li>
+<li>gi.repository.GObject.InitiallyUnowned</li>
+<li>gi.overrides.GObject.Object</li>
+<li>gi.repository.GObject.Object</li>
+<li>gi._gi.GObject</li>
+<li>gi.repository.Atk.ImplementorIface</li>
+<li>gi.repository.Gtk.Buildable</li>
+<li>gi.repository.Gtk.Orientable</li>
+<li>gobject.GInterface</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="chrispane.buttwin.butt_press"><code class="name flex">
+<span>def <span class="ident">butt_press</span></span>(<span>self, butt, par)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def butt_press(self, butt, par):
+
+    global keystate,  shiftstate, altstate
+
+    mylab = butt.get_label()
+    #print(&#34;Butt pressed, mylab: [&#34;, mylab, &#34;] par:&#34;, &#34;&#39;&#34; + par + &#34;&#39;&#34;,
+    #                &#34;shift:&#34;, shiftstate )
+    ccc = config.conf.sql.get(par);
+    #print(&#34;ccc from database:&#34;, ccc)
+    if ccc == None:
+        ccc = []
+        ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+        config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+        config.conf.pedwin.update_statusbar(ccc[0])
+
+    if shiftstate:
+        shiftstate = False
+        self.config(butt, par, mylab, ccc[1])
+    else:
+        self.toclip(mylab, ccc)
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chrispane.buttwin.config"><code class="name flex">
+<span>def <span class="ident">config</span></span>(<span>self, butt, par, lab, cont)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def config(self, butt, par, lab, cont):
+    bbb, eee = chrisdlg.config_dlg(lab, cont);
+    if eee != None:
+        butt.set_label(bbb)
+        ret = config.conf.sql.put(par, bbb, eee);
+        #print(&#34;Saved:&#34;, ret, par, bbb)
+        config.conf.pedwin.update_statusbar(&#34;Saved: &#39;%s&#39;&#34; % par)</code></pre>
+</details>
+</dd>
+<dt id="chrispane.buttwin.rcl"><code class="name flex">
+<span>def <span class="ident">rcl</span></span>(<span>self, arg1, arg2, arg3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rcl(self, arg1, arg2, arg3):
+    #print(&#34;rcl&#34;, arg1, arg2)
+    #print(&#34;rcl&#34;, arg1.ord, arg1.id)
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chrispane.buttwin.rcl2"><code class="name flex">
+<span>def <span class="ident">rcl2</span></span>(<span>self, arg1, arg2, arg3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rcl2(self, arg1, arg2, arg3):
+    #print(&#34;rcl2 label:&#34;, &#34;&#39;&#34; + arg1.get_label() + &#34;&#39;&#34;,
+    #                    &#34;&#39;&#34; + arg1.org + &#34;&#39;&#34;)
+    mylab = arg1.get_label()
+    ccc = config.conf.sql.get(arg1.org);
+    #print (&#34;ccc from database:&#34;, ccc)
+    if ccc == None:
+        ccc = []
+        ccc.append(&#34;Not configured&#34;); ccc.append(&#34;&#34;)
+        config.conf.pedwin.update_statusbar3(&#34;Not configured yet.&#34;)
+        config.conf.pedwin.update_statusbar(ccc[0])
+
+    menu = MenuButt((&#34;To Clip&#34;, &#34;Configure&#34;), self.submenu_click)
+    # Let it travel on the menu object
+    menu.mylab = mylab
+    menu.ccc = ccc
+    menu.butt = arg1
+    menu.area_rbutton(arg1, arg3)</code></pre>
+</details>
+</dd>
+<dt id="chrispane.buttwin.submenu_click"><code class="name flex">
+<span>def <span class="ident">submenu_click</span></span>(<span>self, arg1, arg2, arg3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def submenu_click(self, arg1, arg2, arg3):
+    print(&#34;submenu_click:&#34;, &#34;1&#34;, arg1, &#34;2&#34;, arg2, &#34;3&#34;, arg3)
+    #pedconfig.conf.sql.put(&#34;xx&#34;, xx)
+    if arg3 == 0:
+        print(&#34;submenu_click clip&#34;)
+        self.toclip(arg1.mylab, arg1.ccc)
+    if arg3 == 1:
+        print(&#34;submenu_click config&#34;)
+        self.config(arg1.butt, arg1.butt.org, arg1.mylab, arg1.ccc[1])
+    if arg3 == 2:
+        print(&#34;submenu_click face&#34;)</code></pre>
+</details>
+</dd>
+<dt id="chrispane.buttwin.toclip"><code class="name flex">
+<span>def <span class="ident">toclip</span></span>(<span>self, mylab, ccc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toclip(self, mylab, ccc):
+    disp2 = Gdk.Display()
+    disp = disp2.get_default()
+    clip = Gtk.Clipboard.get_default(disp)
+    clip.set_text(ccc[1], len(ccc[1]))
+    config.conf.pedwin.update_statusbar3(\
+                        &#34;Last Button: &#39;&#34; + mylab + &#34;&#39;&#34;)
+    ppp = str.split(str(ccc[1]), &#34;\n&#34;)
+    if not ppp[0]:
+        config.conf.pedwin.update_statusbar(\
+                &#34;This item is not configured&#34;)
+    else:
+        config.conf.pedwin.update_statusbar( \
+                &#34;Copied to clipboard: &#39;%s&#39;&#34; % ppp[0])</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="chrispane.edPane"><code class="flex name class">
+<span>class <span class="ident">edPane</span></span>
+<span>(</span><span>bname='No Name', focus=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>:Constructors:</p>
+<p>::</p>
+<pre><code>VPaned(**properties)
+new() -&gt; Gtk.Widget
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class edPane(Gtk.VPaned):
+
+    def __init__(self, bname = &#34;No Name&#34;, focus = False):
+
+        pos = config.conf.sql.get_int(&#34;vpaned&#34;)
+        if pos == 0: pos = 120
+
+        Gtk.VPaned.__init__(self)
+        self.set_border_width(3)
+        self.set_position(pos)
+        self.vbox = buttwin(bname);
+        self.add2(self.vbox)
+        self.bname = bname
+        #self.vbox2 = buttwin(buff, True)
+        #self.add1(self.vbox2)
+
+        self.set_size_request(100, 100)
+
+        # Shortcuts to access the editor windows
+        self.area  = self.vbox.area
+        #self.area2 = self.vbox2.area
+
+    def close_button(self, butt):
+        print(&#34;Close pressed, deactivated function&#34;)
+        pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>gi.repository.Gtk.VPaned</li>
+<li>gi.overrides.Gtk.Paned</li>
+<li>gi.repository.Gtk.Paned</li>
+<li>gi.overrides.Gtk.Container</li>
+<li>gi.repository.Gtk.Container</li>
+<li>gi.overrides.Gtk.Widget</li>
+<li>gi.repository.Gtk.Widget</li>
+<li>gi.repository.GObject.InitiallyUnowned</li>
+<li>gi.overrides.GObject.Object</li>
+<li>gi.repository.GObject.Object</li>
+<li>gi._gi.GObject</li>
+<li>gi.repository.Atk.ImplementorIface</li>
+<li>gi.repository.Gtk.Buildable</li>
+<li>gi.repository.Gtk.Orientable</li>
+<li>gobject.GInterface</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="chrispane.edPane.close_button"><code class="name flex">
+<span>def <span class="ident">close_button</span></span>(<span>self, butt)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close_button(self, butt):
+    print(&#34;Close pressed, deactivated function&#34;)
+    pass</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="chrispane.buttwin" href="#chrispane.buttwin">buttwin</a></code></h4>
+<ul class="two-column">
+<li><code><a title="chrispane.buttwin.butt_press" href="#chrispane.buttwin.butt_press">butt_press</a></code></li>
+<li><code><a title="chrispane.buttwin.config" href="#chrispane.buttwin.config">config</a></code></li>
+<li><code><a title="chrispane.buttwin.rcl" href="#chrispane.buttwin.rcl">rcl</a></code></li>
+<li><code><a title="chrispane.buttwin.rcl2" href="#chrispane.buttwin.rcl2">rcl2</a></code></li>
+<li><code><a title="chrispane.buttwin.submenu_click" href="#chrispane.buttwin.submenu_click">submenu_click</a></code></li>
+<li><code><a title="chrispane.buttwin.toclip" href="#chrispane.buttwin.toclip">toclip</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="chrispane.edPane" href="#chrispane.edPane">edPane</a></code></h4>
+<ul class="">
+<li><code><a title="chrispane.edPane.close_button" href="#chrispane.edPane.close_button">close_button</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

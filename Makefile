@@ -1,7 +1,7 @@
 # Makefile
 
 all:
-	@echo "Targets: help clean install pack git"
+	@echo "Targets: help clean install pack git docs"
 
 help:
 	@echo "Targets:"
@@ -10,6 +10,7 @@ help:
 	@echo "  make clean      -- Clean temporaies"
 	@echo "  make install    -- Install  "
 	@echo "  make pack       -- Package to gz"
+	@echo "  make docs       -- Create documentation"
 
 install:
 	@./install.py
@@ -32,5 +33,13 @@ pipinstall:
 
 pipuninstall:
 	pip uninstall clipmac
+
+docs:
+	@PYTHONPATH=clipmac pdoc --html -f clipmacro.py
+	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrisdlg.py
+	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrissql.py
+	@PYTHONPATH=clipmac pdoc --html -f clipmac/config.py
+	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrispane.py
+	@PYTHONPATH=clipmac pdoc --html -f clipmac/chriswin.py
 
 # End of Makefile

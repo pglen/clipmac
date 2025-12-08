@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Action Handler for find
+''' Action Handler for find  '''
 
 import re, string, warnings, sys
 
@@ -157,3 +157,4 @@ def     spacer(vbox, txt = "   "):
     vbox.pack_start(hbox, 0, 0, 0)
     return hbox
 
+# EOF

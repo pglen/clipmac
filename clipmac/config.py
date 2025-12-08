@@ -8,7 +8,7 @@
 
 import signal, os, time, sys
 
-sys.path.append(os.path.dirname(__file__) )
+#sys.path.append(os.path.dirname(__file__) )
 
 IDLE_TIMEOUT = 15               # Time for a backup save
 SYNCIDLE_TIMEOUT = 2            # Time for syncing windows and spelling

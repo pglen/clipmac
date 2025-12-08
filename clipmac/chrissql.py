@@ -2,11 +2,7 @@
 
 import sys, os, time, sqlite3
 
-#print("sql")
-import config
-#print(config.conf)
-
-# Replaces g c o n f, so it is less platforrm dependent
+# Replaces g c o n f, so it is less platform dependent
 
 class Pedsql():
 
@@ -139,10 +135,11 @@ class Pedsql():
     # Return None if no data
 
     def   rmall(self):
-        print("removing all")
+        #print("removing all")
         try:
             #c = self.conn.cursor()
             self.c.execute("delete from config")
+            self.conn.commit()
             rr = self.c.fetchone()
         except:
             print("Cannot delete sql data", sys.exc_info())

@@ -1,0 +1,4513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>chriswin API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>chriswin</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+
+import signal, os, time, sys, subprocess, platform
+import ctypes
+import warnings
+
+import gi
+gi.require_version(&#34;Gtk&#34;, &#34;3.0&#34;)
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GObject
+from gi.repository import GLib
+
+import  chrisdlg, chrissql, chrispane
+import config
+#print(config.conf)
+
+hidden = 0
+
+STATUSCOUNT = 5             # Length of the status bar timeout (in sec)
+
+treestore = None
+treestore2 = None
+notebook = None
+
+# ------------------------------------------------------------------------
+#  Define Application Main Window claass
+
+class ChrisMainWin():
+
+    def __init__(self, fname, parent, names):
+
+        self.full = False
+        self.fcount = 0
+        self.statuscount = 0
+        global altstate
+        altstate = False
+        #register_stock_icons()
+
+        global mained
+        mained = self
+
+        disp2 = Gdk.Display()
+        disp = disp2.get_default()
+        #print disp
+        scr = disp.get_default_screen()
+        ptr = disp.get_pointer()
+        mon = scr.get_monitor_at_point(ptr[1], ptr[2])
+        geo = scr.get_monitor_geometry(mon)
+        www = geo.width; hhh = geo.height
+        xxx = geo.x;     yyy = geo.y
+
+        # Resort to old means of getting screen w / h
+        if www == 0 or hhh == 0:
+            www = Gdk.screen_width(); hhh = Gdk.screen_height();
+
+        # Create the toplevel window
+        #window = Gtk.Window(Gtk.WINDOW_TOPLEVEL)
+        self.mywin = Gtk.Window()
+        #www = Gdk.screen_width(); hhh = Gdk.screen_height();
+
+        if config.conf.full_screen:
+            self.mywin.set_default_size(www, hhh)
+        else:
+            xx = config.conf.sql.get_int(&#34;xx&#34;)
+            yy = config.conf.sql.get_int(&#34;yy&#34;)
+            ww = config.conf.sql.get_int(&#34;ww&#34;)
+            hh = config.conf.sql.get_int(&#34;hh&#34;)
+
+            if ww == 0 or hh == 0:
+                self.mywin.set_position(Gtk.WindowPosition.CENTER)
+                self.mywin.set_default_size(5*www/8, 5*hhh/8)
+                self.mywin.move(www / 32, hhh / 10)
+            else:
+                self.mywin.set_default_size(ww, hh)
+                self.mywin.move(xx, yy)
+
+            #self.mywin.set_default_size(5*www/8, 5*hhh/8)
+            #self.mywin.set_position(Gtk.WindowPosition.CENTER)
+            #self.mywin.move(xxx + www / 16, yyy / hhh / 16)
+        try:
+            self.mywin.set_icon_from_file(config.basedir + os.sep + &#34;icon.png&#34;)
+
+        except:
+            print(&#34;Canot load icon.&#34;)
+
+        &#39;&#39;&#39;
+
+        merge = Gtk.UIManager()
+        #self.mywin.set_data(&#34;ui-manager&#34;, merge)
+
+        aa = create_action_group(self)
+        merge.insert_action_group(aa, 0)
+        self.mywin.add_accel_group(merge.get_accel_group())
+
+        try:
+            mergeid = merge.add_ui_from_string(ui_info)
+        except GLib.GError as msg:
+            print(&#34;Building menus failed: %s&#34; % msg)
+
+        # Add MRU
+        for cnt in range(6):
+            ss = &#34;/sess_%d&#34; % cnt
+            fname = config.conf.sql.get(ss)
+            if fname != &#34;&#34;:
+                self.add_mru(merge, aa, fname, ss)
+
+        merge_id = merge.new_merge_id()
+        #merge.add_ui(merge_id, &#34;ui/MenuBar/FileMenu/SaveAs&#34;, &#34;&#34;, \
+        #None, Gtk.UI_MANAGER_SEPARATOR, False)
+
+        #warnings.simplefilter(&#34;ignore&#34;)
+        mbar = merge.get_widget(&#34;/MenuBar&#34;)
+        mbar.show()
+        #warnings.simplefilter(&#34;default&#34;)
+        &#39;&#39;&#39;
+        self.mywin.set_events(Gdk.EventMask.ALL_EVENTS_MASK )
+
+        global notebook
+
+        # Create note for the main window, give access to it for all
+        notebook = Gtk.Notebook(); self.notebook = notebook
+        #notebook.popup_enable()
+        notebook.set_scrollable(True)
+        # test
+        #notebook.append_page(edPane([]))
+
+        #notebook.add_events(Gdk.FOCUS_CHANGE_MASK)
+        #notebook.add_events(Gdk.ALL_EVENTS_MASK)
+
+        notebook.connect(&#34;switch-page&#34;, self.note_swpage_cb)
+        notebook.connect(&#34;focus-in-event&#34;, self.note_focus_in)
+
+        # Futile attempts
+        #notebook.connect(&#34;change-current-page&#34;, self.note_page_cb)
+        #notebook.connect(&#34;grab-focus&#34;, self.note_grab_focus_cb)
+        #notebook.connect(&#34;focus&#34;, self.note_focus_cb)
+        #notebook.connect(&#34;create-window&#34;, self.note_create_cb)
+        #notebook.connect(&#34;enter-notify-event&#34;, self.note_enter_notify)
+
+        self.mywin.connect(&#34;window_state_event&#34;, self.update_resize_grip)
+        #self.mywin.connect(&#34;destroy&#34;, OnExit)
+        self.mywin.connect(&#34;unmap&#34;, OnExit)
+
+        self.mywin.connect(&#34;key-press-event&#34;, self.area_key)
+        self.mywin.connect(&#34;key-release-event&#34;, self.area_key)
+
+        #self.mywin.connect(&#34;set-focus&#34;, self.area_focus)
+        self.mywin.connect(&#34;focus-in-event&#34;, self.area_focus_in)
+        self.mywin.connect(&#34;focus-out-event&#34;, self.area_focus_out)
+        self.mywin.connect(&#34;window-state-event&#34;, self.area_winstate)
+        self.mywin.connect(&#34;size_allocate&#34;, self.area_size)
+
+        #self.mywin.connect(&#34;area-focus-event&#34;, self.area_focus_in)
+        #self.mywin.connect(&#34;event&#34;, self.area_event)
+        #self.mywin.connect(&#34;enter-notify-event&#34;, self.area_enter)
+        #self.mywin.connect(&#34;leave-notify-event&#34;, self.area_leave)
+        #self.mywin.connect(&#34;event&#34;, self.unmap)
+
+        #tbar = merge.get_widget(&#34;/ToolBar&#34;);
+        #tbar.set_tooltips(True)
+        #tbar.show()
+
+        self.hpaned = Gtk.HPaned();
+        self.hpaned.set_border_width(5)
+
+        #warnings.simplefilter(&#34;ignore&#34;)
+        scroll = Gtk.ScrolledWindow()
+        #warnings.simplefilter(&#34;default&#34;)
+
+        treeview = self.create_tree()
+        treeview.set_activate_on_single_click (True)
+        treeview.connect(&#34;row-activated&#34;,  self.tree_sel)
+        #treeview.connect(&#34;cursor-changed&#34;,  self.tree_sel_row)
+        self.treeview = treeview
+
+        treeview2 = self.create_vartree()
+        treeview2.set_activate_on_single_click (True)
+        treeview2.connect(&#34;row-activated&#34;,  self.tree_sel2)
+        #treeview2.connect(&#34;cursor-changed&#34;,  self.tree_sel_row2)
+        self.treeview2 = treeview2
+
+        vpaned = Gtk.VPaned(); vpaned.set_border_width(5)
+
+        scroll.add(treeview)
+        frame2 = Gtk.Frame(); frame2.add(scroll)
+        vpaned.add(frame2)
+
+        scroll2 = Gtk.ScrolledWindow()
+        scroll2.add(treeview2)
+        frame3 = Gtk.Frame(); frame3.add(scroll2)
+        vpaned.set_focus_chain((frame2,))
+        vpaned.add(frame3)
+
+        vpaned.set_position(self.get_height() - 340)
+        #hpaned.add(vpaned)
+
+        self.hpanepos = config.conf.sql.get_int(&#34;hpaned&#34;)
+        if self.hpanepos == 0: self.hpanepos = 200
+        self.hpaned.set_position(self.hpanepos)
+
+        #hpaned.pack2(Gtk.Label(&#34;hello &#34;))
+        self.hpaned.pack2(notebook)
+
+
+        #confbox = Gtk.HBox()
+        #bbb = Gtk.Button.new_with_mnemonic(&#34; _Configure &#34;);
+        #bbb.connect(&#34;clicked&#34;, self.config_tabs)
+
+        #confbox.pack_start(Gtk.Label(&#34; &#34;), 1, 1, 0)
+        ##confbox.pack_start(bbb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label(&#34;  &#34;), 0, 0, 0)
+        #confbox.pack_start(exitb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label(&#34; &#34;), 1, 1, 0)
+
+        # Create statusbars
+        #self.statusbar = Gtk.Statusbar()
+        #self.statusbar2 = Gtk.Statusbar()
+        #self.statusbar2.set_spacing(0)
+
+        # Replaced it with simple labels
+        slabs = Gtk.Label(&#34;   &#34;)
+        self.slab = Gtk.Label(&#34; status  &#34;)
+        self.slab.set_xalign(Gtk.Align.START)
+        self.slab.set_yalign(Gtk.Align.START)
+
+        shbox = Gtk.HBox()
+        shbox.pack_start(slabs, 0,0, 0)
+        shbox.pack_start(self.slab, 0, 0, 0)
+
+        #self.slab2 = Gtk.Label(&#34; status2  &#34;)
+        self.slab2 = Gtk.Label(&#34;      &#34;)
+
+        self.hpaned2 = Gtk.HPaned()
+
+        #hpaned2.set_border_width(5)
+
+        self.hpaned2.pack1(shbox, 1, 1)
+        #hpaned2.set_position(self.get_width() - 320)
+        self.hpaned2.set_position(self.get_width() / 2)
+        #hpaned2.pack2(self.slab2, 1, 1)
+
+        exitb = Gtk.Button.new_with_mnemonic(&#34;   E_xit   &#34;);
+        exitb.connect(&#34;clicked&#34;, self.butt_exit)
+
+        #hpaned2.pack2(self.statusbar2, 0, 0)
+        #shbox.pack_start(slab, False, 0, 0)
+        #shbox.pack_start(self.statusbar, False, 0, 0)
+        #hpaned2.pack1(self.statusbar, 1, 0)
+
+        bbox = Gtk.VBox()
+        #bbox.pack_start(mbar, 0,0, 0)
+        #bbox.pack_start(tbar, 0,0, 0)
+        bbox.pack_start(self.hpaned, 1, 1, 0)
+        bbox.pack_start(self.hpaned2, 0, 0, 0)
+        hbox2 = Gtk.HBox()
+        hbox2.pack_start(Gtk.Label(label= &#34;   &#34;), 1, 1, 0)
+        hbox2.pack_start(exitb, 0, 0, 0)
+        self.hpaned2.pack2(hbox2)
+        hbox2.pack_start(Gtk.Label(label= &#34;  &#34;), 0, 0, 0)
+
+        #bbox.pack_start(hbox2, 0, 0, 0)
+
+        self.mywin.add(bbox)
+        self.mywin.show_all()
+
+        sarr = [&#34;Sales&#34;, &#34;Quotes&#34;, &#34;Customers&#34;, &#34;Corporate&#34;,
+                    &#34;Correspondence&#34;, &#34;Todos&#34;, &#34;Personal&#34;, &#34;Finance&#34;]
+
+        # Add button tabs
+        for aa in sarr:
+            bw1 = chrispane.edPane(aa)
+            notebook.append_page(bw1)
+            lab1 = self.tablabel(aa)
+            notebook.set_tab_label(bw1, lab1)
+
+        # ----------------------------------------------------------------
+        # Read in buffers
+
+        &#39;&#39;&#39;
+        cnt = 0
+        for aa in names:
+            aaa = os.path.realpath(aa)
+            #print &#34;loading file: &#34;, aaa
+            vpaned = edPane()
+            ret = vpaned.area.loadfile(aaa)
+            if not ret:
+                self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;, creating ...&#34;. format(aaa))
+                ret = self.newfile(aaa)
+                if not ret:
+                    self.update_statusbar(&#34;Cannot create fle &#39;{0:s}&#39;&#34;. format(aaa))
+                    continue
+
+            ret = vpaned.area2.loadfile(aaa)
+
+            cnt += 1
+            notebook.append_page(vpaned)
+            vpaned.area.set_tablabel(vpaned, &#34;Hello&#34;)
+
+        if cnt == 0:
+            if(config.conf.verbose):
+                print(&#34;Loading session in&#34;, os.getcwd())
+            fcnt = config.conf.sql.get_int(&#34;cnt&#34;)
+
+            # Load old session
+            for nnn in range(fcnt):
+                ss = &#34;/sess_%d&#34; % nnn
+                fff = config.conf.sql.get_str(ss)
+
+                if(config.conf.verbose):
+                    print(&#34;Loading file:&#34;, fff)
+
+                vpaned = edPane()
+                ret = vpaned.area.loadfile(fff)
+                if not ret:
+                    self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+                    continue
+                    vpaned.area2.loadfile(fff)
+
+                notebook.append_page(vpaned)
+                vpaned.area.set_tablabel()
+        &#39;&#39;&#39;
+        # Show newly created buffers:
+        self.mywin.show_all()
+
+        # Set last file
+        fff = config.conf.sql.get_str(&#34;curr&#34;)
+
+        #print &#34;curr file&#34;, fff
+        cc = notebook.get_n_pages()
+        for mm in range(cc):
+            vcurr = notebook.get_nth_page(mm)
+            if vcurr.area.fname == fff:
+                #print &#34;found buff&#34;, fff
+                notebook.set_current_page(mm)
+                self.mywin.set_focus(vcurr.vbox.area)
+                break
+
+        # Set the signal handler for 1s tick
+        #signal.signal(signal.SIGALRM, handler_tick)
+        #signal.alarm(1)
+
+        config.conf.pbuttwin = self
+        # We use gobj instead of SIGALRM, so it is more multi platform
+        GLib.timeout_add(1000, handler_tick)
+
+        self.update_statusbar(
+                &#34;Initialized, right click on button to configure.&#34;)
+        #self.update_statusbar2()
+
+        # Add to accounting:
+        self.start_time = time.time()
+        #utils.timesheet(&#34;Started pyedpro&#34;, self.start_time, 0)
+        #print(&#34;conf&#34;, config.conf)
+
+
+    &#39;&#39;&#39;def loadfile(self, fff):
+        if(config.conf.verbose):
+            print(&#34;Loading file:&#34;, fff)
+        vpaned = edPane()
+        ret = vpaned.area.loadfile(fff)
+        if not ret:
+            self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+            print(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+        else:
+            vpaned.area2.loadfile(fff)
+            notebook.append_page(vpaned)
+            vpaned.area.set_tablabel()
+    &#39;&#39;&#39;
+    # --------------------------------------------------------------------
+    def close_button(self):
+        pass
+
+    def tablabel(self, namex):
+        # Set label to tab
+        label = Gtk.Label(namex)
+        label.set_tooltip_text(namex)
+        label.set_single_line_mode(True)
+
+        #image = Gtk.Image();
+        #image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
+        #butt = Gtk.Button();
+        #butt.add(image)
+        #butt.set_focus_on_click(False)
+        #butt.set_relief( Gtk.ReliefStyle.NONE)
+        #rc = butt.get_modifier_style()
+        #rc.xthickness = 1; rc.ythickness = 1
+        #butt.modify_style(rc)
+
+        #butt.connect(&#34;clicked&#34;, self.close_button)
+        #butt.set_tooltip_text(&#34;Close &#39;%s&#39;&#34; % os.path.basename(self.fname))
+        hbox = Gtk.HBox()
+
+        hbox.pack_start(label, 0, 0, 0)
+        #hbox.pack_start(butt, 0, 0, 0)
+        hbox.show_all()
+        return hbox
+
+    def butt_exit(self, butt):
+        #print(&#34;exit Butt pressed&#34;)
+        self.activate_exit()
+        pass
+
+    def config_tabs(self, butt):
+        strx = &#34;Not Implemented&#34;
+        dialog = Gtk.MessageDialog(None, None,
+                   Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, strx)
+        dialog.set_position(Gtk.WindowPosition.CENTER)
+        # Close dialog on user response
+        dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+        dialog.show()
+
+    def add_mru(self, merge, action_group, fname, mru):
+        if not fname:
+            return
+        sname = os.path.basename(fname)
+
+        #Gtk.Action(name, label, tooltip, stock_id)
+        ac = Gtk.Action(mru, sname, fname, None)
+        ac.connect(&#39;activate&#39;, self.activate_action)
+        action_group.add_action(ac)
+        merge_id = merge.new_merge_id()
+        #add_ui(merge_id, path, name, action, type, top)
+        #merge.add_ui(merge_id, &#34;/MenuBar/FileMenu/SaveAs&#34;, \
+        #            mru, mru, Gtk.UI_MANAGER_MENUITEM, False)
+
+    def area_winstate(self, arg1, arg2):
+        pass
+        #print &#34;area_winstate&#34;, arg1, arg2
+        #print &#34;state&#34;, self.mywin.get_state()
+
+    def unmap(self, arg1, arg2):
+        #print &#34;unmap&#34;, arg1, arg2
+        pass
+
+    def tree_sel_row(self, xtree):
+        pass
+        #sel = xtree.get_selection()
+        #xmodel, xiter = sel.get_selected()
+        #if xiter:
+        #    xstr = xmodel.get_value(xiter, 0)
+        #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+        #    vcurr.area.locate(xstr)
+
+    def tree_sel_row2(self, xtree):
+        pass
+        #sel = xtree.get_selection()
+        #xmodel, xiter = sel.get_selected()
+        #print(&#34;tree_sel_row2&#34;, xtree, xmodel, xiter)
+        #if xiter:
+        #    xstr = xmodel.get_value(xiter, 0)
+        #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+        #    vcurr.area.locate(xstr)
+
+    def tree_sel(self, xtree, xiter, xpath):
+        #print(&#34;tree_sel&#34;, xtree, xiter, xpath)
+        # Focus on main doc
+        sel = xtree.get_selection()
+        xmodel, xiter = sel.get_selected()
+        if xiter:
+            xstr = xmodel.get_value(xiter, 0)
+            vcurr = notebook.get_nth_page(notebook.get_current_page())
+            vcurr.area.locate(xstr)
+
+    def tree_sel2(self, xtree, xiter, xpath):
+        #print(&#34;tree_sel2&#34;, xtree, xiter, xpath)
+        # Focus on main doc
+        sel = xtree.get_selection()
+        xmodel, xiter = sel.get_selected()
+        if xiter:
+            xstr = xmodel.get_value(xiter, 0)
+            vcurr = notebook.get_nth_page(notebook.get_current_page())
+            vcurr.area.locate(xstr)
+
+    # Call key handler
+    def area_key(self, area, event):
+        #print(&#34;area_key key:&#34;, event.keyval, &#34;state:&#34;, event.state)
+
+        chrispane.keystate = event.state
+        # Do key down:
+        if  event.type == Gdk.EventType.KEY_PRESS:
+            if event.keyval == Gdk.KEY_Alt_L or \
+                    event.keyval == Gdk.KEY_Alt_R:
+                chrispane.altstate = True;
+
+            if event.keyval == Gdk.KEY_Shift_L or \
+                    event.keyval == Gdk.KEY_Shift_R:
+                chrispane.shiftstate = True
+
+            &#39;&#39;&#39;if event.keyval &gt;= Gtk.keysyms._1 and event.keyval &lt;= Gtk.keysyms._9:
+                #print &#34;pbuttwin Alt num&#34;, event.keyval - Gtk.keysyms._1
+                 # Focus on main doc
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                self.mywin.set_focus(vcurr.vbox.area)
+             &#39;&#39;&#39;
+
+        elif  event.type == Gdk.EventType.KEY_RELEASE:
+            if event.keyval == Gdk.KEY_Alt_L or \
+                    event.keyval == Gdk.KEY_Alt_R:
+                chrispane.altstate = False;
+
+            if event.keyval == Gdk.KEY_Shift_L  or \
+                    event.keyval == Gdk.KEY_Shift_R:
+                chrispane.shiftstate = False
+
+        if altstate:
+            if event.keyval == Gdk.KEY_x :
+                #print(&#34;altx&#34;)
+                self.activate_exit()
+
+    def get_height(self):
+        xx, yy = self.mywin.get_size()
+        return yy
+
+    def get_width(self):
+        xx, yy = self.mywin.get_size()
+        return xx
+
+    def start_tree(self):
+
+        global treestore
+        if not treestore:
+            treestore = Gtk.TreeStore(str)
+
+    def start_tree2(self):
+
+        global treestore2
+        if not treestore2:
+            treestore2 = Gtk.TreeStore(str)
+
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore.remove(root)
+                except:
+                    print(&#34;Exception on rm treestore&#34;)
+        except:
+            print(&#34;strt_tree&#34;, sys.exc_info())
+            pass
+
+        piter = treestore.append(None, [&#34;Extracting ..&#34;])
+        treestore.append(piter, [&#34;None ..&#34;])
+
+    # --------------------------------------------------------------------
+    def create_tree(self, text = None):
+
+        global treestore
+        self.start_tree()
+
+        # create the TreeView using treestore
+        tv = Gtk.TreeView(treestore)
+
+        # create a CellRendererText to render the data
+        cell = Gtk.CellRendererText()
+
+        # create the TreeViewColumn to display the data
+        tvcolumn = Gtk.TreeViewColumn(&#39;Functions&#39;)
+
+        # add the cell to the tvcolumn and allow it to expand
+        tvcolumn.pack_start(cell, True)
+
+        # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+        # from that column in treestore
+        tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+        # add tvcolumn to treeview
+        tv.append_column(tvcolumn)
+
+        return tv
+
+    # --------------------------------------------------------------------
+    def create_vartree(self, text = None):
+
+        global treestore2
+        self.start_tree2()
+
+        # create the TreeView using treestore
+        tv = Gtk.TreeView(treestore2)
+
+        # create a CellRendererText to render the data
+        cell = Gtk.CellRendererText()
+
+        # create the TreeViewColumn to display the data
+        tvcolumn = Gtk.TreeViewColumn(&#39;Local Scope&#39;)
+
+        # add the cell to the tvcolumn and allow it to expand
+        tvcolumn.pack_start(cell, True)
+
+        # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+        # from that column in treestore
+        tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+        # add tvcolumn to treeview
+        tv.append_column(tvcolumn)
+
+        return tv
+
+    # --------------------------------------------------------------------
+    def update_treestore(self, text):
+
+        global treestore
+
+        if not treestore: return
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore.remove(root)
+                except:
+                    print(&#34;except: treestore remove&#34;)
+        except:
+            print(&#34;update_tree&#34;, sys.exc_info())
+            pass
+
+        if not text:
+            return
+
+        try:
+            for line in text:
+                piter = treestore.append(None, [cut_lead_space(line)])
+        except:
+            print(&#34;Exception in append treestore&#34;, sys.exc_info())
+
+    # --------------------------------------------------------------------
+    def update_treestore2(self, text):
+
+        global treestore2
+
+        if not treestore2: return
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore2.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore2.remove(root)
+                except:
+                    print(&#34;except: treestore remove&#34;)
+        except:
+            print(&#34;update_tree2&#34;, sys.exc_info())
+            pass
+
+        if not text:
+            return
+
+        try:
+            for line in text:
+                piter = treestore2.append(None, [cut_lead_space(line)])
+        except:
+            print(&#34;Exception in append treestore2&#34;, sys.exc_info())
+
+    # --------------------------------------------------------------------
+    # Handlers: (deactivated)
+
+    def area_event(self, win, act):
+        pass
+        #print  &#34;pbuttwin area event&#34;, win, act
+
+    def area_leave(self, win, act):
+        pass
+        #print  &#34;pbuttwin area leave&#34;, win, act
+
+    def area_enter(self, win, act):
+        pass
+        #print  &#34;pbuttwin area enter&#34;, win, act
+
+    def area_focus(self, win, act):
+        pass
+        #print  &#34;pbuttwin area focus&#34;, win, act
+
+    def area_focus_in(self, win, act):
+        #print  &#34;area focus in&#34;, win, act
+        # This was needed as pygtk leaves the alt key hanging
+        #config.conf.keyh.reset()
+        pass
+        # Focus on main doc
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def area_focus_out(self, win, act):
+        pass
+        #print  &#34;area focus out&#34;, win, act
+
+    def area_size(self, win, rect):
+        #print  &#34;area size&#34;, rect
+        self.hpaned2.set_position(self.get_width() - 280)
+
+    def  note_focus_in(self, win, act):
+        pass
+        #print &#34;note_focus_in&#34;, win, act
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def note_enter_notify(self, win):
+        pass
+        #print &#34;note_enter_notify&#34;, win
+
+    def  note_grab_focus_cb(self, win):
+        #print &#34;note_grab_focus_cb&#34;, win
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def  note_swpage_cb(self, tabx, page, num):
+        #print &#34;note_swpage&#34;, num
+        vcurr = tabx.get_nth_page(num)
+        self.mywin.set_title(&#34;Clipboard Buttons: &#39;&#34; + vcurr.bname + &#34;&#39;&#34;);
+        self.mywin.set_focus(vcurr.vbox.area)
+        #fname = os.path.basename(vcurr.area.fname)
+        self.update_statusbar(&#34;Switched to &#39;{1:s}&#39;&#34;.format(num, vcurr.bname))
+
+    def  note_page_cb(self, tabx, child, num):
+        pass
+        #print &#34;note_page&#34;
+
+    def note_focus_cb(self, tabx, foc):
+        #print &#34;note_focus_cb&#34;
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def note_create_cb(self, tabx, page, xx, yy):
+        pass
+        #print &#34;note_create&#34;
+
+    # Devhelp Message handler
+    def activate_dhelp(self, action):
+        self.update_statusbar(&#34;Showing DevHelp&#34;)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f2(vcurr2.area)
+            pass
+
+    # Devhelp Message handler
+    def activate_khelp(self, action):
+        self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f3(vcurr2.area)
+            pass
+
+    def activate_qhelp(self, action):
+        self.update_statusbar(&#34;Showing quick help&#34;)
+        rr = get_exec_path(&#34;QHELP&#34;)
+        try:
+            if platform.system().find(&#34;Win&#34;) &gt;= 0:
+                xxx = get_exec_path(&#34;..&#34; + os.sep + &#34;pangview.py&#34;)
+                print(xxx, rr)
+                ret = subprocess.Popen([&#34;python&#34;, xxx,  rr])
+            else:
+                ret = subprocess.Popen([&#34;pangview.py&#34;,  rr])
+        except:
+            pedync.message(&#34;\n Cannot launch the pangview.py utility. \n\n&#34;
+                           &#34;              (Please install)&#34;)
+
+    def activate_about(self, action):
+        self.update_statusbar(&#34;Showing About Dialog&#34;)
+        pedync.about(self)
+
+    def newfile(self, newname = &#34;&#34;):
+
+        if newname == &#34;&#34;:
+            # Find non existing file
+            cnt = self.fcount + 1; fff = &#34;&#34;
+            base, ext = os.path.splitext(config.conf.UNTITLED)
+            while True:
+                fff =  &#34;%s_%d.txt&#34; % (base, cnt)
+                #print fff
+                if not os.path.isfile(fff):
+                    break;
+                cnt += 1
+
+            self.fcount = cnt
+        else:
+            fff = newname
+            # Touch
+            try:
+                open(fff, &#34;w&#34;).close()
+            except:
+                sss = &#34;Cannot create file %s&#34; % newname
+                self.update_statusbar(sss)
+                print(sss,  sys.exc_info())
+                pedync.message(&#34;\n&#34; + sss + &#34;\n&#34;)
+                return
+
+        vpaned = edPane([])
+        vpaned.area.fname = os.path.realpath(fff) + &#34;&#34;
+        global notebook
+        notebook.append_page(vpaned)
+        vpaned.area.set_tablabel()
+
+        #label = Gtk.Label(&#34; &#34; + os.path.basename(aa) + &#34; &#34;)
+        #notebook.set_tab_label(vpaned, label)
+        self.mywin.show_all()
+
+        # Make it current
+        nn = notebook.get_n_pages();
+        if nn:
+            vcurr = notebook.set_current_page(nn-1)
+            vcurr = notebook.get_nth_page(nn-1)
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    # Traditional open file
+    def open(self):
+
+        warnings.simplefilter(&#34;ignore&#34;)
+        but =   &#34;Cancel&#34;, Gtk.ButtonsType.CANCEL,\
+         &#34;Open File&#34;, Gtk.ButtonsType.OK
+        fc = Gtk.FileChooserDialog(&#34;Open file&#34;, self.mywin, \
+             Gtk.FileChooserAction.OPEN  \
+            #Gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER
+            , but)
+        warnings.simplefilter(&#34;default&#34;)
+
+        fc.set_default_response(Gtk.ButtonsType.OK)
+        fc.set_current_folder(os.getcwd())
+        fc.connect(&#34;response&#34;, self.done_open_fc)
+        fc.connect(&#34;current-folder-changed&#34;, self.folder_ch )
+
+        #fc.set_current_name(self.fname)
+        fc.run()
+
+    def save(self, flag = False):
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if flag:
+            vcurr.area.saveas()
+            self.mywin.set_title(&#34;pyedpro: &#34; + vcurr.area.fname);
+
+        else:
+            vcurr.area.save()
+
+    def copy(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_c(vcurr2.area)
+            pass
+
+    def cut(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+             #config.conf.keyh.act.ctrl_x(vcurr2.area)
+             pass
+
+    def paste(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_v(vcurr2.area)
+            pass
+
+    # -------------------------------------------------------------------
+    # Menu callback
+
+    def activate_action(self, action):
+
+        #dialog = Gtk.MessageDialog(None, Gtk.DIALOG_DESTROY_WITH_PARENT,
+        #    Gtk.MESSAGE_INFO, Gtk.BUTTONS_CLOSE,
+        #    &#39;Action: &#34;%s&#34; of type &#34;%s&#34;&#39; % (action.get_name(), type(action)))
+        # Close dialog on user response
+        #dialog.connect (&#34;response&#34;, lambda d, r: d.destroy())
+        #dialog.show()
+
+        warnings.simplefilter(&#34;ignore&#34;)
+        strx = action.get_name()
+        warnings.simplefilter(&#34;default&#34;)
+
+        #print (&#34;activate_action&#34;, strx)
+
+        if strx == &#34;Close All&#34;:
+            self.closeall()
+
+        if strx == &#34;Load Session&#34;:
+            #print(&#34;Loading session&#34;)
+            load_sess()
+
+        if strx == &#34;Save Session&#34;:
+            #print(&#34;Saving session&#34;)
+            # Gather all file names
+            accum = &#34;&#34;
+            nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+            while True:
+                if cnt &gt;= nn: break
+                ppp = notebook.get_nth_page(cnt)
+                #print (&#34;file:&#34;, ppp.area.fname)
+                accum +=  ppp.area.fname + &#34;\n&#34;
+                cnt += 1
+            #print (&#34;file list&#34;, accum)
+            save_sess(accum)
+
+            self.update_statusbar(&#34;Session %s saved.&#34; % (&#34;noname&#34;))
+
+        if strx == &#34;Start Terminal&#34;:
+            #print(&#34;Starting terminal&#34;)
+            os.system(&#34;C:\\msys64\\mingw32.exe&#34;)
+
+        if strx == &#34;New&#34;:
+            self.newfile();
+
+        if strx == &#34;Open&#34;:
+            self.open()
+
+        if strx == &#34;Save&#34;:
+            self.save()
+
+        if strx == &#34;SaveAs&#34;:
+            self.save(True)
+
+        if strx == &#34;Close&#34;:
+            self.closedoc()
+
+        if strx == &#34;Copy&#34;:
+            self.copy()
+
+        if strx == &#34;Cut&#34;:
+            self.cut()
+
+        if strx == &#34;Paste&#34;:
+            self.paste()
+
+        if strx == &#34;Goto&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.alt_g(vcurr2.area)
+                pass
+
+        if strx == &#34;Find&#34;:
+            #print &#34;find&#34;
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_f(vcurr2.area)
+                pass
+
+        if strx == &#34;Record&#34;:
+            #print &#34;record&#34;
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f7(vcurr2.area)
+                pass
+
+        if strx == &#34;Play&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f8(vcurr2.area)
+                pass
+
+        if strx == &#34;Spell&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f9(vcurr2.area)
+                pass
+
+        if strx == &#34;Spell2&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f9(vcurr2.area, True)
+                pass
+
+        if strx == &#34;Animate&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f8(vcurr2.area, True)
+                pass
+
+        if strx == &#34;Undo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_z(vcurr2.area)
+                pass
+
+        if strx == &#34;Redo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_y(vcurr2.area)
+                pass
+
+        if strx == &#34;SaveAll&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.alt_a(vcurr2.area)
+                pass
+
+        if strx == &#34;Discard Undo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.delundo()
+
+        if strx == &#34;Savemacro&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.savemacro()
+
+        if strx == &#34;Loadmacro&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.loadmacro()
+
+        if strx == &#34;NextWin&#34;:
+            self.nextwin()
+
+        if strx == &#34;PrevWin&#34;:
+            self.prevwin()
+
+        if strx == &#34;ShowLog&#34;:
+            log.show_log()
+
+        if strx.find(&#34;/sess_&#34;) &gt;= 0:
+            fname = config.conf.sql.get_str(strx)
+            self.openfile(fname)
+
+        if strx == &#34;Colors&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                pedcolor.colors(self, vcurr2.area)
+
+        if strx == &#34;Fonts&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                pedfont.selfont(self, vcurr2.area)
+
+        if strx == &#34;Settings&#34;:
+            self.update_statusbar(&#34;Showing Settings Dialog&#34;)
+            pedync.message(&#34;\n    Settings: Work in progress    \n&#34;)
+
+        if strx == &#34;Help&#34;:
+            #pedync.message(&#34;\n    Help: Work in progress    \n&#34;)
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f1(vcurr2.area)
+                pass
+                pass
+
+        if strx == &#34;KeyDoc&#34;:
+            self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+            fname = get_exec_path(&#34;KEYS.TXT&#34;)
+            self.openfile(fname)
+
+    def closeall(self):
+        cc = notebook.get_n_pages()
+        for aa in range(cc-1, -1, -1):
+            #print (&#34;closing doc index&#34;, aa)
+            vcurr = notebook.get_nth_page(aa)
+            vcurr.area.closedoc()
+            notebook.remove_page(aa)
+
+    def closedoc(self, other = None):
+        cc = notebook.get_n_pages()
+        if other:
+            for aa in range(cc):
+                vcurr = notebook.get_nth_page(aa)
+                if vcurr.area == other:
+                    notebook.set_current_page(aa)
+                    break
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+        # Disable close
+        if vcurr.area.closedoc():
+            return
+
+        # Wrap around if closed first
+        if nn == 0: mm = cc - 1
+        else:       mm = nn - 1
+
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        notebook.remove_page(nn)
+        self.mywin.show_all()
+
+    def  firstwin(self):
+        cc = notebook.get_n_pages()
+        if cc == 0:
+            return
+        notebook.set_current_page(0)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  lastwin(self):
+        cc = notebook.get_n_pages()
+        if cc == 0:
+            return
+        notebook.set_current_page(cc-1)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  nextwin(self):
+        cc = notebook.get_n_pages()
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+
+        # Wrap around if needed
+        if nn == cc - 1: mm = 0
+        else:       mm = nn + 1
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  prevwin(self):
+        cc = notebook.get_n_pages()
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+
+        # Wrap around if needed
+        if nn == 0: mm = cc - 1
+        else:       mm = nn - 1
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def folder_ch(self, win):
+        #print &#34;folder_ch&#34;
+        pass
+        #return True
+
+    def done_open_fc(self, win, resp):
+        #print &#34;done_open_fc&#34;, win, resp
+        if resp == Gtk.ButtonsType.OK:
+            fname = win.get_filename()
+            if not fname:
+                #print &#34;Must have filename&#34;
+                self.update_statusbar(&#34;No filename specified&#34;)
+                pass
+            elif os.path.isdir(fname):
+                self.update_statusbar(&#34;Changed to %s&#34; % fname)
+                os.chdir(fname)
+                win.set_current_folder(fname)
+                return
+            else:
+                self.openfile(fname)
+        win.destroy()
+
+    def saveall(self):
+        #print &#34;saveall&#34;
+        # Save all files
+        nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+        while True:
+            if cnt &gt;= nn: break
+            ppp = notebook.get_nth_page(cnt)
+            if ppp.area.changed:
+                ppp.area.writeout()
+                cnt2 += 1
+            cnt += 1
+
+        self.update_statusbar(&#34;%d of %d buffers saved.&#34; % (cnt2, nn))
+
+    # -------------------------------------------------------------------
+    def openfile(self, fname):
+
+        # Is it already loaded? ... activate
+        nn = notebook.get_n_pages();
+        for aa in range(nn):
+            vcurr = notebook.get_nth_page(aa)
+            if vcurr.area.fname == fname:
+                if(config.conf.verbose):
+                    print(&#34;Already open &#39;&#34;+ fname + &#34;&#39;&#34;)
+                    self.update_statusbar(&#34;Already open, activating &#39;{0:s}&#39;&#34;.format(fname))
+                vcurr = notebook.set_current_page(aa)
+                vcurr = notebook.get_nth_page(aa)
+                self.mywin.set_focus(vcurr.vbox.area)
+                return
+
+        if(config.conf.verbose):
+            print(&#34;Opening &#39;&#34;+ fname + &#34;&#39;&#34;)
+
+        self.update_statusbar(&#34;Opening file &#39;{0:s}&#39;&#34;.format(fname))
+        vpaned = edPane()
+        ret = vpaned.area.loadfile(os.path.realpath(fname))
+        if not ret:
+            self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fname))
+            return
+        vpaned.area2.loadfile(os.path.realpath(fname))
+        self.update_statusbar(&#34;Opened file &#39;{0:s}&#39;&#34;.format(fname))
+
+        # Add to the list of buffers
+        notebook.append_page(vpaned)
+        vpaned.area.set_tablabel()
+        self.mywin.show_all()
+        # Make it current
+        nn = notebook.get_n_pages();
+        if nn:
+            vcurr = notebook.set_current_page(nn-1)
+            vcurr = notebook.get_nth_page(nn-1)
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def activate_exit(self, action = None):
+        #print &#34;activate_exit called&#34;
+        OnExit(self.mywin)
+
+    def activate_quit(self, action):
+        #print &#34;activate_quit called&#34;
+        OnExit(self.mywin, False)
+
+    def activate_radio_action(self, action, current):
+        active = current.get_active()
+        value = current.get_current_value()
+
+        if active:
+            dialog = Gtk.MessageDialog(self, Gtk.DIALOG_DESTROY_WITH_PARENT,
+                Gtk.MESSAGE_INFO, Gtk.ButtonsType.CLOSE,
+&#34;You activated radio action: \&#34;%s\&#34; of type \&#34;%s\&#34;.\nCurrent value: %d&#34; %
+                (current.get_name(), type(current), value))
+
+            # Close dialog on user response
+            dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+            dialog.show()
+
+    # This is the line count / pos status bar
+    def update_statusbar2(self, xx = 0, yy = 0, ins = 0, tlen = 0, clip = 0):
+        # Always update line / col
+        if ins: str2 = &#34;INS&#34;
+        else: str2 =&#34;OVR&#34;
+        strx2 = &#34;Ln {0:d} Col {1:d} Tot {3:d}  {2:s} Clip {4:d}&#34;.\
+                        format(int(yy+1), int(xx+1), str2, tlen, clip)
+        #self.statusbar2.pop(0)
+        #self.statusbar2.push(0, strx2)
+        self.slab2.set_text(strx2)
+
+    def update_statusbar3(self, strx2):
+        self.slab2.set_text(strx2)
+
+    def update_statusbar(self, strx):
+        # Clear any previous message, underflow is allowed
+        #self.statusbar.pop(0)
+        if not strx:
+            self.update_statusbar(&#34;Idle&#34;)
+            return
+
+        #self.statusbar.push(0, strx)
+        self.statuscount = STATUSCOUNT
+        self.slab.set_text(strx)
+        pass
+
+    def update_resize_grip(self, widget, event):
+        #print &#34;update state&#34;, event, event.changed_mask
+        #self.mywin.set_focus(notebook)
+
+        mask = Gdk.WindowState.MAXIMIZED
+        # | Gdk.FULLSCREEN
+        &#39;&#39;&#39;if (event.changed_mask &amp; mask):
+self.statusbar.set_has_resize_grip(not (event.new_window_state &amp; mask))
+        &#39;&#39;&#39;
+# ------------------------------------------------------------------------
+
+def     OnExit(arg, prompt = True):
+
+    arg.set_title(&#34;Exiting ...&#34;)
+
+    # Save UI related data
+    pos = mained.hpaned.get_position()
+    pos = max(pos, 1)
+
+    config.conf.sql.put(&#34;hpaned&#34;, pos, 0)
+
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        pos = vcurr .get_position()
+        pos = max(pos, 1)
+
+        config.conf.sql.put(&#34;vpaned&#34;, pos, 0)
+
+    # Do not save full screen coordinates (when used F11)
+    #print mained.full
+
+    if not mained.full:
+        xx, yy = mained.mywin.get_position()
+
+        config.conf.sql.put(&#34;xx&#34;, xx, 0)
+        config.conf.sql.put(&#34;yy&#34;, yy, 0)
+
+        ww, hh = mained.mywin.get_size()
+
+        config.conf.sql.put(&#34;ww&#34;, ww, 0)
+        config.conf.sql.put(&#34;hh&#34;, hh, 0)
+
+    # Save current doc to config memory:
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        config.conf.sql.put(&#34;curr&#34;, vcurr.area.fname, 0)
+
+    &#39;&#39;&#39;
+    # Prompt for save files. Build list and execute saves
+    parr = []
+    for aa in range(notebook.get_n_pages()):
+        parr.append(notebook.get_nth_page(aa))
+
+    cnt2 = 0
+    for ppp in parr:
+        #print (&#34;close:&#34;, ppp.area.fname)
+        ppp.area.saveparms()
+        ss = &#34;/sess_%d&#34; % cnt2
+        if cnt2 &lt; 30:
+            config.conf.sql.put(ss, ppp.area.fname, 0)
+            cnt2 += 1
+
+        if ppp.area.changed:
+            if prompt:
+                # This way all the closing doc functions get called
+                if ppp.area.closedoc():
+                    return
+            else:
+                # Rescue to temporary:
+                hhh = hash_name(ppp.area.fname) + &#34;.rescue&#34;
+                xfile = config.conf.config_dir + &#34;/&#34; + hhh
+                if(config.conf.verbose):
+                    print(&#34;Rescuing&#34;, xfile)
+                writefile(xfile, ppp.area.text, &#34;\n&#34;)
+
+    config.conf.sql.put(&#34;cnt&#34;, cnt2, 0)
+
+    if(config.conf.verbose):
+        print(&#34;Exiting&#34;)
+
+    # Add to accounting:
+    # utils.timesheet(&#34;Ended pyedpro&#34;, mained.start_time, time.time())
+    &#39;&#39;&#39;
+    # Exit here
+    Gtk.main_quit()
+
+    #print &#34;OnExit called \&#34;&#34; + arg.get_title() + &#34;\&#34;&#34;
+
+# ------------------------------------------------------------------------
+
+#def handler_tick(signum, frame):
+def handler_tick():
+
+    #print &#34;handler_tick&#34;
+
+    try:
+        #print &#39;Signal handler called with signal&#39;
+        #print config.conf.idle, config.conf.syncidle
+
+        global notebook, hidden
+
+        if not hidden:
+            hidden = True
+            try:
+                #a = input(&#39;Input value here:&#39;)
+                kernel32 = ctypes.WinDLL(&#39;kernel32&#39;)
+                user32 = ctypes.WinDLL(&#39;user32&#39;)
+
+                if kernel32:
+                    print(&#34;Hiding controlling terminal&#34;)
+                    SW_HIDE = 0
+                    hWnd = kernel32.GetConsoleWindow()
+                    user32.ShowWindow(hWnd, SW_HIDE)
+            except:
+                pass
+
+        if config.conf.pbuttwin.statuscount:
+            config.conf.pbuttwin.statuscount -= 1
+            if config.conf.pbuttwin.statuscount == 0:
+                config.conf.pbuttwin.update_statusbar(&#34;Idle.&#34;);
+                config.conf.pbuttwin.update_statusbar3(&#34;&#34;);
+                config.conf.pbuttwin.statuscount = 0
+
+        &#39;&#39;&#39;if config.conf.idle:
+            config.conf.idle -= 1
+            if config.conf.idle == 0:
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                # Rescue to save:
+                if vcurr:
+                    vcurr.area.source_id = \
+                        GLib.idle_add(vcurr.area.idle_callback)
+
+        if config.conf.syncidle:
+            config.conf.syncidle -= 1
+            if config.conf.syncidle == 0:
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                if vcurr:
+                    #pedspell.spell(vcurr.area)
+                    vcurr.area.source_id2 = \
+                    GLib.idle_add(vcurr.area.idle_callback2)
+                    if len(vcurr.area2.text) == 0:
+                        vcurr.area2.text = vcurr.area.text
+                        vcurr.area2.fname = vcurr.area.fname
+                        vcurr.area2.set_maxlines()
+                        vcurr.area2.set_maxlinelen()
+
+                    if vcurr.area.changed:
+                        vcurr.area2.text = vcurr.area.text
+                        vcurr.area2.set_maxlines(0)
+                        vcurr.area2.invalidate()
+        &#39;&#39;&#39;
+
+    except:
+        print(&#34;Exception in timer handler&#34;, sys.exc_info())
+
+    try:
+        GLib.timeout_add(1000, handler_tick)
+    except:
+        print(&#34;Exception in setting timer handler&#34;, sys.exc_info())
+
+# EOF</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="chriswin.OnExit"><code class="name flex">
+<span>def <span class="ident">OnExit</span></span>(<span>arg, prompt=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def     OnExit(arg, prompt = True):
+
+    arg.set_title(&#34;Exiting ...&#34;)
+
+    # Save UI related data
+    pos = mained.hpaned.get_position()
+    pos = max(pos, 1)
+
+    config.conf.sql.put(&#34;hpaned&#34;, pos, 0)
+
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        pos = vcurr .get_position()
+        pos = max(pos, 1)
+
+        config.conf.sql.put(&#34;vpaned&#34;, pos, 0)
+
+    # Do not save full screen coordinates (when used F11)
+    #print mained.full
+
+    if not mained.full:
+        xx, yy = mained.mywin.get_position()
+
+        config.conf.sql.put(&#34;xx&#34;, xx, 0)
+        config.conf.sql.put(&#34;yy&#34;, yy, 0)
+
+        ww, hh = mained.mywin.get_size()
+
+        config.conf.sql.put(&#34;ww&#34;, ww, 0)
+        config.conf.sql.put(&#34;hh&#34;, hh, 0)
+
+    # Save current doc to config memory:
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        config.conf.sql.put(&#34;curr&#34;, vcurr.area.fname, 0)
+
+    &#39;&#39;&#39;
+    # Prompt for save files. Build list and execute saves
+    parr = []
+    for aa in range(notebook.get_n_pages()):
+        parr.append(notebook.get_nth_page(aa))
+
+    cnt2 = 0
+    for ppp in parr:
+        #print (&#34;close:&#34;, ppp.area.fname)
+        ppp.area.saveparms()
+        ss = &#34;/sess_%d&#34; % cnt2
+        if cnt2 &lt; 30:
+            config.conf.sql.put(ss, ppp.area.fname, 0)
+            cnt2 += 1
+
+        if ppp.area.changed:
+            if prompt:
+                # This way all the closing doc functions get called
+                if ppp.area.closedoc():
+                    return
+            else:
+                # Rescue to temporary:
+                hhh = hash_name(ppp.area.fname) + &#34;.rescue&#34;
+                xfile = config.conf.config_dir + &#34;/&#34; + hhh
+                if(config.conf.verbose):
+                    print(&#34;Rescuing&#34;, xfile)
+                writefile(xfile, ppp.area.text, &#34;\n&#34;)
+
+    config.conf.sql.put(&#34;cnt&#34;, cnt2, 0)
+
+    if(config.conf.verbose):
+        print(&#34;Exiting&#34;)
+
+    # Add to accounting:
+    # utils.timesheet(&#34;Ended pyedpro&#34;, mained.start_time, time.time())
+    &#39;&#39;&#39;
+    # Exit here
+    Gtk.main_quit()
+
+    #print &#34;OnExit called \&#34;&#34; + arg.get_title() + &#34;\&#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="chriswin.handler_tick"><code class="name flex">
+<span>def <span class="ident">handler_tick</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def handler_tick():
+
+    #print &#34;handler_tick&#34;
+
+    try:
+        #print &#39;Signal handler called with signal&#39;
+        #print config.conf.idle, config.conf.syncidle
+
+        global notebook, hidden
+
+        if not hidden:
+            hidden = True
+            try:
+                #a = input(&#39;Input value here:&#39;)
+                kernel32 = ctypes.WinDLL(&#39;kernel32&#39;)
+                user32 = ctypes.WinDLL(&#39;user32&#39;)
+
+                if kernel32:
+                    print(&#34;Hiding controlling terminal&#34;)
+                    SW_HIDE = 0
+                    hWnd = kernel32.GetConsoleWindow()
+                    user32.ShowWindow(hWnd, SW_HIDE)
+            except:
+                pass
+
+        if config.conf.pbuttwin.statuscount:
+            config.conf.pbuttwin.statuscount -= 1
+            if config.conf.pbuttwin.statuscount == 0:
+                config.conf.pbuttwin.update_statusbar(&#34;Idle.&#34;);
+                config.conf.pbuttwin.update_statusbar3(&#34;&#34;);
+                config.conf.pbuttwin.statuscount = 0
+
+        &#39;&#39;&#39;if config.conf.idle:
+            config.conf.idle -= 1
+            if config.conf.idle == 0:
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                # Rescue to save:
+                if vcurr:
+                    vcurr.area.source_id = \
+                        GLib.idle_add(vcurr.area.idle_callback)
+
+        if config.conf.syncidle:
+            config.conf.syncidle -= 1
+            if config.conf.syncidle == 0:
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                if vcurr:
+                    #pedspell.spell(vcurr.area)
+                    vcurr.area.source_id2 = \
+                    GLib.idle_add(vcurr.area.idle_callback2)
+                    if len(vcurr.area2.text) == 0:
+                        vcurr.area2.text = vcurr.area.text
+                        vcurr.area2.fname = vcurr.area.fname
+                        vcurr.area2.set_maxlines()
+                        vcurr.area2.set_maxlinelen()
+
+                    if vcurr.area.changed:
+                        vcurr.area2.text = vcurr.area.text
+                        vcurr.area2.set_maxlines(0)
+                        vcurr.area2.invalidate()
+        &#39;&#39;&#39;
+
+    except:
+        print(&#34;Exception in timer handler&#34;, sys.exc_info())
+
+    try:
+        GLib.timeout_add(1000, handler_tick)
+    except:
+        print(&#34;Exception in setting timer handler&#34;, sys.exc_info())</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="chriswin.ChrisMainWin"><code class="flex name class">
+<span>class <span class="ident">ChrisMainWin</span></span>
+<span>(</span><span>fname, parent, names)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChrisMainWin():
+
+    def __init__(self, fname, parent, names):
+
+        self.full = False
+        self.fcount = 0
+        self.statuscount = 0
+        global altstate
+        altstate = False
+        #register_stock_icons()
+
+        global mained
+        mained = self
+
+        disp2 = Gdk.Display()
+        disp = disp2.get_default()
+        #print disp
+        scr = disp.get_default_screen()
+        ptr = disp.get_pointer()
+        mon = scr.get_monitor_at_point(ptr[1], ptr[2])
+        geo = scr.get_monitor_geometry(mon)
+        www = geo.width; hhh = geo.height
+        xxx = geo.x;     yyy = geo.y
+
+        # Resort to old means of getting screen w / h
+        if www == 0 or hhh == 0:
+            www = Gdk.screen_width(); hhh = Gdk.screen_height();
+
+        # Create the toplevel window
+        #window = Gtk.Window(Gtk.WINDOW_TOPLEVEL)
+        self.mywin = Gtk.Window()
+        #www = Gdk.screen_width(); hhh = Gdk.screen_height();
+
+        if config.conf.full_screen:
+            self.mywin.set_default_size(www, hhh)
+        else:
+            xx = config.conf.sql.get_int(&#34;xx&#34;)
+            yy = config.conf.sql.get_int(&#34;yy&#34;)
+            ww = config.conf.sql.get_int(&#34;ww&#34;)
+            hh = config.conf.sql.get_int(&#34;hh&#34;)
+
+            if ww == 0 or hh == 0:
+                self.mywin.set_position(Gtk.WindowPosition.CENTER)
+                self.mywin.set_default_size(5*www/8, 5*hhh/8)
+                self.mywin.move(www / 32, hhh / 10)
+            else:
+                self.mywin.set_default_size(ww, hh)
+                self.mywin.move(xx, yy)
+
+            #self.mywin.set_default_size(5*www/8, 5*hhh/8)
+            #self.mywin.set_position(Gtk.WindowPosition.CENTER)
+            #self.mywin.move(xxx + www / 16, yyy / hhh / 16)
+        try:
+            self.mywin.set_icon_from_file(config.basedir + os.sep + &#34;icon.png&#34;)
+
+        except:
+            print(&#34;Canot load icon.&#34;)
+
+        &#39;&#39;&#39;
+
+        merge = Gtk.UIManager()
+        #self.mywin.set_data(&#34;ui-manager&#34;, merge)
+
+        aa = create_action_group(self)
+        merge.insert_action_group(aa, 0)
+        self.mywin.add_accel_group(merge.get_accel_group())
+
+        try:
+            mergeid = merge.add_ui_from_string(ui_info)
+        except GLib.GError as msg:
+            print(&#34;Building menus failed: %s&#34; % msg)
+
+        # Add MRU
+        for cnt in range(6):
+            ss = &#34;/sess_%d&#34; % cnt
+            fname = config.conf.sql.get(ss)
+            if fname != &#34;&#34;:
+                self.add_mru(merge, aa, fname, ss)
+
+        merge_id = merge.new_merge_id()
+        #merge.add_ui(merge_id, &#34;ui/MenuBar/FileMenu/SaveAs&#34;, &#34;&#34;, \
+        #None, Gtk.UI_MANAGER_SEPARATOR, False)
+
+        #warnings.simplefilter(&#34;ignore&#34;)
+        mbar = merge.get_widget(&#34;/MenuBar&#34;)
+        mbar.show()
+        #warnings.simplefilter(&#34;default&#34;)
+        &#39;&#39;&#39;
+        self.mywin.set_events(Gdk.EventMask.ALL_EVENTS_MASK )
+
+        global notebook
+
+        # Create note for the main window, give access to it for all
+        notebook = Gtk.Notebook(); self.notebook = notebook
+        #notebook.popup_enable()
+        notebook.set_scrollable(True)
+        # test
+        #notebook.append_page(edPane([]))
+
+        #notebook.add_events(Gdk.FOCUS_CHANGE_MASK)
+        #notebook.add_events(Gdk.ALL_EVENTS_MASK)
+
+        notebook.connect(&#34;switch-page&#34;, self.note_swpage_cb)
+        notebook.connect(&#34;focus-in-event&#34;, self.note_focus_in)
+
+        # Futile attempts
+        #notebook.connect(&#34;change-current-page&#34;, self.note_page_cb)
+        #notebook.connect(&#34;grab-focus&#34;, self.note_grab_focus_cb)
+        #notebook.connect(&#34;focus&#34;, self.note_focus_cb)
+        #notebook.connect(&#34;create-window&#34;, self.note_create_cb)
+        #notebook.connect(&#34;enter-notify-event&#34;, self.note_enter_notify)
+
+        self.mywin.connect(&#34;window_state_event&#34;, self.update_resize_grip)
+        #self.mywin.connect(&#34;destroy&#34;, OnExit)
+        self.mywin.connect(&#34;unmap&#34;, OnExit)
+
+        self.mywin.connect(&#34;key-press-event&#34;, self.area_key)
+        self.mywin.connect(&#34;key-release-event&#34;, self.area_key)
+
+        #self.mywin.connect(&#34;set-focus&#34;, self.area_focus)
+        self.mywin.connect(&#34;focus-in-event&#34;, self.area_focus_in)
+        self.mywin.connect(&#34;focus-out-event&#34;, self.area_focus_out)
+        self.mywin.connect(&#34;window-state-event&#34;, self.area_winstate)
+        self.mywin.connect(&#34;size_allocate&#34;, self.area_size)
+
+        #self.mywin.connect(&#34;area-focus-event&#34;, self.area_focus_in)
+        #self.mywin.connect(&#34;event&#34;, self.area_event)
+        #self.mywin.connect(&#34;enter-notify-event&#34;, self.area_enter)
+        #self.mywin.connect(&#34;leave-notify-event&#34;, self.area_leave)
+        #self.mywin.connect(&#34;event&#34;, self.unmap)
+
+        #tbar = merge.get_widget(&#34;/ToolBar&#34;);
+        #tbar.set_tooltips(True)
+        #tbar.show()
+
+        self.hpaned = Gtk.HPaned();
+        self.hpaned.set_border_width(5)
+
+        #warnings.simplefilter(&#34;ignore&#34;)
+        scroll = Gtk.ScrolledWindow()
+        #warnings.simplefilter(&#34;default&#34;)
+
+        treeview = self.create_tree()
+        treeview.set_activate_on_single_click (True)
+        treeview.connect(&#34;row-activated&#34;,  self.tree_sel)
+        #treeview.connect(&#34;cursor-changed&#34;,  self.tree_sel_row)
+        self.treeview = treeview
+
+        treeview2 = self.create_vartree()
+        treeview2.set_activate_on_single_click (True)
+        treeview2.connect(&#34;row-activated&#34;,  self.tree_sel2)
+        #treeview2.connect(&#34;cursor-changed&#34;,  self.tree_sel_row2)
+        self.treeview2 = treeview2
+
+        vpaned = Gtk.VPaned(); vpaned.set_border_width(5)
+
+        scroll.add(treeview)
+        frame2 = Gtk.Frame(); frame2.add(scroll)
+        vpaned.add(frame2)
+
+        scroll2 = Gtk.ScrolledWindow()
+        scroll2.add(treeview2)
+        frame3 = Gtk.Frame(); frame3.add(scroll2)
+        vpaned.set_focus_chain((frame2,))
+        vpaned.add(frame3)
+
+        vpaned.set_position(self.get_height() - 340)
+        #hpaned.add(vpaned)
+
+        self.hpanepos = config.conf.sql.get_int(&#34;hpaned&#34;)
+        if self.hpanepos == 0: self.hpanepos = 200
+        self.hpaned.set_position(self.hpanepos)
+
+        #hpaned.pack2(Gtk.Label(&#34;hello &#34;))
+        self.hpaned.pack2(notebook)
+
+
+        #confbox = Gtk.HBox()
+        #bbb = Gtk.Button.new_with_mnemonic(&#34; _Configure &#34;);
+        #bbb.connect(&#34;clicked&#34;, self.config_tabs)
+
+        #confbox.pack_start(Gtk.Label(&#34; &#34;), 1, 1, 0)
+        ##confbox.pack_start(bbb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label(&#34;  &#34;), 0, 0, 0)
+        #confbox.pack_start(exitb, 0, 0, 0)
+        #confbox.pack_start(Gtk.Label(&#34; &#34;), 1, 1, 0)
+
+        # Create statusbars
+        #self.statusbar = Gtk.Statusbar()
+        #self.statusbar2 = Gtk.Statusbar()
+        #self.statusbar2.set_spacing(0)
+
+        # Replaced it with simple labels
+        slabs = Gtk.Label(&#34;   &#34;)
+        self.slab = Gtk.Label(&#34; status  &#34;)
+        self.slab.set_xalign(Gtk.Align.START)
+        self.slab.set_yalign(Gtk.Align.START)
+
+        shbox = Gtk.HBox()
+        shbox.pack_start(slabs, 0,0, 0)
+        shbox.pack_start(self.slab, 0, 0, 0)
+
+        #self.slab2 = Gtk.Label(&#34; status2  &#34;)
+        self.slab2 = Gtk.Label(&#34;      &#34;)
+
+        self.hpaned2 = Gtk.HPaned()
+
+        #hpaned2.set_border_width(5)
+
+        self.hpaned2.pack1(shbox, 1, 1)
+        #hpaned2.set_position(self.get_width() - 320)
+        self.hpaned2.set_position(self.get_width() / 2)
+        #hpaned2.pack2(self.slab2, 1, 1)
+
+        exitb = Gtk.Button.new_with_mnemonic(&#34;   E_xit   &#34;);
+        exitb.connect(&#34;clicked&#34;, self.butt_exit)
+
+        #hpaned2.pack2(self.statusbar2, 0, 0)
+        #shbox.pack_start(slab, False, 0, 0)
+        #shbox.pack_start(self.statusbar, False, 0, 0)
+        #hpaned2.pack1(self.statusbar, 1, 0)
+
+        bbox = Gtk.VBox()
+        #bbox.pack_start(mbar, 0,0, 0)
+        #bbox.pack_start(tbar, 0,0, 0)
+        bbox.pack_start(self.hpaned, 1, 1, 0)
+        bbox.pack_start(self.hpaned2, 0, 0, 0)
+        hbox2 = Gtk.HBox()
+        hbox2.pack_start(Gtk.Label(label= &#34;   &#34;), 1, 1, 0)
+        hbox2.pack_start(exitb, 0, 0, 0)
+        self.hpaned2.pack2(hbox2)
+        hbox2.pack_start(Gtk.Label(label= &#34;  &#34;), 0, 0, 0)
+
+        #bbox.pack_start(hbox2, 0, 0, 0)
+
+        self.mywin.add(bbox)
+        self.mywin.show_all()
+
+        sarr = [&#34;Sales&#34;, &#34;Quotes&#34;, &#34;Customers&#34;, &#34;Corporate&#34;,
+                    &#34;Correspondence&#34;, &#34;Todos&#34;, &#34;Personal&#34;, &#34;Finance&#34;]
+
+        # Add button tabs
+        for aa in sarr:
+            bw1 = chrispane.edPane(aa)
+            notebook.append_page(bw1)
+            lab1 = self.tablabel(aa)
+            notebook.set_tab_label(bw1, lab1)
+
+        # ----------------------------------------------------------------
+        # Read in buffers
+
+        &#39;&#39;&#39;
+        cnt = 0
+        for aa in names:
+            aaa = os.path.realpath(aa)
+            #print &#34;loading file: &#34;, aaa
+            vpaned = edPane()
+            ret = vpaned.area.loadfile(aaa)
+            if not ret:
+                self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;, creating ...&#34;. format(aaa))
+                ret = self.newfile(aaa)
+                if not ret:
+                    self.update_statusbar(&#34;Cannot create fle &#39;{0:s}&#39;&#34;. format(aaa))
+                    continue
+
+            ret = vpaned.area2.loadfile(aaa)
+
+            cnt += 1
+            notebook.append_page(vpaned)
+            vpaned.area.set_tablabel(vpaned, &#34;Hello&#34;)
+
+        if cnt == 0:
+            if(config.conf.verbose):
+                print(&#34;Loading session in&#34;, os.getcwd())
+            fcnt = config.conf.sql.get_int(&#34;cnt&#34;)
+
+            # Load old session
+            for nnn in range(fcnt):
+                ss = &#34;/sess_%d&#34; % nnn
+                fff = config.conf.sql.get_str(ss)
+
+                if(config.conf.verbose):
+                    print(&#34;Loading file:&#34;, fff)
+
+                vpaned = edPane()
+                ret = vpaned.area.loadfile(fff)
+                if not ret:
+                    self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+                    continue
+                    vpaned.area2.loadfile(fff)
+
+                notebook.append_page(vpaned)
+                vpaned.area.set_tablabel()
+        &#39;&#39;&#39;
+        # Show newly created buffers:
+        self.mywin.show_all()
+
+        # Set last file
+        fff = config.conf.sql.get_str(&#34;curr&#34;)
+
+        #print &#34;curr file&#34;, fff
+        cc = notebook.get_n_pages()
+        for mm in range(cc):
+            vcurr = notebook.get_nth_page(mm)
+            if vcurr.area.fname == fff:
+                #print &#34;found buff&#34;, fff
+                notebook.set_current_page(mm)
+                self.mywin.set_focus(vcurr.vbox.area)
+                break
+
+        # Set the signal handler for 1s tick
+        #signal.signal(signal.SIGALRM, handler_tick)
+        #signal.alarm(1)
+
+        config.conf.pbuttwin = self
+        # We use gobj instead of SIGALRM, so it is more multi platform
+        GLib.timeout_add(1000, handler_tick)
+
+        self.update_statusbar(
+                &#34;Initialized, right click on button to configure.&#34;)
+        #self.update_statusbar2()
+
+        # Add to accounting:
+        self.start_time = time.time()
+        #utils.timesheet(&#34;Started pyedpro&#34;, self.start_time, 0)
+        #print(&#34;conf&#34;, config.conf)
+
+
+    &#39;&#39;&#39;def loadfile(self, fff):
+        if(config.conf.verbose):
+            print(&#34;Loading file:&#34;, fff)
+        vpaned = edPane()
+        ret = vpaned.area.loadfile(fff)
+        if not ret:
+            self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+            print(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fff))
+        else:
+            vpaned.area2.loadfile(fff)
+            notebook.append_page(vpaned)
+            vpaned.area.set_tablabel()
+    &#39;&#39;&#39;
+    # --------------------------------------------------------------------
+    def close_button(self):
+        pass
+
+    def tablabel(self, namex):
+        # Set label to tab
+        label = Gtk.Label(namex)
+        label.set_tooltip_text(namex)
+        label.set_single_line_mode(True)
+
+        #image = Gtk.Image();
+        #image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
+        #butt = Gtk.Button();
+        #butt.add(image)
+        #butt.set_focus_on_click(False)
+        #butt.set_relief( Gtk.ReliefStyle.NONE)
+        #rc = butt.get_modifier_style()
+        #rc.xthickness = 1; rc.ythickness = 1
+        #butt.modify_style(rc)
+
+        #butt.connect(&#34;clicked&#34;, self.close_button)
+        #butt.set_tooltip_text(&#34;Close &#39;%s&#39;&#34; % os.path.basename(self.fname))
+        hbox = Gtk.HBox()
+
+        hbox.pack_start(label, 0, 0, 0)
+        #hbox.pack_start(butt, 0, 0, 0)
+        hbox.show_all()
+        return hbox
+
+    def butt_exit(self, butt):
+        #print(&#34;exit Butt pressed&#34;)
+        self.activate_exit()
+        pass
+
+    def config_tabs(self, butt):
+        strx = &#34;Not Implemented&#34;
+        dialog = Gtk.MessageDialog(None, None,
+                   Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, strx)
+        dialog.set_position(Gtk.WindowPosition.CENTER)
+        # Close dialog on user response
+        dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+        dialog.show()
+
+    def add_mru(self, merge, action_group, fname, mru):
+        if not fname:
+            return
+        sname = os.path.basename(fname)
+
+        #Gtk.Action(name, label, tooltip, stock_id)
+        ac = Gtk.Action(mru, sname, fname, None)
+        ac.connect(&#39;activate&#39;, self.activate_action)
+        action_group.add_action(ac)
+        merge_id = merge.new_merge_id()
+        #add_ui(merge_id, path, name, action, type, top)
+        #merge.add_ui(merge_id, &#34;/MenuBar/FileMenu/SaveAs&#34;, \
+        #            mru, mru, Gtk.UI_MANAGER_MENUITEM, False)
+
+    def area_winstate(self, arg1, arg2):
+        pass
+        #print &#34;area_winstate&#34;, arg1, arg2
+        #print &#34;state&#34;, self.mywin.get_state()
+
+    def unmap(self, arg1, arg2):
+        #print &#34;unmap&#34;, arg1, arg2
+        pass
+
+    def tree_sel_row(self, xtree):
+        pass
+        #sel = xtree.get_selection()
+        #xmodel, xiter = sel.get_selected()
+        #if xiter:
+        #    xstr = xmodel.get_value(xiter, 0)
+        #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+        #    vcurr.area.locate(xstr)
+
+    def tree_sel_row2(self, xtree):
+        pass
+        #sel = xtree.get_selection()
+        #xmodel, xiter = sel.get_selected()
+        #print(&#34;tree_sel_row2&#34;, xtree, xmodel, xiter)
+        #if xiter:
+        #    xstr = xmodel.get_value(xiter, 0)
+        #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+        #    vcurr.area.locate(xstr)
+
+    def tree_sel(self, xtree, xiter, xpath):
+        #print(&#34;tree_sel&#34;, xtree, xiter, xpath)
+        # Focus on main doc
+        sel = xtree.get_selection()
+        xmodel, xiter = sel.get_selected()
+        if xiter:
+            xstr = xmodel.get_value(xiter, 0)
+            vcurr = notebook.get_nth_page(notebook.get_current_page())
+            vcurr.area.locate(xstr)
+
+    def tree_sel2(self, xtree, xiter, xpath):
+        #print(&#34;tree_sel2&#34;, xtree, xiter, xpath)
+        # Focus on main doc
+        sel = xtree.get_selection()
+        xmodel, xiter = sel.get_selected()
+        if xiter:
+            xstr = xmodel.get_value(xiter, 0)
+            vcurr = notebook.get_nth_page(notebook.get_current_page())
+            vcurr.area.locate(xstr)
+
+    # Call key handler
+    def area_key(self, area, event):
+        #print(&#34;area_key key:&#34;, event.keyval, &#34;state:&#34;, event.state)
+
+        chrispane.keystate = event.state
+        # Do key down:
+        if  event.type == Gdk.EventType.KEY_PRESS:
+            if event.keyval == Gdk.KEY_Alt_L or \
+                    event.keyval == Gdk.KEY_Alt_R:
+                chrispane.altstate = True;
+
+            if event.keyval == Gdk.KEY_Shift_L or \
+                    event.keyval == Gdk.KEY_Shift_R:
+                chrispane.shiftstate = True
+
+            &#39;&#39;&#39;if event.keyval &gt;= Gtk.keysyms._1 and event.keyval &lt;= Gtk.keysyms._9:
+                #print &#34;pbuttwin Alt num&#34;, event.keyval - Gtk.keysyms._1
+                 # Focus on main doc
+                vcurr = notebook.get_nth_page(notebook.get_current_page())
+                self.mywin.set_focus(vcurr.vbox.area)
+             &#39;&#39;&#39;
+
+        elif  event.type == Gdk.EventType.KEY_RELEASE:
+            if event.keyval == Gdk.KEY_Alt_L or \
+                    event.keyval == Gdk.KEY_Alt_R:
+                chrispane.altstate = False;
+
+            if event.keyval == Gdk.KEY_Shift_L  or \
+                    event.keyval == Gdk.KEY_Shift_R:
+                chrispane.shiftstate = False
+
+        if altstate:
+            if event.keyval == Gdk.KEY_x :
+                #print(&#34;altx&#34;)
+                self.activate_exit()
+
+    def get_height(self):
+        xx, yy = self.mywin.get_size()
+        return yy
+
+    def get_width(self):
+        xx, yy = self.mywin.get_size()
+        return xx
+
+    def start_tree(self):
+
+        global treestore
+        if not treestore:
+            treestore = Gtk.TreeStore(str)
+
+    def start_tree2(self):
+
+        global treestore2
+        if not treestore2:
+            treestore2 = Gtk.TreeStore(str)
+
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore.remove(root)
+                except:
+                    print(&#34;Exception on rm treestore&#34;)
+        except:
+            print(&#34;strt_tree&#34;, sys.exc_info())
+            pass
+
+        piter = treestore.append(None, [&#34;Extracting ..&#34;])
+        treestore.append(piter, [&#34;None ..&#34;])
+
+    # --------------------------------------------------------------------
+    def create_tree(self, text = None):
+
+        global treestore
+        self.start_tree()
+
+        # create the TreeView using treestore
+        tv = Gtk.TreeView(treestore)
+
+        # create a CellRendererText to render the data
+        cell = Gtk.CellRendererText()
+
+        # create the TreeViewColumn to display the data
+        tvcolumn = Gtk.TreeViewColumn(&#39;Functions&#39;)
+
+        # add the cell to the tvcolumn and allow it to expand
+        tvcolumn.pack_start(cell, True)
+
+        # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+        # from that column in treestore
+        tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+        # add tvcolumn to treeview
+        tv.append_column(tvcolumn)
+
+        return tv
+
+    # --------------------------------------------------------------------
+    def create_vartree(self, text = None):
+
+        global treestore2
+        self.start_tree2()
+
+        # create the TreeView using treestore
+        tv = Gtk.TreeView(treestore2)
+
+        # create a CellRendererText to render the data
+        cell = Gtk.CellRendererText()
+
+        # create the TreeViewColumn to display the data
+        tvcolumn = Gtk.TreeViewColumn(&#39;Local Scope&#39;)
+
+        # add the cell to the tvcolumn and allow it to expand
+        tvcolumn.pack_start(cell, True)
+
+        # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+        # from that column in treestore
+        tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+        # add tvcolumn to treeview
+        tv.append_column(tvcolumn)
+
+        return tv
+
+    # --------------------------------------------------------------------
+    def update_treestore(self, text):
+
+        global treestore
+
+        if not treestore: return
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore.remove(root)
+                except:
+                    print(&#34;except: treestore remove&#34;)
+        except:
+            print(&#34;update_tree&#34;, sys.exc_info())
+            pass
+
+        if not text:
+            return
+
+        try:
+            for line in text:
+                piter = treestore.append(None, [cut_lead_space(line)])
+        except:
+            print(&#34;Exception in append treestore&#34;, sys.exc_info())
+
+    # --------------------------------------------------------------------
+    def update_treestore2(self, text):
+
+        global treestore2
+
+        if not treestore2: return
+        # Delete previous contents
+        try:
+            while True:
+                root = treestore2.get_iter_first()
+                if not root:
+                    break
+                try:
+                    treestore2.remove(root)
+                except:
+                    print(&#34;except: treestore remove&#34;)
+        except:
+            print(&#34;update_tree2&#34;, sys.exc_info())
+            pass
+
+        if not text:
+            return
+
+        try:
+            for line in text:
+                piter = treestore2.append(None, [cut_lead_space(line)])
+        except:
+            print(&#34;Exception in append treestore2&#34;, sys.exc_info())
+
+    # --------------------------------------------------------------------
+    # Handlers: (deactivated)
+
+    def area_event(self, win, act):
+        pass
+        #print  &#34;pbuttwin area event&#34;, win, act
+
+    def area_leave(self, win, act):
+        pass
+        #print  &#34;pbuttwin area leave&#34;, win, act
+
+    def area_enter(self, win, act):
+        pass
+        #print  &#34;pbuttwin area enter&#34;, win, act
+
+    def area_focus(self, win, act):
+        pass
+        #print  &#34;pbuttwin area focus&#34;, win, act
+
+    def area_focus_in(self, win, act):
+        #print  &#34;area focus in&#34;, win, act
+        # This was needed as pygtk leaves the alt key hanging
+        #config.conf.keyh.reset()
+        pass
+        # Focus on main doc
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def area_focus_out(self, win, act):
+        pass
+        #print  &#34;area focus out&#34;, win, act
+
+    def area_size(self, win, rect):
+        #print  &#34;area size&#34;, rect
+        self.hpaned2.set_position(self.get_width() - 280)
+
+    def  note_focus_in(self, win, act):
+        pass
+        #print &#34;note_focus_in&#34;, win, act
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def note_enter_notify(self, win):
+        pass
+        #print &#34;note_enter_notify&#34;, win
+
+    def  note_grab_focus_cb(self, win):
+        #print &#34;note_grab_focus_cb&#34;, win
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def  note_swpage_cb(self, tabx, page, num):
+        #print &#34;note_swpage&#34;, num
+        vcurr = tabx.get_nth_page(num)
+        self.mywin.set_title(&#34;Clipboard Buttons: &#39;&#34; + vcurr.bname + &#34;&#39;&#34;);
+        self.mywin.set_focus(vcurr.vbox.area)
+        #fname = os.path.basename(vcurr.area.fname)
+        self.update_statusbar(&#34;Switched to &#39;{1:s}&#39;&#34;.format(num, vcurr.bname))
+
+    def  note_page_cb(self, tabx, child, num):
+        pass
+        #print &#34;note_page&#34;
+
+    def note_focus_cb(self, tabx, foc):
+        #print &#34;note_focus_cb&#34;
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if vcurr:
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def note_create_cb(self, tabx, page, xx, yy):
+        pass
+        #print &#34;note_create&#34;
+
+    # Devhelp Message handler
+    def activate_dhelp(self, action):
+        self.update_statusbar(&#34;Showing DevHelp&#34;)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f2(vcurr2.area)
+            pass
+
+    # Devhelp Message handler
+    def activate_khelp(self, action):
+        self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f3(vcurr2.area)
+            pass
+
+    def activate_qhelp(self, action):
+        self.update_statusbar(&#34;Showing quick help&#34;)
+        rr = get_exec_path(&#34;QHELP&#34;)
+        try:
+            if platform.system().find(&#34;Win&#34;) &gt;= 0:
+                xxx = get_exec_path(&#34;..&#34; + os.sep + &#34;pangview.py&#34;)
+                print(xxx, rr)
+                ret = subprocess.Popen([&#34;python&#34;, xxx,  rr])
+            else:
+                ret = subprocess.Popen([&#34;pangview.py&#34;,  rr])
+        except:
+            pedync.message(&#34;\n Cannot launch the pangview.py utility. \n\n&#34;
+                           &#34;              (Please install)&#34;)
+
+    def activate_about(self, action):
+        self.update_statusbar(&#34;Showing About Dialog&#34;)
+        pedync.about(self)
+
+    def newfile(self, newname = &#34;&#34;):
+
+        if newname == &#34;&#34;:
+            # Find non existing file
+            cnt = self.fcount + 1; fff = &#34;&#34;
+            base, ext = os.path.splitext(config.conf.UNTITLED)
+            while True:
+                fff =  &#34;%s_%d.txt&#34; % (base, cnt)
+                #print fff
+                if not os.path.isfile(fff):
+                    break;
+                cnt += 1
+
+            self.fcount = cnt
+        else:
+            fff = newname
+            # Touch
+            try:
+                open(fff, &#34;w&#34;).close()
+            except:
+                sss = &#34;Cannot create file %s&#34; % newname
+                self.update_statusbar(sss)
+                print(sss,  sys.exc_info())
+                pedync.message(&#34;\n&#34; + sss + &#34;\n&#34;)
+                return
+
+        vpaned = edPane([])
+        vpaned.area.fname = os.path.realpath(fff) + &#34;&#34;
+        global notebook
+        notebook.append_page(vpaned)
+        vpaned.area.set_tablabel()
+
+        #label = Gtk.Label(&#34; &#34; + os.path.basename(aa) + &#34; &#34;)
+        #notebook.set_tab_label(vpaned, label)
+        self.mywin.show_all()
+
+        # Make it current
+        nn = notebook.get_n_pages();
+        if nn:
+            vcurr = notebook.set_current_page(nn-1)
+            vcurr = notebook.get_nth_page(nn-1)
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    # Traditional open file
+    def open(self):
+
+        warnings.simplefilter(&#34;ignore&#34;)
+        but =   &#34;Cancel&#34;, Gtk.ButtonsType.CANCEL,\
+         &#34;Open File&#34;, Gtk.ButtonsType.OK
+        fc = Gtk.FileChooserDialog(&#34;Open file&#34;, self.mywin, \
+             Gtk.FileChooserAction.OPEN  \
+            #Gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER
+            , but)
+        warnings.simplefilter(&#34;default&#34;)
+
+        fc.set_default_response(Gtk.ButtonsType.OK)
+        fc.set_current_folder(os.getcwd())
+        fc.connect(&#34;response&#34;, self.done_open_fc)
+        fc.connect(&#34;current-folder-changed&#34;, self.folder_ch )
+
+        #fc.set_current_name(self.fname)
+        fc.run()
+
+    def save(self, flag = False):
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        if flag:
+            vcurr.area.saveas()
+            self.mywin.set_title(&#34;pyedpro: &#34; + vcurr.area.fname);
+
+        else:
+            vcurr.area.save()
+
+    def copy(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_c(vcurr2.area)
+            pass
+
+    def cut(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+             #config.conf.keyh.act.ctrl_x(vcurr2.area)
+             pass
+
+    def paste(self):
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_v(vcurr2.area)
+            pass
+
+    # -------------------------------------------------------------------
+    # Menu callback
+
+    def activate_action(self, action):
+
+        #dialog = Gtk.MessageDialog(None, Gtk.DIALOG_DESTROY_WITH_PARENT,
+        #    Gtk.MESSAGE_INFO, Gtk.BUTTONS_CLOSE,
+        #    &#39;Action: &#34;%s&#34; of type &#34;%s&#34;&#39; % (action.get_name(), type(action)))
+        # Close dialog on user response
+        #dialog.connect (&#34;response&#34;, lambda d, r: d.destroy())
+        #dialog.show()
+
+        warnings.simplefilter(&#34;ignore&#34;)
+        strx = action.get_name()
+        warnings.simplefilter(&#34;default&#34;)
+
+        #print (&#34;activate_action&#34;, strx)
+
+        if strx == &#34;Close All&#34;:
+            self.closeall()
+
+        if strx == &#34;Load Session&#34;:
+            #print(&#34;Loading session&#34;)
+            load_sess()
+
+        if strx == &#34;Save Session&#34;:
+            #print(&#34;Saving session&#34;)
+            # Gather all file names
+            accum = &#34;&#34;
+            nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+            while True:
+                if cnt &gt;= nn: break
+                ppp = notebook.get_nth_page(cnt)
+                #print (&#34;file:&#34;, ppp.area.fname)
+                accum +=  ppp.area.fname + &#34;\n&#34;
+                cnt += 1
+            #print (&#34;file list&#34;, accum)
+            save_sess(accum)
+
+            self.update_statusbar(&#34;Session %s saved.&#34; % (&#34;noname&#34;))
+
+        if strx == &#34;Start Terminal&#34;:
+            #print(&#34;Starting terminal&#34;)
+            os.system(&#34;C:\\msys64\\mingw32.exe&#34;)
+
+        if strx == &#34;New&#34;:
+            self.newfile();
+
+        if strx == &#34;Open&#34;:
+            self.open()
+
+        if strx == &#34;Save&#34;:
+            self.save()
+
+        if strx == &#34;SaveAs&#34;:
+            self.save(True)
+
+        if strx == &#34;Close&#34;:
+            self.closedoc()
+
+        if strx == &#34;Copy&#34;:
+            self.copy()
+
+        if strx == &#34;Cut&#34;:
+            self.cut()
+
+        if strx == &#34;Paste&#34;:
+            self.paste()
+
+        if strx == &#34;Goto&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.alt_g(vcurr2.area)
+                pass
+
+        if strx == &#34;Find&#34;:
+            #print &#34;find&#34;
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_f(vcurr2.area)
+                pass
+
+        if strx == &#34;Record&#34;:
+            #print &#34;record&#34;
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f7(vcurr2.area)
+                pass
+
+        if strx == &#34;Play&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f8(vcurr2.area)
+                pass
+
+        if strx == &#34;Spell&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f9(vcurr2.area)
+                pass
+
+        if strx == &#34;Spell2&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f9(vcurr2.area, True)
+                pass
+
+        if strx == &#34;Animate&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f8(vcurr2.area, True)
+                pass
+
+        if strx == &#34;Undo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_z(vcurr2.area)
+                pass
+
+        if strx == &#34;Redo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.ctrl_y(vcurr2.area)
+                pass
+
+        if strx == &#34;SaveAll&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.alt_a(vcurr2.area)
+                pass
+
+        if strx == &#34;Discard Undo&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.delundo()
+
+        if strx == &#34;Savemacro&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.savemacro()
+
+        if strx == &#34;Loadmacro&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                vcurr2.area.loadmacro()
+
+        if strx == &#34;NextWin&#34;:
+            self.nextwin()
+
+        if strx == &#34;PrevWin&#34;:
+            self.prevwin()
+
+        if strx == &#34;ShowLog&#34;:
+            log.show_log()
+
+        if strx.find(&#34;/sess_&#34;) &gt;= 0:
+            fname = config.conf.sql.get_str(strx)
+            self.openfile(fname)
+
+        if strx == &#34;Colors&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                pedcolor.colors(self, vcurr2.area)
+
+        if strx == &#34;Fonts&#34;:
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                pedfont.selfont(self, vcurr2.area)
+
+        if strx == &#34;Settings&#34;:
+            self.update_statusbar(&#34;Showing Settings Dialog&#34;)
+            pedync.message(&#34;\n    Settings: Work in progress    \n&#34;)
+
+        if strx == &#34;Help&#34;:
+            #pedync.message(&#34;\n    Help: Work in progress    \n&#34;)
+            nn2 = notebook.get_current_page()
+            vcurr2 = notebook.get_nth_page(nn2)
+            if vcurr2:
+                #config.conf.keyh.act.f1(vcurr2.area)
+                pass
+                pass
+
+        if strx == &#34;KeyDoc&#34;:
+            self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+            fname = get_exec_path(&#34;KEYS.TXT&#34;)
+            self.openfile(fname)
+
+    def closeall(self):
+        cc = notebook.get_n_pages()
+        for aa in range(cc-1, -1, -1):
+            #print (&#34;closing doc index&#34;, aa)
+            vcurr = notebook.get_nth_page(aa)
+            vcurr.area.closedoc()
+            notebook.remove_page(aa)
+
+    def closedoc(self, other = None):
+        cc = notebook.get_n_pages()
+        if other:
+            for aa in range(cc):
+                vcurr = notebook.get_nth_page(aa)
+                if vcurr.area == other:
+                    notebook.set_current_page(aa)
+                    break
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+        # Disable close
+        if vcurr.area.closedoc():
+            return
+
+        # Wrap around if closed first
+        if nn == 0: mm = cc - 1
+        else:       mm = nn - 1
+
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        notebook.remove_page(nn)
+        self.mywin.show_all()
+
+    def  firstwin(self):
+        cc = notebook.get_n_pages()
+        if cc == 0:
+            return
+        notebook.set_current_page(0)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  lastwin(self):
+        cc = notebook.get_n_pages()
+        if cc == 0:
+            return
+        notebook.set_current_page(cc-1)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  nextwin(self):
+        cc = notebook.get_n_pages()
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+
+        # Wrap around if needed
+        if nn == cc - 1: mm = 0
+        else:       mm = nn + 1
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def  prevwin(self):
+        cc = notebook.get_n_pages()
+        nn = notebook.get_current_page()
+        vcurr = notebook.get_nth_page(nn)
+
+        # Wrap around if needed
+        if nn == 0: mm = cc - 1
+        else:       mm = nn - 1
+        notebook.set_current_page(mm)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        self.mywin.set_focus(vcurr2.vbox.area)
+        self.mywin.show_all()
+
+    def folder_ch(self, win):
+        #print &#34;folder_ch&#34;
+        pass
+        #return True
+
+    def done_open_fc(self, win, resp):
+        #print &#34;done_open_fc&#34;, win, resp
+        if resp == Gtk.ButtonsType.OK:
+            fname = win.get_filename()
+            if not fname:
+                #print &#34;Must have filename&#34;
+                self.update_statusbar(&#34;No filename specified&#34;)
+                pass
+            elif os.path.isdir(fname):
+                self.update_statusbar(&#34;Changed to %s&#34; % fname)
+                os.chdir(fname)
+                win.set_current_folder(fname)
+                return
+            else:
+                self.openfile(fname)
+        win.destroy()
+
+    def saveall(self):
+        #print &#34;saveall&#34;
+        # Save all files
+        nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+        while True:
+            if cnt &gt;= nn: break
+            ppp = notebook.get_nth_page(cnt)
+            if ppp.area.changed:
+                ppp.area.writeout()
+                cnt2 += 1
+            cnt += 1
+
+        self.update_statusbar(&#34;%d of %d buffers saved.&#34; % (cnt2, nn))
+
+    # -------------------------------------------------------------------
+    def openfile(self, fname):
+
+        # Is it already loaded? ... activate
+        nn = notebook.get_n_pages();
+        for aa in range(nn):
+            vcurr = notebook.get_nth_page(aa)
+            if vcurr.area.fname == fname:
+                if(config.conf.verbose):
+                    print(&#34;Already open &#39;&#34;+ fname + &#34;&#39;&#34;)
+                    self.update_statusbar(&#34;Already open, activating &#39;{0:s}&#39;&#34;.format(fname))
+                vcurr = notebook.set_current_page(aa)
+                vcurr = notebook.get_nth_page(aa)
+                self.mywin.set_focus(vcurr.vbox.area)
+                return
+
+        if(config.conf.verbose):
+            print(&#34;Opening &#39;&#34;+ fname + &#34;&#39;&#34;)
+
+        self.update_statusbar(&#34;Opening file &#39;{0:s}&#39;&#34;.format(fname))
+        vpaned = edPane()
+        ret = vpaned.area.loadfile(os.path.realpath(fname))
+        if not ret:
+            self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fname))
+            return
+        vpaned.area2.loadfile(os.path.realpath(fname))
+        self.update_statusbar(&#34;Opened file &#39;{0:s}&#39;&#34;.format(fname))
+
+        # Add to the list of buffers
+        notebook.append_page(vpaned)
+        vpaned.area.set_tablabel()
+        self.mywin.show_all()
+        # Make it current
+        nn = notebook.get_n_pages();
+        if nn:
+            vcurr = notebook.set_current_page(nn-1)
+            vcurr = notebook.get_nth_page(nn-1)
+            self.mywin.set_focus(vcurr.vbox.area)
+
+    def activate_exit(self, action = None):
+        #print &#34;activate_exit called&#34;
+        OnExit(self.mywin)
+
+    def activate_quit(self, action):
+        #print &#34;activate_quit called&#34;
+        OnExit(self.mywin, False)
+
+    def activate_radio_action(self, action, current):
+        active = current.get_active()
+        value = current.get_current_value()
+
+        if active:
+            dialog = Gtk.MessageDialog(self, Gtk.DIALOG_DESTROY_WITH_PARENT,
+                Gtk.MESSAGE_INFO, Gtk.ButtonsType.CLOSE,
+&#34;You activated radio action: \&#34;%s\&#34; of type \&#34;%s\&#34;.\nCurrent value: %d&#34; %
+                (current.get_name(), type(current), value))
+
+            # Close dialog on user response
+            dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+            dialog.show()
+
+    # This is the line count / pos status bar
+    def update_statusbar2(self, xx = 0, yy = 0, ins = 0, tlen = 0, clip = 0):
+        # Always update line / col
+        if ins: str2 = &#34;INS&#34;
+        else: str2 =&#34;OVR&#34;
+        strx2 = &#34;Ln {0:d} Col {1:d} Tot {3:d}  {2:s} Clip {4:d}&#34;.\
+                        format(int(yy+1), int(xx+1), str2, tlen, clip)
+        #self.statusbar2.pop(0)
+        #self.statusbar2.push(0, strx2)
+        self.slab2.set_text(strx2)
+
+    def update_statusbar3(self, strx2):
+        self.slab2.set_text(strx2)
+
+    def update_statusbar(self, strx):
+        # Clear any previous message, underflow is allowed
+        #self.statusbar.pop(0)
+        if not strx:
+            self.update_statusbar(&#34;Idle&#34;)
+            return
+
+        #self.statusbar.push(0, strx)
+        self.statuscount = STATUSCOUNT
+        self.slab.set_text(strx)
+        pass
+
+    def update_resize_grip(self, widget, event):
+        #print &#34;update state&#34;, event, event.changed_mask
+        #self.mywin.set_focus(notebook)
+
+        mask = Gdk.WindowState.MAXIMIZED
+        # | Gdk.FULLSCREEN
+        &#39;&#39;&#39;if (event.changed_mask &amp; mask):
+self.statusbar.set_has_resize_grip(not (event.new_window_state &amp; mask))
+        &#39;&#39;&#39;</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="chriswin.ChrisMainWin.activate_about"><code class="name flex">
+<span>def <span class="ident">activate_about</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_about(self, action):
+    self.update_statusbar(&#34;Showing About Dialog&#34;)
+    pedync.about(self)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_action"><code class="name flex">
+<span>def <span class="ident">activate_action</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_action(self, action):
+
+    #dialog = Gtk.MessageDialog(None, Gtk.DIALOG_DESTROY_WITH_PARENT,
+    #    Gtk.MESSAGE_INFO, Gtk.BUTTONS_CLOSE,
+    #    &#39;Action: &#34;%s&#34; of type &#34;%s&#34;&#39; % (action.get_name(), type(action)))
+    # Close dialog on user response
+    #dialog.connect (&#34;response&#34;, lambda d, r: d.destroy())
+    #dialog.show()
+
+    warnings.simplefilter(&#34;ignore&#34;)
+    strx = action.get_name()
+    warnings.simplefilter(&#34;default&#34;)
+
+    #print (&#34;activate_action&#34;, strx)
+
+    if strx == &#34;Close All&#34;:
+        self.closeall()
+
+    if strx == &#34;Load Session&#34;:
+        #print(&#34;Loading session&#34;)
+        load_sess()
+
+    if strx == &#34;Save Session&#34;:
+        #print(&#34;Saving session&#34;)
+        # Gather all file names
+        accum = &#34;&#34;
+        nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+        while True:
+            if cnt &gt;= nn: break
+            ppp = notebook.get_nth_page(cnt)
+            #print (&#34;file:&#34;, ppp.area.fname)
+            accum +=  ppp.area.fname + &#34;\n&#34;
+            cnt += 1
+        #print (&#34;file list&#34;, accum)
+        save_sess(accum)
+
+        self.update_statusbar(&#34;Session %s saved.&#34; % (&#34;noname&#34;))
+
+    if strx == &#34;Start Terminal&#34;:
+        #print(&#34;Starting terminal&#34;)
+        os.system(&#34;C:\\msys64\\mingw32.exe&#34;)
+
+    if strx == &#34;New&#34;:
+        self.newfile();
+
+    if strx == &#34;Open&#34;:
+        self.open()
+
+    if strx == &#34;Save&#34;:
+        self.save()
+
+    if strx == &#34;SaveAs&#34;:
+        self.save(True)
+
+    if strx == &#34;Close&#34;:
+        self.closedoc()
+
+    if strx == &#34;Copy&#34;:
+        self.copy()
+
+    if strx == &#34;Cut&#34;:
+        self.cut()
+
+    if strx == &#34;Paste&#34;:
+        self.paste()
+
+    if strx == &#34;Goto&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.alt_g(vcurr2.area)
+            pass
+
+    if strx == &#34;Find&#34;:
+        #print &#34;find&#34;
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_f(vcurr2.area)
+            pass
+
+    if strx == &#34;Record&#34;:
+        #print &#34;record&#34;
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f7(vcurr2.area)
+            pass
+
+    if strx == &#34;Play&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f8(vcurr2.area)
+            pass
+
+    if strx == &#34;Spell&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f9(vcurr2.area)
+            pass
+
+    if strx == &#34;Spell2&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f9(vcurr2.area, True)
+            pass
+
+    if strx == &#34;Animate&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f8(vcurr2.area, True)
+            pass
+
+    if strx == &#34;Undo&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_z(vcurr2.area)
+            pass
+
+    if strx == &#34;Redo&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.ctrl_y(vcurr2.area)
+            pass
+
+    if strx == &#34;SaveAll&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.alt_a(vcurr2.area)
+            pass
+
+    if strx == &#34;Discard Undo&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            vcurr2.area.delundo()
+
+    if strx == &#34;Savemacro&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            vcurr2.area.savemacro()
+
+    if strx == &#34;Loadmacro&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            vcurr2.area.loadmacro()
+
+    if strx == &#34;NextWin&#34;:
+        self.nextwin()
+
+    if strx == &#34;PrevWin&#34;:
+        self.prevwin()
+
+    if strx == &#34;ShowLog&#34;:
+        log.show_log()
+
+    if strx.find(&#34;/sess_&#34;) &gt;= 0:
+        fname = config.conf.sql.get_str(strx)
+        self.openfile(fname)
+
+    if strx == &#34;Colors&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            pedcolor.colors(self, vcurr2.area)
+
+    if strx == &#34;Fonts&#34;:
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            pedfont.selfont(self, vcurr2.area)
+
+    if strx == &#34;Settings&#34;:
+        self.update_statusbar(&#34;Showing Settings Dialog&#34;)
+        pedync.message(&#34;\n    Settings: Work in progress    \n&#34;)
+
+    if strx == &#34;Help&#34;:
+        #pedync.message(&#34;\n    Help: Work in progress    \n&#34;)
+        nn2 = notebook.get_current_page()
+        vcurr2 = notebook.get_nth_page(nn2)
+        if vcurr2:
+            #config.conf.keyh.act.f1(vcurr2.area)
+            pass
+            pass
+
+    if strx == &#34;KeyDoc&#34;:
+        self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+        fname = get_exec_path(&#34;KEYS.TXT&#34;)
+        self.openfile(fname)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_dhelp"><code class="name flex">
+<span>def <span class="ident">activate_dhelp</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_dhelp(self, action):
+    self.update_statusbar(&#34;Showing DevHelp&#34;)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    if vcurr2:
+        #config.conf.keyh.act.f2(vcurr2.area)
+        pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_exit"><code class="name flex">
+<span>def <span class="ident">activate_exit</span></span>(<span>self, action=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_exit(self, action = None):
+    #print &#34;activate_exit called&#34;
+    OnExit(self.mywin)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_khelp"><code class="name flex">
+<span>def <span class="ident">activate_khelp</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_khelp(self, action):
+    self.update_statusbar(&#34;Showing Keyboard Help&#34;)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    if vcurr2:
+        #config.conf.keyh.act.f3(vcurr2.area)
+        pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_qhelp"><code class="name flex">
+<span>def <span class="ident">activate_qhelp</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_qhelp(self, action):
+    self.update_statusbar(&#34;Showing quick help&#34;)
+    rr = get_exec_path(&#34;QHELP&#34;)
+    try:
+        if platform.system().find(&#34;Win&#34;) &gt;= 0:
+            xxx = get_exec_path(&#34;..&#34; + os.sep + &#34;pangview.py&#34;)
+            print(xxx, rr)
+            ret = subprocess.Popen([&#34;python&#34;, xxx,  rr])
+        else:
+            ret = subprocess.Popen([&#34;pangview.py&#34;,  rr])
+    except:
+        pedync.message(&#34;\n Cannot launch the pangview.py utility. \n\n&#34;
+                       &#34;              (Please install)&#34;)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_quit"><code class="name flex">
+<span>def <span class="ident">activate_quit</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_quit(self, action):
+    #print &#34;activate_quit called&#34;
+    OnExit(self.mywin, False)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.activate_radio_action"><code class="name flex">
+<span>def <span class="ident">activate_radio_action</span></span>(<span>self, action, current)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def activate_radio_action(self, action, current):
+        active = current.get_active()
+        value = current.get_current_value()
+
+        if active:
+            dialog = Gtk.MessageDialog(self, Gtk.DIALOG_DESTROY_WITH_PARENT,
+                Gtk.MESSAGE_INFO, Gtk.ButtonsType.CLOSE,
+&#34;You activated radio action: \&#34;%s\&#34; of type \&#34;%s\&#34;.\nCurrent value: %d&#34; %
+                (current.get_name(), type(current), value))
+
+            # Close dialog on user response
+            dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+            dialog.show()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.add_mru"><code class="name flex">
+<span>def <span class="ident">add_mru</span></span>(<span>self, merge, action_group, fname, mru)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_mru(self, merge, action_group, fname, mru):
+    if not fname:
+        return
+    sname = os.path.basename(fname)
+
+    #Gtk.Action(name, label, tooltip, stock_id)
+    ac = Gtk.Action(mru, sname, fname, None)
+    ac.connect(&#39;activate&#39;, self.activate_action)
+    action_group.add_action(ac)
+    merge_id = merge.new_merge_id()
+    #add_ui(merge_id, path, name, action, type, top)
+    #merge.add_ui(merge_id, &#34;/MenuBar/FileMenu/SaveAs&#34;, \
+    #            mru, mru, Gtk.UI_MANAGER_MENUITEM, False)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_enter"><code class="name flex">
+<span>def <span class="ident">area_enter</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_enter(self, win, act):
+    pass
+    #print  &#34;pbuttwin area enter&#34;, win, act</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_event"><code class="name flex">
+<span>def <span class="ident">area_event</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_event(self, win, act):
+    pass
+    #print  &#34;pbuttwin area event&#34;, win, act</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_focus"><code class="name flex">
+<span>def <span class="ident">area_focus</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_focus(self, win, act):
+    pass
+    #print  &#34;pbuttwin area focus&#34;, win, act</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_focus_in"><code class="name flex">
+<span>def <span class="ident">area_focus_in</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_focus_in(self, win, act):
+    #print  &#34;area focus in&#34;, win, act
+    # This was needed as pygtk leaves the alt key hanging
+    #config.conf.keyh.reset()
+    pass
+    # Focus on main doc
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_focus_out"><code class="name flex">
+<span>def <span class="ident">area_focus_out</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_focus_out(self, win, act):
+    pass
+    #print  &#34;area focus out&#34;, win, act</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_key"><code class="name flex">
+<span>def <span class="ident">area_key</span></span>(<span>self, area, event)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_key(self, area, event):
+    #print(&#34;area_key key:&#34;, event.keyval, &#34;state:&#34;, event.state)
+
+    chrispane.keystate = event.state
+    # Do key down:
+    if  event.type == Gdk.EventType.KEY_PRESS:
+        if event.keyval == Gdk.KEY_Alt_L or \
+                event.keyval == Gdk.KEY_Alt_R:
+            chrispane.altstate = True;
+
+        if event.keyval == Gdk.KEY_Shift_L or \
+                event.keyval == Gdk.KEY_Shift_R:
+            chrispane.shiftstate = True
+
+        &#39;&#39;&#39;if event.keyval &gt;= Gtk.keysyms._1 and event.keyval &lt;= Gtk.keysyms._9:
+            #print &#34;pbuttwin Alt num&#34;, event.keyval - Gtk.keysyms._1
+             # Focus on main doc
+            vcurr = notebook.get_nth_page(notebook.get_current_page())
+            self.mywin.set_focus(vcurr.vbox.area)
+         &#39;&#39;&#39;
+
+    elif  event.type == Gdk.EventType.KEY_RELEASE:
+        if event.keyval == Gdk.KEY_Alt_L or \
+                event.keyval == Gdk.KEY_Alt_R:
+            chrispane.altstate = False;
+
+        if event.keyval == Gdk.KEY_Shift_L  or \
+                event.keyval == Gdk.KEY_Shift_R:
+            chrispane.shiftstate = False
+
+    if altstate:
+        if event.keyval == Gdk.KEY_x :
+            #print(&#34;altx&#34;)
+            self.activate_exit()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_leave"><code class="name flex">
+<span>def <span class="ident">area_leave</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_leave(self, win, act):
+    pass
+    #print  &#34;pbuttwin area leave&#34;, win, act</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_size"><code class="name flex">
+<span>def <span class="ident">area_size</span></span>(<span>self, win, rect)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_size(self, win, rect):
+    #print  &#34;area size&#34;, rect
+    self.hpaned2.set_position(self.get_width() - 280)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.area_winstate"><code class="name flex">
+<span>def <span class="ident">area_winstate</span></span>(<span>self, arg1, arg2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def area_winstate(self, arg1, arg2):
+    pass
+    #print &#34;area_winstate&#34;, arg1, arg2
+    #print &#34;state&#34;, self.mywin.get_state()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.butt_exit"><code class="name flex">
+<span>def <span class="ident">butt_exit</span></span>(<span>self, butt)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def butt_exit(self, butt):
+    #print(&#34;exit Butt pressed&#34;)
+    self.activate_exit()
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.close_button"><code class="name flex">
+<span>def <span class="ident">close_button</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close_button(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.closeall"><code class="name flex">
+<span>def <span class="ident">closeall</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def closeall(self):
+    cc = notebook.get_n_pages()
+    for aa in range(cc-1, -1, -1):
+        #print (&#34;closing doc index&#34;, aa)
+        vcurr = notebook.get_nth_page(aa)
+        vcurr.area.closedoc()
+        notebook.remove_page(aa)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.closedoc"><code class="name flex">
+<span>def <span class="ident">closedoc</span></span>(<span>self, other=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def closedoc(self, other = None):
+    cc = notebook.get_n_pages()
+    if other:
+        for aa in range(cc):
+            vcurr = notebook.get_nth_page(aa)
+            if vcurr.area == other:
+                notebook.set_current_page(aa)
+                break
+    nn = notebook.get_current_page()
+    vcurr = notebook.get_nth_page(nn)
+    # Disable close
+    if vcurr.area.closedoc():
+        return
+
+    # Wrap around if closed first
+    if nn == 0: mm = cc - 1
+    else:       mm = nn - 1
+
+    notebook.set_current_page(mm)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    self.mywin.set_focus(vcurr2.vbox.area)
+    notebook.remove_page(nn)
+    self.mywin.show_all()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.config_tabs"><code class="name flex">
+<span>def <span class="ident">config_tabs</span></span>(<span>self, butt)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def config_tabs(self, butt):
+    strx = &#34;Not Implemented&#34;
+    dialog = Gtk.MessageDialog(None, None,
+               Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, strx)
+    dialog.set_position(Gtk.WindowPosition.CENTER)
+    # Close dialog on user response
+    dialog.connect(&#34;response&#34;, lambda d, r: d.destroy())
+    dialog.show()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.copy"><code class="name flex">
+<span>def <span class="ident">copy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy(self):
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    if vcurr2:
+        #config.conf.keyh.act.ctrl_c(vcurr2.area)
+        pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.create_tree"><code class="name flex">
+<span>def <span class="ident">create_tree</span></span>(<span>self, text=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_tree(self, text = None):
+
+    global treestore
+    self.start_tree()
+
+    # create the TreeView using treestore
+    tv = Gtk.TreeView(treestore)
+
+    # create a CellRendererText to render the data
+    cell = Gtk.CellRendererText()
+
+    # create the TreeViewColumn to display the data
+    tvcolumn = Gtk.TreeViewColumn(&#39;Functions&#39;)
+
+    # add the cell to the tvcolumn and allow it to expand
+    tvcolumn.pack_start(cell, True)
+
+    # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+    # from that column in treestore
+    tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+    # add tvcolumn to treeview
+    tv.append_column(tvcolumn)
+
+    return tv</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.create_vartree"><code class="name flex">
+<span>def <span class="ident">create_vartree</span></span>(<span>self, text=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_vartree(self, text = None):
+
+    global treestore2
+    self.start_tree2()
+
+    # create the TreeView using treestore
+    tv = Gtk.TreeView(treestore2)
+
+    # create a CellRendererText to render the data
+    cell = Gtk.CellRendererText()
+
+    # create the TreeViewColumn to display the data
+    tvcolumn = Gtk.TreeViewColumn(&#39;Local Scope&#39;)
+
+    # add the cell to the tvcolumn and allow it to expand
+    tvcolumn.pack_start(cell, True)
+
+    # set the cell &#34;text&#34; attribute to column 0 - retrieve text
+    # from that column in treestore
+    tvcolumn.add_attribute(cell, &#39;text&#39;, 0)
+
+    # add tvcolumn to treeview
+    tv.append_column(tvcolumn)
+
+    return tv</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.cut"><code class="name flex">
+<span>def <span class="ident">cut</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cut(self):
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    if vcurr2:
+         #config.conf.keyh.act.ctrl_x(vcurr2.area)
+         pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.done_open_fc"><code class="name flex">
+<span>def <span class="ident">done_open_fc</span></span>(<span>self, win, resp)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def done_open_fc(self, win, resp):
+    #print &#34;done_open_fc&#34;, win, resp
+    if resp == Gtk.ButtonsType.OK:
+        fname = win.get_filename()
+        if not fname:
+            #print &#34;Must have filename&#34;
+            self.update_statusbar(&#34;No filename specified&#34;)
+            pass
+        elif os.path.isdir(fname):
+            self.update_statusbar(&#34;Changed to %s&#34; % fname)
+            os.chdir(fname)
+            win.set_current_folder(fname)
+            return
+        else:
+            self.openfile(fname)
+    win.destroy()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.firstwin"><code class="name flex">
+<span>def <span class="ident">firstwin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  firstwin(self):
+    cc = notebook.get_n_pages()
+    if cc == 0:
+        return
+    notebook.set_current_page(0)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    self.mywin.set_focus(vcurr2.vbox.area)
+    self.mywin.show_all()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.folder_ch"><code class="name flex">
+<span>def <span class="ident">folder_ch</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def folder_ch(self, win):
+    #print &#34;folder_ch&#34;
+    pass
+    #return True</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.get_height"><code class="name flex">
+<span>def <span class="ident">get_height</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_height(self):
+    xx, yy = self.mywin.get_size()
+    return yy</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.get_width"><code class="name flex">
+<span>def <span class="ident">get_width</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_width(self):
+    xx, yy = self.mywin.get_size()
+    return xx</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.lastwin"><code class="name flex">
+<span>def <span class="ident">lastwin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  lastwin(self):
+    cc = notebook.get_n_pages()
+    if cc == 0:
+        return
+    notebook.set_current_page(cc-1)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    self.mywin.set_focus(vcurr2.vbox.area)
+    self.mywin.show_all()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.newfile"><code class="name flex">
+<span>def <span class="ident">newfile</span></span>(<span>self, newname='')</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def newfile(self, newname = &#34;&#34;):
+
+    if newname == &#34;&#34;:
+        # Find non existing file
+        cnt = self.fcount + 1; fff = &#34;&#34;
+        base, ext = os.path.splitext(config.conf.UNTITLED)
+        while True:
+            fff =  &#34;%s_%d.txt&#34; % (base, cnt)
+            #print fff
+            if not os.path.isfile(fff):
+                break;
+            cnt += 1
+
+        self.fcount = cnt
+    else:
+        fff = newname
+        # Touch
+        try:
+            open(fff, &#34;w&#34;).close()
+        except:
+            sss = &#34;Cannot create file %s&#34; % newname
+            self.update_statusbar(sss)
+            print(sss,  sys.exc_info())
+            pedync.message(&#34;\n&#34; + sss + &#34;\n&#34;)
+            return
+
+    vpaned = edPane([])
+    vpaned.area.fname = os.path.realpath(fff) + &#34;&#34;
+    global notebook
+    notebook.append_page(vpaned)
+    vpaned.area.set_tablabel()
+
+    #label = Gtk.Label(&#34; &#34; + os.path.basename(aa) + &#34; &#34;)
+    #notebook.set_tab_label(vpaned, label)
+    self.mywin.show_all()
+
+    # Make it current
+    nn = notebook.get_n_pages();
+    if nn:
+        vcurr = notebook.set_current_page(nn-1)
+        vcurr = notebook.get_nth_page(nn-1)
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.nextwin"><code class="name flex">
+<span>def <span class="ident">nextwin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  nextwin(self):
+    cc = notebook.get_n_pages()
+    nn = notebook.get_current_page()
+    vcurr = notebook.get_nth_page(nn)
+
+    # Wrap around if needed
+    if nn == cc - 1: mm = 0
+    else:       mm = nn + 1
+    notebook.set_current_page(mm)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    self.mywin.set_focus(vcurr2.vbox.area)
+    self.mywin.show_all()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_create_cb"><code class="name flex">
+<span>def <span class="ident">note_create_cb</span></span>(<span>self, tabx, page, xx, yy)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def note_create_cb(self, tabx, page, xx, yy):
+    pass
+    #print &#34;note_create&#34;</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_enter_notify"><code class="name flex">
+<span>def <span class="ident">note_enter_notify</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def note_enter_notify(self, win):
+    pass
+    #print &#34;note_enter_notify&#34;, win</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_focus_cb"><code class="name flex">
+<span>def <span class="ident">note_focus_cb</span></span>(<span>self, tabx, foc)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def note_focus_cb(self, tabx, foc):
+    #print &#34;note_focus_cb&#34;
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_focus_in"><code class="name flex">
+<span>def <span class="ident">note_focus_in</span></span>(<span>self, win, act)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  note_focus_in(self, win, act):
+    pass
+    #print &#34;note_focus_in&#34;, win, act
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_grab_focus_cb"><code class="name flex">
+<span>def <span class="ident">note_grab_focus_cb</span></span>(<span>self, win)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  note_grab_focus_cb(self, win):
+    #print &#34;note_grab_focus_cb&#34;, win
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if vcurr:
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_page_cb"><code class="name flex">
+<span>def <span class="ident">note_page_cb</span></span>(<span>self, tabx, child, num)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  note_page_cb(self, tabx, child, num):
+    pass
+    #print &#34;note_page&#34;</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.note_swpage_cb"><code class="name flex">
+<span>def <span class="ident">note_swpage_cb</span></span>(<span>self, tabx, page, num)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  note_swpage_cb(self, tabx, page, num):
+    #print &#34;note_swpage&#34;, num
+    vcurr = tabx.get_nth_page(num)
+    self.mywin.set_title(&#34;Clipboard Buttons: &#39;&#34; + vcurr.bname + &#34;&#39;&#34;);
+    self.mywin.set_focus(vcurr.vbox.area)
+    #fname = os.path.basename(vcurr.area.fname)
+    self.update_statusbar(&#34;Switched to &#39;{1:s}&#39;&#34;.format(num, vcurr.bname))</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.open"><code class="name flex">
+<span>def <span class="ident">open</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open(self):
+
+    warnings.simplefilter(&#34;ignore&#34;)
+    but =   &#34;Cancel&#34;, Gtk.ButtonsType.CANCEL,\
+     &#34;Open File&#34;, Gtk.ButtonsType.OK
+    fc = Gtk.FileChooserDialog(&#34;Open file&#34;, self.mywin, \
+         Gtk.FileChooserAction.OPEN  \
+        #Gtk.FILE_CHOOSER_ACTION_SELECT_FOLDER
+        , but)
+    warnings.simplefilter(&#34;default&#34;)
+
+    fc.set_default_response(Gtk.ButtonsType.OK)
+    fc.set_current_folder(os.getcwd())
+    fc.connect(&#34;response&#34;, self.done_open_fc)
+    fc.connect(&#34;current-folder-changed&#34;, self.folder_ch )
+
+    #fc.set_current_name(self.fname)
+    fc.run()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.openfile"><code class="name flex">
+<span>def <span class="ident">openfile</span></span>(<span>self, fname)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def openfile(self, fname):
+
+    # Is it already loaded? ... activate
+    nn = notebook.get_n_pages();
+    for aa in range(nn):
+        vcurr = notebook.get_nth_page(aa)
+        if vcurr.area.fname == fname:
+            if(config.conf.verbose):
+                print(&#34;Already open &#39;&#34;+ fname + &#34;&#39;&#34;)
+                self.update_statusbar(&#34;Already open, activating &#39;{0:s}&#39;&#34;.format(fname))
+            vcurr = notebook.set_current_page(aa)
+            vcurr = notebook.get_nth_page(aa)
+            self.mywin.set_focus(vcurr.vbox.area)
+            return
+
+    if(config.conf.verbose):
+        print(&#34;Opening &#39;&#34;+ fname + &#34;&#39;&#34;)
+
+    self.update_statusbar(&#34;Opening file &#39;{0:s}&#39;&#34;.format(fname))
+    vpaned = edPane()
+    ret = vpaned.area.loadfile(os.path.realpath(fname))
+    if not ret:
+        self.update_statusbar(&#34;Cannot read file &#39;{0:s}&#39;&#34;.format(fname))
+        return
+    vpaned.area2.loadfile(os.path.realpath(fname))
+    self.update_statusbar(&#34;Opened file &#39;{0:s}&#39;&#34;.format(fname))
+
+    # Add to the list of buffers
+    notebook.append_page(vpaned)
+    vpaned.area.set_tablabel()
+    self.mywin.show_all()
+    # Make it current
+    nn = notebook.get_n_pages();
+    if nn:
+        vcurr = notebook.set_current_page(nn-1)
+        vcurr = notebook.get_nth_page(nn-1)
+        self.mywin.set_focus(vcurr.vbox.area)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.paste"><code class="name flex">
+<span>def <span class="ident">paste</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paste(self):
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    if vcurr2:
+        #config.conf.keyh.act.ctrl_v(vcurr2.area)
+        pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.prevwin"><code class="name flex">
+<span>def <span class="ident">prevwin</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def  prevwin(self):
+    cc = notebook.get_n_pages()
+    nn = notebook.get_current_page()
+    vcurr = notebook.get_nth_page(nn)
+
+    # Wrap around if needed
+    if nn == 0: mm = cc - 1
+    else:       mm = nn - 1
+    notebook.set_current_page(mm)
+    nn2 = notebook.get_current_page()
+    vcurr2 = notebook.get_nth_page(nn2)
+    self.mywin.set_focus(vcurr2.vbox.area)
+    self.mywin.show_all()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>self, flag=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save(self, flag = False):
+    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    if flag:
+        vcurr.area.saveas()
+        self.mywin.set_title(&#34;pyedpro: &#34; + vcurr.area.fname);
+
+    else:
+        vcurr.area.save()</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.saveall"><code class="name flex">
+<span>def <span class="ident">saveall</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def saveall(self):
+    #print &#34;saveall&#34;
+    # Save all files
+    nn = notebook.get_n_pages(); cnt = 0; cnt2 = 0
+    while True:
+        if cnt &gt;= nn: break
+        ppp = notebook.get_nth_page(cnt)
+        if ppp.area.changed:
+            ppp.area.writeout()
+            cnt2 += 1
+        cnt += 1
+
+    self.update_statusbar(&#34;%d of %d buffers saved.&#34; % (cnt2, nn))</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.start_tree"><code class="name flex">
+<span>def <span class="ident">start_tree</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_tree(self):
+
+    global treestore
+    if not treestore:
+        treestore = Gtk.TreeStore(str)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.start_tree2"><code class="name flex">
+<span>def <span class="ident">start_tree2</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_tree2(self):
+
+    global treestore2
+    if not treestore2:
+        treestore2 = Gtk.TreeStore(str)
+
+    # Delete previous contents
+    try:
+        while True:
+            root = treestore.get_iter_first()
+            if not root:
+                break
+            try:
+                treestore.remove(root)
+            except:
+                print(&#34;Exception on rm treestore&#34;)
+    except:
+        print(&#34;strt_tree&#34;, sys.exc_info())
+        pass
+
+    piter = treestore.append(None, [&#34;Extracting ..&#34;])
+    treestore.append(piter, [&#34;None ..&#34;])</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.tablabel"><code class="name flex">
+<span>def <span class="ident">tablabel</span></span>(<span>self, namex)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tablabel(self, namex):
+    # Set label to tab
+    label = Gtk.Label(namex)
+    label.set_tooltip_text(namex)
+    label.set_single_line_mode(True)
+
+    #image = Gtk.Image();
+    #image.set_from_stock(Gtk.STOCK_CLOSE, Gtk.IconSize.MENU)
+    #butt = Gtk.Button();
+    #butt.add(image)
+    #butt.set_focus_on_click(False)
+    #butt.set_relief( Gtk.ReliefStyle.NONE)
+    #rc = butt.get_modifier_style()
+    #rc.xthickness = 1; rc.ythickness = 1
+    #butt.modify_style(rc)
+
+    #butt.connect(&#34;clicked&#34;, self.close_button)
+    #butt.set_tooltip_text(&#34;Close &#39;%s&#39;&#34; % os.path.basename(self.fname))
+    hbox = Gtk.HBox()
+
+    hbox.pack_start(label, 0, 0, 0)
+    #hbox.pack_start(butt, 0, 0, 0)
+    hbox.show_all()
+    return hbox</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.tree_sel"><code class="name flex">
+<span>def <span class="ident">tree_sel</span></span>(<span>self, xtree, xiter, xpath)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tree_sel(self, xtree, xiter, xpath):
+    #print(&#34;tree_sel&#34;, xtree, xiter, xpath)
+    # Focus on main doc
+    sel = xtree.get_selection()
+    xmodel, xiter = sel.get_selected()
+    if xiter:
+        xstr = xmodel.get_value(xiter, 0)
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        vcurr.area.locate(xstr)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.tree_sel2"><code class="name flex">
+<span>def <span class="ident">tree_sel2</span></span>(<span>self, xtree, xiter, xpath)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tree_sel2(self, xtree, xiter, xpath):
+    #print(&#34;tree_sel2&#34;, xtree, xiter, xpath)
+    # Focus on main doc
+    sel = xtree.get_selection()
+    xmodel, xiter = sel.get_selected()
+    if xiter:
+        xstr = xmodel.get_value(xiter, 0)
+        vcurr = notebook.get_nth_page(notebook.get_current_page())
+        vcurr.area.locate(xstr)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.tree_sel_row"><code class="name flex">
+<span>def <span class="ident">tree_sel_row</span></span>(<span>self, xtree)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tree_sel_row(self, xtree):
+    pass
+    #sel = xtree.get_selection()
+    #xmodel, xiter = sel.get_selected()
+    #if xiter:
+    #    xstr = xmodel.get_value(xiter, 0)
+    #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    #    vcurr.area.locate(xstr)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.tree_sel_row2"><code class="name flex">
+<span>def <span class="ident">tree_sel_row2</span></span>(<span>self, xtree)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tree_sel_row2(self, xtree):
+    pass
+    #sel = xtree.get_selection()
+    #xmodel, xiter = sel.get_selected()
+    #print(&#34;tree_sel_row2&#34;, xtree, xmodel, xiter)
+    #if xiter:
+    #    xstr = xmodel.get_value(xiter, 0)
+    #    vcurr = notebook.get_nth_page(notebook.get_current_page())
+    #    vcurr.area.locate(xstr)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.unmap"><code class="name flex">
+<span>def <span class="ident">unmap</span></span>(<span>self, arg1, arg2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unmap(self, arg1, arg2):
+    #print &#34;unmap&#34;, arg1, arg2
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_resize_grip"><code class="name flex">
+<span>def <span class="ident">update_resize_grip</span></span>(<span>self, widget, event)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def update_resize_grip(self, widget, event):
+        #print &#34;update state&#34;, event, event.changed_mask
+        #self.mywin.set_focus(notebook)
+
+        mask = Gdk.WindowState.MAXIMIZED
+        # | Gdk.FULLSCREEN
+        &#39;&#39;&#39;if (event.changed_mask &amp; mask):
+self.statusbar.set_has_resize_grip(not (event.new_window_state &amp; mask))
+        &#39;&#39;&#39;</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_statusbar"><code class="name flex">
+<span>def <span class="ident">update_statusbar</span></span>(<span>self, strx)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_statusbar(self, strx):
+    # Clear any previous message, underflow is allowed
+    #self.statusbar.pop(0)
+    if not strx:
+        self.update_statusbar(&#34;Idle&#34;)
+        return
+
+    #self.statusbar.push(0, strx)
+    self.statuscount = STATUSCOUNT
+    self.slab.set_text(strx)
+    pass</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_statusbar2"><code class="name flex">
+<span>def <span class="ident">update_statusbar2</span></span>(<span>self, xx=0, yy=0, ins=0, tlen=0, clip=0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_statusbar2(self, xx = 0, yy = 0, ins = 0, tlen = 0, clip = 0):
+    # Always update line / col
+    if ins: str2 = &#34;INS&#34;
+    else: str2 =&#34;OVR&#34;
+    strx2 = &#34;Ln {0:d} Col {1:d} Tot {3:d}  {2:s} Clip {4:d}&#34;.\
+                    format(int(yy+1), int(xx+1), str2, tlen, clip)
+    #self.statusbar2.pop(0)
+    #self.statusbar2.push(0, strx2)
+    self.slab2.set_text(strx2)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_statusbar3"><code class="name flex">
+<span>def <span class="ident">update_statusbar3</span></span>(<span>self, strx2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_statusbar3(self, strx2):
+    self.slab2.set_text(strx2)</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_treestore"><code class="name flex">
+<span>def <span class="ident">update_treestore</span></span>(<span>self, text)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_treestore(self, text):
+
+    global treestore
+
+    if not treestore: return
+    # Delete previous contents
+    try:
+        while True:
+            root = treestore.get_iter_first()
+            if not root:
+                break
+            try:
+                treestore.remove(root)
+            except:
+                print(&#34;except: treestore remove&#34;)
+    except:
+        print(&#34;update_tree&#34;, sys.exc_info())
+        pass
+
+    if not text:
+        return
+
+    try:
+        for line in text:
+            piter = treestore.append(None, [cut_lead_space(line)])
+    except:
+        print(&#34;Exception in append treestore&#34;, sys.exc_info())</code></pre>
+</details>
+</dd>
+<dt id="chriswin.ChrisMainWin.update_treestore2"><code class="name flex">
+<span>def <span class="ident">update_treestore2</span></span>(<span>self, text)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_treestore2(self, text):
+
+    global treestore2
+
+    if not treestore2: return
+    # Delete previous contents
+    try:
+        while True:
+            root = treestore2.get_iter_first()
+            if not root:
+                break
+            try:
+                treestore2.remove(root)
+            except:
+                print(&#34;except: treestore remove&#34;)
+    except:
+        print(&#34;update_tree2&#34;, sys.exc_info())
+        pass
+
+    if not text:
+        return
+
+    try:
+        for line in text:
+            piter = treestore2.append(None, [cut_lead_space(line)])
+    except:
+        print(&#34;Exception in append treestore2&#34;, sys.exc_info())</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="chriswin.OnExit" href="#chriswin.OnExit">OnExit</a></code></li>
+<li><code><a title="chriswin.handler_tick" href="#chriswin.handler_tick">handler_tick</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="chriswin.ChrisMainWin" href="#chriswin.ChrisMainWin">ChrisMainWin</a></code></h4>
+<ul class="">
+<li><code><a title="chriswin.ChrisMainWin.activate_about" href="#chriswin.ChrisMainWin.activate_about">activate_about</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_action" href="#chriswin.ChrisMainWin.activate_action">activate_action</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_dhelp" href="#chriswin.ChrisMainWin.activate_dhelp">activate_dhelp</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_exit" href="#chriswin.ChrisMainWin.activate_exit">activate_exit</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_khelp" href="#chriswin.ChrisMainWin.activate_khelp">activate_khelp</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_qhelp" href="#chriswin.ChrisMainWin.activate_qhelp">activate_qhelp</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_quit" href="#chriswin.ChrisMainWin.activate_quit">activate_quit</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.activate_radio_action" href="#chriswin.ChrisMainWin.activate_radio_action">activate_radio_action</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.add_mru" href="#chriswin.ChrisMainWin.add_mru">add_mru</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_enter" href="#chriswin.ChrisMainWin.area_enter">area_enter</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_event" href="#chriswin.ChrisMainWin.area_event">area_event</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_focus" href="#chriswin.ChrisMainWin.area_focus">area_focus</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_focus_in" href="#chriswin.ChrisMainWin.area_focus_in">area_focus_in</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_focus_out" href="#chriswin.ChrisMainWin.area_focus_out">area_focus_out</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_key" href="#chriswin.ChrisMainWin.area_key">area_key</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_leave" href="#chriswin.ChrisMainWin.area_leave">area_leave</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_size" href="#chriswin.ChrisMainWin.area_size">area_size</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.area_winstate" href="#chriswin.ChrisMainWin.area_winstate">area_winstate</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.butt_exit" href="#chriswin.ChrisMainWin.butt_exit">butt_exit</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.close_button" href="#chriswin.ChrisMainWin.close_button">close_button</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.closeall" href="#chriswin.ChrisMainWin.closeall">closeall</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.closedoc" href="#chriswin.ChrisMainWin.closedoc">closedoc</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.config_tabs" href="#chriswin.ChrisMainWin.config_tabs">config_tabs</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.copy" href="#chriswin.ChrisMainWin.copy">copy</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.create_tree" href="#chriswin.ChrisMainWin.create_tree">create_tree</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.create_vartree" href="#chriswin.ChrisMainWin.create_vartree">create_vartree</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.cut" href="#chriswin.ChrisMainWin.cut">cut</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.done_open_fc" href="#chriswin.ChrisMainWin.done_open_fc">done_open_fc</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.firstwin" href="#chriswin.ChrisMainWin.firstwin">firstwin</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.folder_ch" href="#chriswin.ChrisMainWin.folder_ch">folder_ch</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.get_height" href="#chriswin.ChrisMainWin.get_height">get_height</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.get_width" href="#chriswin.ChrisMainWin.get_width">get_width</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.lastwin" href="#chriswin.ChrisMainWin.lastwin">lastwin</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.newfile" href="#chriswin.ChrisMainWin.newfile">newfile</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.nextwin" href="#chriswin.ChrisMainWin.nextwin">nextwin</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_create_cb" href="#chriswin.ChrisMainWin.note_create_cb">note_create_cb</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_enter_notify" href="#chriswin.ChrisMainWin.note_enter_notify">note_enter_notify</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_focus_cb" href="#chriswin.ChrisMainWin.note_focus_cb">note_focus_cb</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_focus_in" href="#chriswin.ChrisMainWin.note_focus_in">note_focus_in</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_grab_focus_cb" href="#chriswin.ChrisMainWin.note_grab_focus_cb">note_grab_focus_cb</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_page_cb" href="#chriswin.ChrisMainWin.note_page_cb">note_page_cb</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.note_swpage_cb" href="#chriswin.ChrisMainWin.note_swpage_cb">note_swpage_cb</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.open" href="#chriswin.ChrisMainWin.open">open</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.openfile" href="#chriswin.ChrisMainWin.openfile">openfile</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.paste" href="#chriswin.ChrisMainWin.paste">paste</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.prevwin" href="#chriswin.ChrisMainWin.prevwin">prevwin</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.save" href="#chriswin.ChrisMainWin.save">save</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.saveall" href="#chriswin.ChrisMainWin.saveall">saveall</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.start_tree" href="#chriswin.ChrisMainWin.start_tree">start_tree</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.start_tree2" href="#chriswin.ChrisMainWin.start_tree2">start_tree2</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.tablabel" href="#chriswin.ChrisMainWin.tablabel">tablabel</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.tree_sel" href="#chriswin.ChrisMainWin.tree_sel">tree_sel</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.tree_sel2" href="#chriswin.ChrisMainWin.tree_sel2">tree_sel2</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.tree_sel_row" href="#chriswin.ChrisMainWin.tree_sel_row">tree_sel_row</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.tree_sel_row2" href="#chriswin.ChrisMainWin.tree_sel_row2">tree_sel_row2</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.unmap" href="#chriswin.ChrisMainWin.unmap">unmap</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_resize_grip" href="#chriswin.ChrisMainWin.update_resize_grip">update_resize_grip</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_statusbar" href="#chriswin.ChrisMainWin.update_statusbar">update_statusbar</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_statusbar2" href="#chriswin.ChrisMainWin.update_statusbar2">update_statusbar2</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_statusbar3" href="#chriswin.ChrisMainWin.update_statusbar3">update_statusbar3</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_treestore" href="#chriswin.ChrisMainWin.update_treestore">update_treestore</a></code></li>
+<li><code><a title="chriswin.ChrisMainWin.update_treestore2" href="#chriswin.ChrisMainWin.update_treestore2">update_treestore2</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

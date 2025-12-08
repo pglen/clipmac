@@ -8,10 +8,6 @@ classx = [
         "Operating System :: OS Independent",
         ]
 
-includex = [    "*", "panglib/",
-                "pedlib/", "pedlib/images", "pedlib/examples",
-                "image.png", "clipmac_ubuntu.png"]
-
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
@@ -31,7 +27,7 @@ for aa in vvv.split("\n"):
 #print("loc_vers:", loc_vers) ; sys.exit()
 
 deplist = ["pyvguicom",] ,
-includex = [ "*", "clipmac/", ]
+includex = [ "*", "clipmac/", "icon.png"]
 
 setuptools.setup(
     name="clipmac",
@@ -48,8 +44,8 @@ setuptools.setup(
     scripts = ['clipmacro.py'],
     package_dir = { "clipmac" : "clipmac",
                   },
-    package_data={ #"clipman": doclist,
-                 },
+    package_data= { "clipmac" : ("icon.png",),
+                  },
     python_requires='>=3',
     install_requires=deplist,
     entry_points={
