@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-from __future__ import absolute_import
-from __future__ import print_function
-
 import signal, os, time, sys, subprocess, platform
 import warnings
 
@@ -14,7 +11,7 @@ from gi.repository import Gdk
 from gi.repository import GObject
 from gi.repository import GLib
 
-import config, chrisdlg, chrissql
+import clipconf, chrisdlg, chrissql
 
 sys.path.append('..' + os.sep + "pycommon")
 
@@ -27,7 +24,7 @@ from pyvguicom.pgsimp import *
 
 keystate = 0
 shiftstate = 0
-altstate = 0
+controlstate = 0
 
 # These can be arbitrary texts ... fill in sensible defaults
 
@@ -37,7 +34,6 @@ barr = [
                 "text here 0_3",
                 "text here 0_4",
                 ]
-
 barr2 = [
                 "text here 0_5",
                 "text here 0_6",
@@ -86,22 +82,19 @@ barr9 = [
                 "text here 83",
                 "text here 84",
                 ]
-
 barr10 = [
                 "text here 91",
                 "text here 92",
                 "text here 93",
                 "text here 94",
                 ]
-
-# -----------------------------------------------------------------------
-# Create document
-
 class edPane(Gtk.VPaned):
+
+    ''' Pane with buttons '''
 
     def __init__(self, bname = "No Name", focus = False):
 
-        pos = config.conf.sql.get_int("vpaned")
+        pos = clipconf.conf.sql.get_int("vpaned")
         if pos == 0: pos = 120
 
         Gtk.VPaned.__init__(self)
@@ -130,7 +123,7 @@ class buttwin(Gtk.VBox):
 
     def __init__(self, bname, readonly = False):
 
-        global notebook, mained, keystate, shiftstate
+        global notebook, mained, keystate, shiftstate, controlstate
 
         Gtk.VBox.__init__(self)
         self.bname = bname
@@ -148,29 +141,25 @@ class buttwin(Gtk.VBox):
         #self.area.notebook = notebook
         #self.area.mained = mained
         self.area.fname = ""
-
         vtext = Gtk.Label(" ")
         self.pack_start(vtext, 0 ,0 , 0)
-
         bgarr = [
                 barr, barr2, barr3, barr4,barr5, barr6, barr7,
                 barr8, barr9, barr10
                 ]
-
         for bb in bgarr:
             hbox = Gtk.HBox()
-            txtb = Gtk.Label("  ")
-            hbox.pack_start(txtb, 1 , 0 , 0)
+            hbox.pack_start(Gtk.Label("  "), 1 , 0 , 0)
             for aa in bb:
                 cc = "    " + self.bname + "  " + aa + "    "
-                ccc = config.conf.sql.get(cc);
+                ccc = clipconf.conf.sql.get(cc);
+                #print("cc", cc, "ccc", ccc)
                 if ccc != None:
                     ddd = ccc[0]
                 else:
                     ddd = cc
-
-                butt = RCLButt(ddd, self.rcl, self.rcl2,
-                                                ttip = "Action Button")
+                    ccc = ["", cc, ""]
+                butt = RCLButt(ddd, self.rcl, self.rcl2, ttip = ccc[1])
                 butt.ord = 1; butt.id = aa;
                 butt.org  = cc
                 butt.connect("clicked", self.butt_press, cc)
@@ -192,13 +181,13 @@ class buttwin(Gtk.VBox):
         #print("rcl2 label:", "'" + arg1.get_label() + "'",
         #                    "'" + arg1.org + "'")
         mylab = arg1.get_label()
-        ccc = config.conf.sql.get(arg1.org);
+        ccc = clipconf.conf.sql.get(arg1.org);
         #print ("ccc from database:", ccc)
         if ccc == None:
             ccc = []
             ccc.append("Not configured"); ccc.append("")
-            config.conf.pedwin.update_statusbar3("Not configured yet.")
-            config.conf.pedwin.update_statusbar(ccc[0])
+            clipconf.conf.pedwin.update_statusbar3("Not configured yet.")
+            clipconf.conf.pedwin.update_statusbar(ccc[0])
 
         menu = MenuButt(("To Clip", "Configure"), self.submenu_click)
         # Let it travel on the menu object
@@ -208,60 +197,70 @@ class buttwin(Gtk.VBox):
         menu.area_rbutton(arg1, arg3)
 
     def submenu_click(self, arg1, arg2, arg3):
-        print("submenu_click:", "1", arg1, "2", arg2, "3", arg3)
-        #pedconfig.conf.sql.put("xx", xx)
+        #print("submenu_click:", "1", arg1, "2", arg2, "3", arg3)
+        #pedclipconf.conf.sql.put("xx", xx)
         if arg3 == 0:
-            print("submenu_click clip")
+            #print("submenu_click clip")
             self.toclip(arg1.mylab, arg1.ccc)
         if arg3 == 1:
-            print("submenu_click config")
+            #print("submenu_click config")
             self.config(arg1.butt, arg1.butt.org, arg1.mylab, arg1.ccc[1])
         if arg3 == 2:
-            print("submenu_click face")
+            #print("submenu_click face")
+            pass
 
     def config(self, butt, par, lab, cont):
         bbb, eee = chrisdlg.config_dlg(lab, cont);
         if eee != None:
             butt.set_label(bbb)
-            ret = config.conf.sql.put(par, bbb, eee);
+            butt.set_tooltip_text(eee)
+            ret = clipconf.conf.sql.put(par, bbb, eee);
             #print("Saved:", ret, par, bbb)
-            config.conf.pedwin.update_statusbar("Saved: '%s'" % par)
+            clipconf.conf.pedwin.update_statusbar("Saved: '%s'" % par)
 
     def butt_press(self, butt, par):
-
-        global keystate,  shiftstate, altstate
-
+        global keystate, shiftstate, controlstate
         mylab = butt.get_label()
         #print("Butt pressed, mylab: [", mylab, "] par:", "'" + par + "'",
-        #                "shift:", shiftstate )
-        ccc = config.conf.sql.get(par);
+        #                "keystate:", keystate )
+        ccc = clipconf.conf.sql.get(par);
         #print("ccc from database:", ccc)
         if ccc == None:
             ccc = []
             ccc.append("Not configured"); ccc.append("")
-            config.conf.pedwin.update_statusbar3("Not configured yet.")
-            config.conf.pedwin.update_statusbar(ccc[0])
+            clipconf.conf.pedwin.update_statusbar3("Not configured yet.")
+            clipconf.conf.pedwin.update_statusbar(ccc[0])
 
-        if shiftstate:
-            shiftstate = False
+        if shiftstate:      # keystate & Gdk.ModifierType.SHIFT_MASK:
             self.config(butt, par, mylab, ccc[1])
+            shiftstate = False
+        elif controlstate:  # & Gdk.ModifierType.CONTROL_MASK:
+            self.toclip(mylab, ccc, True)
+            #controlstate = False
         else:
             self.toclip(mylab, ccc)
-        pass
 
-    def toclip(self, mylab, ccc):
+    def toclip(self, mylab, ccc, append = False):
         disp2 = Gdk.Display()
         disp = disp2.get_default()
         clip = Gtk.Clipboard.get_default(disp)
-        clip.set_text(ccc[1], len(ccc[1]))
-        config.conf.pedwin.update_statusbar3(\
+
+        strx = ccc[1]
+        if append:
+            old = clip.wait_for_text()
+            strx = old + " " + ccc[1]
+            clip.set_text(strx, -1)
+        else:
+            clip.set_text(strx, -1)
+        clipconf.conf.pedwin.update_statusbar3(\
                             "Last Button: '" + mylab + "'")
-        ppp = str.split(str(ccc[1]), "\n")
+        ppp = str.split(str(strx), "\n")
         if not ppp[0]:
-            config.conf.pedwin.update_statusbar(\
+            clipconf.conf.pedwin.update_statusbar(\
                     "This item is not configured")
         else:
-            config.conf.pedwin.update_statusbar( \
-                    "Copied to clipboard: '%s'" % ppp[0])
+
+            clipconf.conf.pedwin.update_statusbar( \
+                    "Copied to clipboard: '%s'" % strx)
 
 # EOF

@@ -42,6 +42,11 @@ class Config():
         # Where things are stored (UI x/y pane pos.)
         self.config_reg = "/apps/clipmac"
         self.verbose = False
+        self.full_screen = False
+        self.verbose = True
+        self.clear_config = False
+        self.show_config = False
+        self.use_stdout = False
 
 conf = Config()
 #print("conf", conf)

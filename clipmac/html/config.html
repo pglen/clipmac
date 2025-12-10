@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>__init__ API documentation</title>
+<title>config API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,9 +19,63 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>__init__</code></h1>
+<h1 class="title">Module <code>config</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python
+
+# Global configuration for macros. Also a place we share globals to
+# the rest of the project like the main window, statusbar, keyhandler
+# etc ... so the functionality is acessable from the key handler
+# or the key handler is acessable from the main window ... etc
+# The majority of dynamic vars are inited in clipmacro.py
+
+import signal, os, time, sys
+
+#sys.path.append(os.path.dirname(__file__) )
+
+IDLE_TIMEOUT = 15               # Time for a backup save
+SYNCIDLE_TIMEOUT = 2            # Time for syncing windows and spelling
+UNTITLED = &#34;untitled.txt&#34;       # New (empty) file name
+CONFIG_REG = &#34;/apps/clipmac&#34;
+BASEX = &#34;~/.clipmac/&#34;
+
+class Config():
+
+    def __init__(self):
+
+        self.full_screen = False
+        self.keyh = None
+        self.pedwin = None
+
+        # Count down variables
+        self.idle = 0;
+        self.syncidle = 0;
+        self.statuscount = 0
+
+        # Where things are stored (backups, orgs, macros, logs)
+        self.config_dir = os.path.expanduser(BASEX)
+        self.macro_dir = os.path.expanduser(BASEX + &#34;macros&#34;)
+        self.data_dir = os.path.expanduser(BASEX + &#34;data&#34;)
+        self.log_dir = os.path.expanduser(BASEX + &#34;log&#34;)
+        self.sql_data = os.path.expanduser(BASEX + &#34;sql_data&#34;)
+        self.sess_data = os.path.expanduser(BASEX + &#34;sess&#34;)
+        self.sql = None
+        self.config_file = &#34;defaults&#34;
+
+        # Where things are stored (UI x/y pane pos.)
+        self.config_reg = &#34;/apps/clipmac&#34;
+        self.verbose = False
+
+conf = Config()
+#print(&#34;conf&#34;, conf)
+
+# EOF</code></pre>
+</details>
 </section>
 <section>
 </section>
@@ -30,6 +84,46 @@
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="config.Config"><code class="flex name class">
+<span>class <span class="ident">Config</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Config():
+
+    def __init__(self):
+
+        self.full_screen = False
+        self.keyh = None
+        self.pedwin = None
+
+        # Count down variables
+        self.idle = 0;
+        self.syncidle = 0;
+        self.statuscount = 0
+
+        # Where things are stored (backups, orgs, macros, logs)
+        self.config_dir = os.path.expanduser(BASEX)
+        self.macro_dir = os.path.expanduser(BASEX + &#34;macros&#34;)
+        self.data_dir = os.path.expanduser(BASEX + &#34;data&#34;)
+        self.log_dir = os.path.expanduser(BASEX + &#34;log&#34;)
+        self.sql_data = os.path.expanduser(BASEX + &#34;sql_data&#34;)
+        self.sess_data = os.path.expanduser(BASEX + &#34;sess&#34;)
+        self.sql = None
+        self.config_file = &#34;defaults&#34;
+
+        # Where things are stored (UI x/y pane pos.)
+        self.config_reg = &#34;/apps/clipmac&#34;
+        self.verbose = False</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -38,6 +132,13 @@
 <ul></ul>
 </div>
 <ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="config.Config" href="#config.Config">Config</a></code></h4>
+</li>
+</ul>
+</li>
 </ul>
 </nav>
 </main>

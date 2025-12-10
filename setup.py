@@ -26,8 +26,8 @@ for aa in vvv.split("\n"):
 
 #print("loc_vers:", loc_vers) ; sys.exit()
 
-deplist = ["pyvguicom",] ,
-includex = [ "*", "clipmac/", "icon.png"]
+deplist = ["pyvguicom", ] ,
+includex = [ "*", "clipmac/", "clipmac/html/"]
 
 setuptools.setup(
     name="clipmac",
@@ -43,8 +43,12 @@ setuptools.setup(
     packages=setuptools.find_packages(include=includex),
     scripts = ['clipmacro.py'],
     package_dir = { "clipmac" : "clipmac",
+                    "clipmac/html" : "clipmac/html",
                   },
-    package_data= { "clipmac" : ("icon.png",),
+    package_data= {
+                    #"clipmac" : ("icon.png",),
+                    #"clipmac/html" : ("clipmac/html/*.html",),
+                   '' : ["*.png", "*.html",],
                   },
     python_requires='>=3',
     install_requires=deplist,

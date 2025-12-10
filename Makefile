@@ -27,6 +27,7 @@ clean:
 	rm -f  *.pyc
 	rm -rf __pycache__
 	rm -rf build
+	rm -rf dist
 
 pipinstall:
 	pip install .
@@ -35,11 +36,19 @@ pipuninstall:
 	pip uninstall clipmac
 
 docs:
-	@PYTHONPATH=clipmac pdoc --html -f clipmacro.py
-	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrisdlg.py
-	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrissql.py
-	@PYTHONPATH=clipmac pdoc --html -f clipmac/config.py
-	@PYTHONPATH=clipmac pdoc --html -f clipmac/chrispane.py
-	@PYTHONPATH=clipmac pdoc --html -f clipmac/chriswin.py
+	@mkdir -p clipmac/html
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmacro.py
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmac/chrisdlg.py
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmac/chrissql.py
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmac/config.py
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmac/chrispane.py
+	@PYTHONPATH=clipmac pdoc --html -f -o clipmac/html clipmac/chriswin.py
+
+pipup: #pipbuild
+	@./pip-upload.sh
+
+pipbuild:
+	@# Gather a copy of main README
+	@./pip-build.py
 
 # End of Makefile

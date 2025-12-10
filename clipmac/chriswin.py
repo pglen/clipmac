@@ -14,8 +14,7 @@ from gi.repository import GObject
 from gi.repository import GLib
 
 import chrisdlg, chrissql, chrispane
-import config
-#print(config.conf)
+import clipconf
 
 hidden = 0
 
@@ -61,13 +60,13 @@ class ChrisMainWin():
         self.mywin = Gtk.Window()
         #www = Gdk.screen_width(); hhh = Gdk.screen_height();
 
-        if config.conf.full_screen:
+        if clipconf.conf.full_screen:
             self.mywin.set_default_size(www, hhh)
         else:
-            xx = config.conf.sql.get_int("xx")
-            yy = config.conf.sql.get_int("yy")
-            ww = config.conf.sql.get_int("ww")
-            hh = config.conf.sql.get_int("hh")
+            xx = clipconf.conf.sql.get_int("xx")
+            yy = clipconf.conf.sql.get_int("yy")
+            ww = clipconf.conf.sql.get_int("ww")
+            hh = clipconf.conf.sql.get_int("hh")
 
             if ww == 0 or hh == 0:
                 self.mywin.set_position(Gtk.WindowPosition.CENTER)
@@ -81,7 +80,7 @@ class ChrisMainWin():
             #self.mywin.set_position(Gtk.WindowPosition.CENTER)
             #self.mywin.move(xxx + www / 16, yyy / hhh / 16)
         try:
-            self.mywin.set_icon_from_file(config.basedir + os.sep + "icon.png")
+            self.mywin.set_icon_from_file(clipconf.basedir + os.sep + "icon.png")
 
         except:
             print("Canot load icon.")
@@ -103,7 +102,7 @@ class ChrisMainWin():
         # Add MRU
         for cnt in range(6):
             ss = "/sess_%d" % cnt
-            fname = config.conf.sql.get(ss)
+            fname = clipconf.conf.sql.get(ss)
             if fname != "":
                 self.add_mru(merge, aa, fname, ss)
 
@@ -197,7 +196,7 @@ class ChrisMainWin():
         vpaned.set_position(self.get_height() - 340)
         #hpaned.add(vpaned)
 
-        self.hpanepos = config.conf.sql.get_int("hpaned")
+        self.hpanepos = clipconf.conf.sql.get_int("hpaned")
         if self.hpanepos == 0: self.hpanepos = 200
         self.hpaned.set_position(self.hpanepos)
 
@@ -300,16 +299,16 @@ class ChrisMainWin():
             vpaned.area.set_tablabel(vpaned, "Hello")
 
         if cnt == 0:
-            if(config.conf.verbose):
+            if(clipconf.conf.verbose):
                 print("Loading session in", os.getcwd())
-            fcnt = config.conf.sql.get_int("cnt")
+            fcnt = clipconf.conf.sql.get_int("cnt")
 
             # Load old session
             for nnn in range(fcnt):
                 ss = "/sess_%d" % nnn
-                fff = config.conf.sql.get_str(ss)
+                fff = clipconf.conf.sql.get_str(ss)
 
-                if(config.conf.verbose):
+                if(clipconf.conf.verbose):
                     print("Loading file:", fff)
 
                 vpaned = edPane()
@@ -326,7 +325,7 @@ class ChrisMainWin():
         self.mywin.show_all()
 
         # Set last file
-        fff = config.conf.sql.get_str("curr")
+        fff = clipconf.conf.sql.get_str("curr")
 
         #print "curr file", fff
         cc = notebook.get_n_pages()
@@ -342,7 +341,7 @@ class ChrisMainWin():
         #signal.signal(signal.SIGALRM, handler_tick)
         #signal.alarm(1)
 
-        config.conf.pbuttwin = self
+        clipconf.conf.pbuttwin = self
         # We use gobj instead of SIGALRM, so it is more multi platform
         GLib.timeout_add(1000, handler_tick)
 
@@ -353,11 +352,11 @@ class ChrisMainWin():
         # Add to accounting:
         self.start_time = time.time()
         #utils.timesheet("Started pyedpro", self.start_time, 0)
-        #print("conf", config.conf)
+        #print("conf", clipconf.conf)
 
 
     '''def loadfile(self, fff):
-        if(config.conf.verbose):
+        if(clipconf.conf.verbose):
             print("Loading file:", fff)
         vpaned = edPane()
         ret = vpaned.area.loadfile(fff)
@@ -476,34 +475,37 @@ class ChrisMainWin():
 
     # Call key handler
     def area_key(self, area, event):
-        #print("area_key key:", event.keyval, "state:", event.state)
-
+        #print("event.type:", event.type, "area_key key:",
+        #                    event.keyval, "state:", event.state)
         chrispane.keystate = event.state
         # Do key down:
         if  event.type == Gdk.EventType.KEY_PRESS:
             if event.keyval == Gdk.KEY_Alt_L or \
                     event.keyval == Gdk.KEY_Alt_R:
                 chrispane.altstate = True;
-
             if event.keyval == Gdk.KEY_Shift_L or \
                     event.keyval == Gdk.KEY_Shift_R:
                 chrispane.shiftstate = True
-
+            if event.keyval == Gdk.KEY_Control_L or \
+                    event.keyval == Gdk.KEY_Control_R:
+                chrispane.controlstate = True
             '''if event.keyval >= Gtk.keysyms._1 and event.keyval <= Gtk.keysyms._9:
                 #print "pbuttwin Alt num", event.keyval - Gtk.keysyms._1
                  # Focus on main doc
                 vcurr = notebook.get_nth_page(notebook.get_current_page())
                 self.mywin.set_focus(vcurr.vbox.area)
-             '''
+            '''
 
         elif  event.type == Gdk.EventType.KEY_RELEASE:
             if event.keyval == Gdk.KEY_Alt_L or \
                     event.keyval == Gdk.KEY_Alt_R:
                 chrispane.altstate = False;
-
             if event.keyval == Gdk.KEY_Shift_L  or \
                     event.keyval == Gdk.KEY_Shift_R:
                 chrispane.shiftstate = False
+            if event.keyval == Gdk.KEY_Control_L  or \
+                    event.keyval == Gdk.KEY_Control_R:
+                chrispane.controlstate = False
 
         if altstate:
             if event.keyval == Gdk.KEY_x :
@@ -681,7 +683,7 @@ class ChrisMainWin():
     def area_focus_in(self, win, act):
         #print  "area focus in", win, act
         # This was needed as pygtk leaves the alt key hanging
-        #config.conf.keyh.reset()
+        #clipconf.conf.keyh.reset()
         pass
         # Focus on main doc
         vcurr = notebook.get_nth_page(notebook.get_current_page())
@@ -741,7 +743,7 @@ class ChrisMainWin():
         nn2 = notebook.get_current_page()
         vcurr2 = notebook.get_nth_page(nn2)
         if vcurr2:
-            #config.conf.keyh.act.f2(vcurr2.area)
+            #clipconf.conf.keyh.act.f2(vcurr2.area)
             pass
 
     # Devhelp Message handler
@@ -750,7 +752,7 @@ class ChrisMainWin():
         nn2 = notebook.get_current_page()
         vcurr2 = notebook.get_nth_page(nn2)
         if vcurr2:
-            #config.conf.keyh.act.f3(vcurr2.area)
+            #clipconf.conf.keyh.act.f3(vcurr2.area)
             pass
 
     def activate_qhelp(self, action):
@@ -776,7 +778,7 @@ class ChrisMainWin():
         if newname == "":
             # Find non existing file
             cnt = self.fcount + 1; fff = ""
-            base, ext = os.path.splitext(config.conf.UNTITLED)
+            base, ext = os.path.splitext(clipconf.conf.UNTITLED)
             while True:
                 fff =  "%s_%d.txt" % (base, cnt)
                 #print fff
@@ -847,21 +849,21 @@ class ChrisMainWin():
         nn2 = notebook.get_current_page()
         vcurr2 = notebook.get_nth_page(nn2)
         if vcurr2:
-            #config.conf.keyh.act.ctrl_c(vcurr2.area)
+            #clipconf.conf.keyh.act.ctrl_c(vcurr2.area)
             pass
 
     def cut(self):
         nn2 = notebook.get_current_page()
         vcurr2 = notebook.get_nth_page(nn2)
         if vcurr2:
-             #config.conf.keyh.act.ctrl_x(vcurr2.area)
+             #clipconf.conf.keyh.act.ctrl_x(vcurr2.area)
              pass
 
     def paste(self):
         nn2 = notebook.get_current_page()
         vcurr2 = notebook.get_nth_page(nn2)
         if vcurr2:
-            #config.conf.keyh.act.ctrl_v(vcurr2.area)
+            #clipconf.conf.keyh.act.ctrl_v(vcurr2.area)
             pass
 
     # -------------------------------------------------------------------
@@ -937,7 +939,7 @@ class ChrisMainWin():
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.alt_g(vcurr2.area)
+                #clipconf.conf.keyh.act.alt_g(vcurr2.area)
                 pass
 
         if strx == "Find":
@@ -945,7 +947,7 @@ class ChrisMainWin():
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.ctrl_f(vcurr2.area)
+                #clipconf.conf.keyh.act.ctrl_f(vcurr2.area)
                 pass
 
         if strx == "Record":
@@ -953,56 +955,56 @@ class ChrisMainWin():
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f7(vcurr2.area)
+                #clipconf.conf.keyh.act.f7(vcurr2.area)
                 pass
 
         if strx == "Play":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f8(vcurr2.area)
+                #clipconf.conf.keyh.act.f8(vcurr2.area)
                 pass
 
         if strx == "Spell":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f9(vcurr2.area)
+                #clipconf.conf.keyh.act.f9(vcurr2.area)
                 pass
 
         if strx == "Spell2":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f9(vcurr2.area, True)
+                #clipconf.conf.keyh.act.f9(vcurr2.area, True)
                 pass
 
         if strx == "Animate":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f8(vcurr2.area, True)
+                #clipconf.conf.keyh.act.f8(vcurr2.area, True)
                 pass
 
         if strx == "Undo":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.ctrl_z(vcurr2.area)
+                #clipconf.conf.keyh.act.ctrl_z(vcurr2.area)
                 pass
 
         if strx == "Redo":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.ctrl_y(vcurr2.area)
+                #clipconf.conf.keyh.act.ctrl_y(vcurr2.area)
                 pass
 
         if strx == "SaveAll":
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.alt_a(vcurr2.area)
+                #clipconf.conf.keyh.act.alt_a(vcurr2.area)
                 pass
 
         if strx == "Discard Undo":
@@ -1033,7 +1035,7 @@ class ChrisMainWin():
             log.show_log()
 
         if strx.find("/sess_") >= 0:
-            fname = config.conf.sql.get_str(strx)
+            fname = clipconf.conf.sql.get_str(strx)
             self.openfile(fname)
 
         if strx == "Colors":
@@ -1057,7 +1059,7 @@ class ChrisMainWin():
             nn2 = notebook.get_current_page()
             vcurr2 = notebook.get_nth_page(nn2)
             if vcurr2:
-                #config.conf.keyh.act.f1(vcurr2.area)
+                #clipconf.conf.keyh.act.f1(vcurr2.area)
                 pass
                 pass
 
@@ -1191,7 +1193,7 @@ class ChrisMainWin():
         for aa in range(nn):
             vcurr = notebook.get_nth_page(aa)
             if vcurr.area.fname == fname:
-                if(config.conf.verbose):
+                if(clipconf.conf.verbose):
                     print("Already open '"+ fname + "'")
                     self.update_statusbar("Already open, activating '{0:s}'".format(fname))
                 vcurr = notebook.set_current_page(aa)
@@ -1199,7 +1201,7 @@ class ChrisMainWin():
                 self.mywin.set_focus(vcurr.vbox.area)
                 return
 
-        if(config.conf.verbose):
+        if(clipconf.conf.verbose):
             print("Opening '"+ fname + "'")
 
         self.update_statusbar("Opening file '{0:s}'".format(fname))
@@ -1289,14 +1291,14 @@ def     OnExit(arg, prompt = True):
     pos = mained.hpaned.get_position()
     pos = max(pos, 1)
 
-    config.conf.sql.put("hpaned", pos, 0)
+    clipconf.conf.sql.put("hpaned", pos, 0)
 
     vcurr = notebook.get_nth_page(notebook.get_current_page())
     if vcurr:
         pos = vcurr .get_position()
         pos = max(pos, 1)
 
-        config.conf.sql.put("vpaned", pos, 0)
+        clipconf.conf.sql.put("vpaned", pos, 0)
 
     # Do not save full screen coordinates (when used F11)
     #print mained.full
@@ -1304,18 +1306,18 @@ def     OnExit(arg, prompt = True):
     if not mained.full:
         xx, yy = mained.mywin.get_position()
 
-        config.conf.sql.put("xx", xx, 0)
-        config.conf.sql.put("yy", yy, 0)
+        clipconf.conf.sql.put("xx", xx, 0)
+        clipconf.conf.sql.put("yy", yy, 0)
 
         ww, hh = mained.mywin.get_size()
 
-        config.conf.sql.put("ww", ww, 0)
-        config.conf.sql.put("hh", hh, 0)
+        clipconf.conf.sql.put("ww", ww, 0)
+        clipconf.conf.sql.put("hh", hh, 0)
 
     # Save current doc to config memory:
     vcurr = notebook.get_nth_page(notebook.get_current_page())
     if vcurr:
-        config.conf.sql.put("curr", vcurr.area.fname, 0)
+        clipconf.conf.sql.put("curr", vcurr.area.fname, 0)
 
     '''
     # Prompt for save files. Build list and execute saves
@@ -1329,7 +1331,7 @@ def     OnExit(arg, prompt = True):
         ppp.area.saveparms()
         ss = "/sess_%d" % cnt2
         if cnt2 < 30:
-            config.conf.sql.put(ss, ppp.area.fname, 0)
+            clipconf.conf.sql.put(ss, ppp.area.fname, 0)
             cnt2 += 1
 
         if ppp.area.changed:
@@ -1340,14 +1342,14 @@ def     OnExit(arg, prompt = True):
             else:
                 # Rescue to temporary:
                 hhh = hash_name(ppp.area.fname) + ".rescue"
-                xfile = config.conf.config_dir + "/" + hhh
-                if(config.conf.verbose):
+                xfile = clipconf.conf.config_dir + "/" + hhh
+                if(clipconf.conf.verbose):
                     print("Rescuing", xfile)
                 writefile(xfile, ppp.area.text, "\n")
 
-    config.conf.sql.put("cnt", cnt2, 0)
+    clipconf.conf.sql.put("cnt", cnt2, 0)
 
-    if(config.conf.verbose):
+    if(clipconf.conf.verbose):
         print("Exiting")
 
     # Add to accounting:
@@ -1367,7 +1369,7 @@ def handler_tick():
 
     try:
         #print 'Signal handler called with signal'
-        #print config.conf.idle, config.conf.syncidle
+        #print clipconf.conf.idle, clipconf.conf.syncidle
 
         global notebook, hidden
 
@@ -1386,25 +1388,25 @@ def handler_tick():
             except:
                 pass
 
-        if config.conf.pbuttwin.statuscount:
-            config.conf.pbuttwin.statuscount -= 1
-            if config.conf.pbuttwin.statuscount == 0:
-                config.conf.pbuttwin.update_statusbar("Idle.");
-                config.conf.pbuttwin.update_statusbar3("");
-                config.conf.pbuttwin.statuscount = 0
+        if clipconf.conf.pbuttwin.statuscount:
+            clipconf.conf.pbuttwin.statuscount -= 1
+            if clipconf.conf.pbuttwin.statuscount == 0:
+                clipconf.conf.pbuttwin.update_statusbar("Idle.");
+                clipconf.conf.pbuttwin.update_statusbar3("");
+                clipconf.conf.pbuttwin.statuscount = 0
 
-        '''if config.conf.idle:
-            config.conf.idle -= 1
-            if config.conf.idle == 0:
+        '''if clipconf.conf.idle:
+            clipconf.conf.idle -= 1
+            if clipconf.conf.idle == 0:
                 vcurr = notebook.get_nth_page(notebook.get_current_page())
                 # Rescue to save:
                 if vcurr:
                     vcurr.area.source_id = \
                         GLib.idle_add(vcurr.area.idle_callback)
 
-        if config.conf.syncidle:
-            config.conf.syncidle -= 1
-            if config.conf.syncidle == 0:
+        if clipconf.conf.syncidle:
+            clipconf.conf.syncidle -= 1
+            if clipconf.conf.syncidle == 0:
                 vcurr = notebook.get_nth_page(notebook.get_current_page())
                 if vcurr:
                     #pedspell.spell(vcurr.area)

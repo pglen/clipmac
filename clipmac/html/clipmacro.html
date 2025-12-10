@@ -60,8 +60,10 @@ basedir = os.path.dirname(chrissql.__file__)
 #print(basedir)
 sys.path.append(basedir)
 
-import config
+from clipmac import config
+#config.conf = config.Config()
 
+import config
 config.basedir = basedir
 
 from clipmac import chriswin
